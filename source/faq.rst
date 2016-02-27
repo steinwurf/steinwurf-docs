@@ -104,7 +104,7 @@ What is a generation?
 Each generation constitutes :math:`g` symbols of size :math:`m`, where
 :math:`g` is called the generation size. The :math:`g` original
 symbols in one generation, are arranged in the matrix
-:math:`\boldsymbol{M}= [ \boldsymbol{m}_1 ; \boldsymbol{m}_2 ; \hdots
+:math:`\boldsymbol{M}= [ \boldsymbol{m}_1 ; \boldsymbol{m}_2 ; \dots
 ; \boldsymbol{m}_g ]`, where :math:`\boldsymbol{m}_i` is a column
 vector. In an application the block of data can be a file or a part of
 a media stream, and is divided into :math:`\lceil \frac{B}{m} \rceil`
@@ -128,7 +128,7 @@ The coding vector describes how a coded symbol was coded. It contains
 a coefficient (which is a element) for each symbol in the generation.
 
 The coding vector is typically denoted; :math:`\boldsymbol{v} = \{v_0;
-v_1; ... v_{g-1} \}`
+v_1; ... ; v_{g-1} \}`
 
 This column vector of elements are the coefficients which have been
 multiplied onto the original symbols.
@@ -217,10 +217,10 @@ In order for a sink to successfully decode a generation, it must
 receive :math:`g` linearly independent symbols and coding vectors from
 that generation. All received symbols are placed in the matrix
 :math:`\boldsymbol{\hat{X}} = [\boldsymbol{\hat{x}_1} ;
-\boldsymbol{\hat{x}_2} ; \hdots ; \boldsymbol{\hat{x}_g}]` and all
+\boldsymbol{\hat{x}_2} ; \dots ; \boldsymbol{\hat{x}_g}]` and all
 coding vectors are placed in the matrix
 :math:`\boldsymbol{\hat{V}}=[\boldsymbol{\hat{v}_1} ;
-\boldsymbol{\hat{v}_2} ; \hdots ;\boldsymbol{\hat{v}_g} ]`, we denote
+\boldsymbol{\hat{v}_2} ; \dots ;\boldsymbol{\hat{v}_g} ]`, we denote
 :math:`\boldsymbol{\hat{V}}` the coding matrix. The original data
 :math:`\boldsymbol{M}` can then be decoded as
 :math:`\boldsymbol{\hat{M}} = \boldsymbol{\hat{X}} \cdot
@@ -239,9 +239,9 @@ the number of received linearly independent symbols from a generation
 and is equal to the rank of :math:`\boldsymbol{\hat{V}}`, can
 recode. All received symbols are placed in the matrix
 :math:`\boldsymbol{\hat{X}} = [\boldsymbol{\hat{x}_1} ;
-\boldsymbol{\hat{x}_2} ; \hdots ; \boldsymbol{\hat{x}_{g'}}]` and all
+\boldsymbol{\hat{x}_2} ; \dots ; \boldsymbol{\hat{x}_{g'}}]` and all
 coding vectors in the matrix :math:`\boldsymbol{\hat{V}} =
-[\boldsymbol{\hat{v}_1} ; \boldsymbol{\hat{v}_2} ; \hdots ;
+[\boldsymbol{\hat{v}_1} ; \boldsymbol{\hat{v}_2} ; \dots ;
 \boldsymbol{\hat{v}_{g'}}]`. To recode a symbol these matrices are
 multiplied with a randomly generated vector :math:`\boldsymbol{w}` of
 length `g'`, :math:`\boldsymbol{\tilde{v}} = \boldsymbol{\hat{G}}
@@ -322,7 +322,7 @@ are typically split into several equal-sized generations.
 When are the lost symbols/packets recovered?
 ............................................
 
-Let's suppose the :math:`N:math:` packets were lost from a generation
+Let's suppose the :math:`N` packets were lost from a generation
 and the sender does not have any information about which packets were
 lost. In this case, at least :math:`N` coded packets are required to
 recover them. Note that the packets will not be recovered one-by-one,
