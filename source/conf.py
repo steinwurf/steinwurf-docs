@@ -30,7 +30,7 @@ file_insertion_enabled = True
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.pngmath',
+    'sphinx.ext.mathjax',
     'sphinx.ext.todo',
 ]
 
