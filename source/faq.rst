@@ -48,10 +48,10 @@ What is a code?
 .. _code:
 
 Coding can be thought of as transforming the original data
-to a form that is more appropriate for transportation. The kind of codes
-that is implemented in Kodo are erasure codes which can be used to
-recover packet erasures. A packet erasure is the loss of a packet,
-similar to if your letter is lost in the postal service.
+to a form that is more appropriate for transportation. The erasure codes
+that are implemented in Kodo can be used to recover packet erasures.
+A packet erasure is the loss of a packet,
+similar to a lost letter in the postal service.
 
 What is a rateless code?
 ........................
@@ -59,7 +59,7 @@ What is a rateless code?
 
 With a rateless code an infinite number of representations of the
 original data can be created, unlike for codes with a rate where a
-fixed number of representations are possible. That make it possible to
+fixed number of representations are possible. That makes it possible to
 recover from any number of erasures with a rateless code.
 
 What is a finite field?
