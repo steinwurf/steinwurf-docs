@@ -22,7 +22,7 @@ What is a source, sink, and relay?
 
 One common application for erasure correcting codes (which includes
 network coding) is to improve the performance of computer networks or
-communication networks in general. For such applications specific
+communication networks in general. For such applications, specific
 terminology is often used to precisely define the roles of the
 different entities in the network. For example:
 
@@ -39,16 +39,16 @@ is not interested in receiving the data.
 What do we mean by the original data?
 .....................................
 
-The original data is a file or an object store in memory before it is
-passed through to the erasure correcting code. We sometimes also refer
+The original data is a file or a buffer stored in memory before it is
+passed to the erasure correcting code. We sometimes also refer
 to this as the uncoded data.
 
 What is a code?
 ...............
 .. _code:
 
-Abstractly a coding can be thought of representing some original data
-in a way that is more appropriate for transportation. The kind of codes
+Coding can be thought of as transforming the original data
+to a form that is more appropriate for transportation. The kind of codes
 that is implemented in Kodo are erasure codes which can be used to
 recover packet erasures. A packet erasure is the loss of a packet,
 similar to if your letter is lost in the postal service.
