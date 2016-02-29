@@ -29,12 +29,12 @@ different entities in the network. For example:
 A source is a device that transmits data to one or more other
 devices(s). This is also often called the server.
 
-A sink is a devices that receives data from other devices(s). These
+A sink is a device that receives data from other devices(s). These
 are also sometimes referred to as the clients.
 
 A relay is a device that receives data from other devices(s) and
-re-transmit that data to other devices(s), typically the relay is not
-itself interested in receiving the data.
+re-transmits that data to other devices(s), typically the relay itself
+is not interested in receiving the data.
 
 What do we mean by the original data?
 .....................................
