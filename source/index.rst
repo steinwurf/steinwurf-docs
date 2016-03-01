@@ -20,12 +20,7 @@ building blocks and parameters that can be combined to create custom codes.
 
 **Additional Links**
 
-* `Kodo Source Code`_
-* `Build and Test Status`_
-* Login `here <http://bongo.steinwurf.com>`_ and find the doxygen `API specification <http://bongo.steinwurf.com/files/private/doxygen/kodo>`_.
-
-.. _Kodo Source Code: https://github.com/steinwurf/kodo
-.. _Build and Test Status: http://buildbot.steinwurf.com
+* Build and Test Status: http://buildbot.steinwurf.com
 
 
 Documentation
