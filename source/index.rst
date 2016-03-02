@@ -32,10 +32,9 @@ Documentation
    :maxdepth: 2
 
    overview
-   tools_needed
-   waf_build_system
    nc_intro
    faq
+   getting_started
    kodo-cpp/index
    kodo-c/index
    kodo-rlnc/index
