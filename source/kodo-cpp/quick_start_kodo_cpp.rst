@@ -12,7 +12,7 @@ Download the Source Code
 Recommended: Clone the Git Repository Using the Terminal (Linux and Mac OSX)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. (Optional) Open your Terminal and create a new directory (e.g. `~/dev`)
+1. (Optional) Open your Terminal and create a new directory (e.g. ``~/dev``)
    in your home folder that will contain this project and its dependencies::
 
     cd ~
@@ -20,7 +20,7 @@ Recommended: Clone the Git Repository Using the Terminal (Linux and Mac OSX)
     cd dev
 
 2. Clone and download the kodo-cpp library by running (this will create a
-   new directory called 'kodo-cpp')::
+   new directory called ``kodo-cpp``)::
 
     git clone git@github.com:steinwurf/kodo-cpp.git
 
@@ -28,13 +28,13 @@ Recommended: Clone the Git Repository Using TortoiseGit (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Open the directory where you want to clone the project, right-click on empty
-space and select **Git Clone...** from the context menu. The TortoiseGit clone
+space and select ``Git Clone...`` from the context menu. The TortoiseGit clone
 dialog will appear, copy this to the URL field::
 
     git@github.com:steinwurf/kodo-cpp.git
 
 You can also customize the name of the target directory if you wish.
-By default, a new folder called 'kodo-cpp' will be created.
+By default, a new folder called ``kodo-cpp`` will be created.
 
 .. note:: If you decide to clone the repository with the ``https`` protocol
           then use this URL in TortoiseGit::

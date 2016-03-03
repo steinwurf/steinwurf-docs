@@ -39,8 +39,11 @@ Documentation
    kodo-c/index
    kodo-rlnc/index
    kodo-python/index
+   kodo_ns3_examples
+   kodo_basic_simulations
    cross_compile
    unittest
-   howto
-   misc
+   version_numbering
+   using_kodo_for_research
    contribution/contribution
+   contact
