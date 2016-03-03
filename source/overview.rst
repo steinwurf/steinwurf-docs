@@ -42,24 +42,32 @@ with the API that is exposed by that project.
 :ref:`kodo_cpp`
     The kodo-cpp library defines a simple, high-level C++ API to conveniently
     access the basic functionality of Kodo, such as encoding and decoding data
-    with various codecs. It is very easy to integrate kodo-cpp in your
+    with various codecs. It is very easy to integrate kodo-cpp into your
     C++ project, so **it is the recommended option for most users**.
 
-:ref:`kodo-c`
+:ref:`kodo_c`
     The kodo-c library provides a simple C API that allows the programmer to
     use Kodo in a C program. The C API also enables interoperability with
     other programming languages that are not directly supported by the
     Kodo libraries.
 
-kodo-rlnc
-    access to the underlying C++ implementation details
+:ref:`kodo_rlnc`
+    The kodo-rlnc project provides low-level access to the underlying C++
+    implementation of the various RLNC codecs. This enables the developer
+    to customize the operation of these codecs or create new variants, but
+    working with the low-level details might present some difficulties.
+    This option is only recommended for experienced C++ programmers.
 
-kodo-python
-    easy-to-use Python bindings
+:ref:`kodo_python`
+    This library provides high-level Python bindings for Kodo. The simple
+    examples demonstrate how to use the basic functionality of Kodo through
+    the Python API. This option is recommended for Python-based projects
+    and for programmers who are not familiar with C++.
 
-kodo-ns3-examples
-    examples for using Kodo with the ns-3 network simulator
-
+:ref:`kodo_ns3_examples`
+    This project contains examples for using Kodo with the ns-3 network
+    simulator. This can be a great starting point for researchers who
+    are mainly interested in network simulations.
 
 Features
 --------
