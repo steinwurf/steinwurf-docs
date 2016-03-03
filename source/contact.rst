@@ -1,7 +1,7 @@
 .. _contact_us:
 
 Contact Us
-----------
+==========
 
 * Information about licensing or similar commercial inquiries can be sent to
   sales@steinwurf.com.

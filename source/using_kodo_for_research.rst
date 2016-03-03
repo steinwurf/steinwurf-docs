@@ -1,7 +1,7 @@
 .. _using_kodo_for_research:
 
 Using Kodo for Your Research
-----------------------------
+============================
 
 One of initial reasons for building Kodo was to make a tool for doing
 research on erasure correcting codes with a specific focus on network

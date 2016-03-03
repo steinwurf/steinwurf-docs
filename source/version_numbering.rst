@@ -1,7 +1,8 @@
 .. _version_numbering:
 
 Version Numbering
------------------
+=================
+
 In Steinwurf we use `Semantic versioning`_ for our projects. Semantic
 versioning is a very simple scheme built around the x.y.z concept
 (for example 2.6.0).
