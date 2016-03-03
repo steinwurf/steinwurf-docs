@@ -75,7 +75,7 @@ compilation on modern compilers.
 
 Start every header file like this (after the copyright comment)::
 
-  #pragma once
+    #pragma once
 
 Order of #include statements
 ----------------------------
@@ -89,17 +89,17 @@ this point. Therefore every header file should have a corresponding ``.cpp``
 After the first include, the include list should go from the most general
 to the most specific::
 
-  #include "my_own_header.hpp"
+    #include "my_own_header.hpp"
 
-  #include <vector>
-  #include <math>
+    #include <vector>
+    #include <math>
 
-  #include <boost/shared_ptr>
+    #include <boost/shared_ptr>
 
-  #include <fifi/log_table.hpp>
-  #include <fifi/is_binary.hpp>
+    #include <fifi/log_table.hpp>
+    #include <fifi/is_binary.hpp>
 
-  #include <kodo/storage.hpp>
+    #include <kodo/storage.hpp>
 
 In practice, the include order will be something like this:
 
@@ -319,8 +319,8 @@ be combined with braces).
 
 Operators
 ---------
-Do not start lines with operators (e.g. +-\*/%&^|:=).
-Unary operators (e.g. ~-&) are exceptions to this rule.
+Do not start lines with operators (e.g. ``+-\*/%&^|:=``).
+Unary operators (e.g. ``~-&``) are exceptions to this rule.
 
 Add one space around common arithmetic operators to clearly separate the
 operands::
@@ -361,7 +361,6 @@ For example::
   // A slightly shorter parameter list fits on a single line
   void fake_loopback::send(
       const uint8_t* data, uint32_t size, const address& address, uint16_t port)
-
 
   // Member initializer list (members are aligned)
   mutable_storage() :
