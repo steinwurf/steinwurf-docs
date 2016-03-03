@@ -43,6 +43,7 @@ Documentation
    kodo_basic_simulations
    cross_compile
    unittest
+   coding_style
    version_numbering
    using_kodo_for_research
    contribution/contribution
