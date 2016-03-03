@@ -1,14 +1,13 @@
 Contributing
-++++++++++++
+============
 
 We encourage and appreciate contributions by all users e.g. in the form of
 bug reports, bug fixes, adding features, providing examples, improving
 documentation, etc.
 
-In this section we will describe both the work flow of the contributor and
-the maintainer. If you have suggestions which may make the work flow easier
-for either side please do not hesitate to :ref:`contact_us`. Better to
-suggest a pull request here :)
+In this section we will describe both the workflow of the contributor and
+the maintainer. If you have suggestions which may make the workflow easier
+for either side, please do not hesitate to :ref:`contact_us`.
 
 .. contents:: :depth: 2
 
@@ -32,21 +31,21 @@ GitHub editor with the relevant file open.
 .. note:: If you forgot to do the sign off procedure, you can can ammend the
           last commit directly in the command line with:
           ::
-          
+
             git commit --amend -m "New commit message"
-          
+
           And then pushing the commit.
-          
+
           Remember that if you want to ammend an already pushed commit, you
           will need to force push the commit with:
           ::
-          
+
             git push <remote> <branch> --force
 
 .. warning:: To force push a commit will overwrite the remote branch with the
             state of your local one.
-          
-          
+
+
 
 In both cases GitHub will automatically create a fork of the Kodo
 repository and send a pull request to notify Kodo's maintainers.

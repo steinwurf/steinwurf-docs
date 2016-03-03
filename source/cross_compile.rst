@@ -10,6 +10,19 @@ of your builds.
 .. contents:: Table of Contents
    :local:
 
+Changing the compiler
+---------------------
+
+You can select a specific compiler with an mkspec (explained below) or
+you can set the ``CXX`` variable to your preferred compiler.
+For example, if you want to use clang++, just add ``CXX=clang++`` in front of
+``python waf configure``::
+
+    CXX=clang++ python waf configure
+
+.. note:: ``clang++`` is currently the default compiler on Mac OSX, therefore
+          this customization step is not needed on that operating system.
+
 Generic tool options
 --------------------
 

@@ -38,9 +38,9 @@ Documentation
    kodo-cpp/index
    kodo-c/index
    kodo-rlnc/index
+   kodo-python/index
    cross_compile
    unittest
    howto
    misc
-   python_bindings
    contribution/contribution

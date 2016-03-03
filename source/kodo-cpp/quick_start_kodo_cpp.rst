@@ -1,4 +1,4 @@
-.. _quick_start_kodo_rlnc:
+.. _quick_start_kodo_cpp:
 
 Quick Start
 ===========
@@ -19,10 +19,10 @@ Recommended: Clone the Git Repository Using the Terminal (Linux and Mac OSX)
     mkdir dev
     cd dev
 
-2. Clone and download the Kodo library by running (this will create a
-   new directory called 'kodo-rlnc')::
+2. Clone and download the kodo-cpp library by running (this will create a
+   new directory called 'kodo-cpp')::
 
-    git clone git@github.com:steinwurf/kodo-rlnc.git
+    git clone git@github.com:steinwurf/kodo-cpp.git
 
 Recommended: Clone the Git Repository Using TortoiseGit (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,15 +31,15 @@ Open the directory where you want to clone the project, right-click on empty
 space and select **Git Clone...** from the context menu. The TortoiseGit clone
 dialog will appear, copy this to the URL field::
 
-    git@github.com:steinwurf/kodo-rlnc.git
+    git@github.com:steinwurf/kodo-cpp.git
 
 You can also customize the name of the target directory if you wish.
-By default, a new folder called 'kodo-rlnc' will be created.
+By default, a new folder called 'kodo-cpp' will be created.
 
 .. note:: If you decide to clone the repository with the ``https`` protocol
           then use this URL in TortoiseGit::
 
-            https://github.com/steinwurf/kodo-rlnc.git
+            https://github.com/steinwurf/kodo-cpp.git
 
 
 Building the Kodo Examples and Unit Tests
@@ -48,22 +48,17 @@ Building the Kodo Examples and Unit Tests
 In the following, we will look at how you can build the Kodo examples
 and unit tests using the Waf build system.
 
-.. note:: We recommend trying to build and run the unit tests before
-          using Kodo in your own project. However, if you want to skip this step
-          you may jump directly to :ref:`including-kodo-rlnc`
-
 1. Navigate to the directory where you have downloaded the Kodo source code::
 
-     cd ~/dev/kodo-rlnc/
+     cd ~/dev/kodo-cpp/
 
-2. Invoke ``waf`` to build the Kodo unit tests and examples::
+2. Invoke ``waf`` to configure the kodo-cpp library::
 
      python waf configure
 
    The ``waf configure`` command ensures that all tools needed by Kodo are
    available and prepares to build Kodo. This step will also download
-   several auxiliary libraries into a folder called ``bundle_dependencies``
-   within the kodo folder.
+   several libraries into a local folder called ``bundle_dependencies``.
 
    .. note:: The ``waf configure`` step might take several minutes depending on
              the speed of your Internet connection. This would be a
@@ -95,22 +90,23 @@ and unit tests using the Waf build system.
                  python waf configure --git-protocol=https://
 
 
-3. Invoke ``waf`` to build the unit tests and examples::
+3. Invoke ``waf`` to build the library with the unit tests and examples::
 
        python waf build
 
-4. Run the Kodo unit tests::
+4. Run the unit tests::
 
        python waf --run_tests
 
-   You can also run the generated executables by specifying their relative path
-   (this will vary depending on the operating system):
+   You can find the compiled library and executables in the waf build folder,
+   which depends on your operating system:
 
-   a. **Linux**: Run unit tests from the Kodo directory by running
-      ``./build/linux/test/kodo_rlnc_tests`` in your terminal.
+   a. **Linux**: ``./build/linux``
 
-   b. **Mac OSX**: Run unit tests from the Kodo directory by running
-      ``./build/darwin/test/kodo_rlnc_tests`` in your terminal.
+   b. **Mac OSX**: ``./build/darwin``
 
-   c. **Windows**: Run unit tests from the Kodo directory by running
-      ``build/win32/test/kodo_rlnc_tests.exe`` in your command prompt.
+   c. **Windows**: ``./build/win32``
+
+   You can directly run the executables here.
+
+

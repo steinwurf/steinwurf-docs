@@ -17,5 +17,5 @@ The kodo-cpp repository: https://github.com/steinwurf/kodo-cpp
 .. toctree::
    :maxdepth: 2
 
-   getting_started_kodo_cpp
+   quick_start_kodo_cpp
    including_kodo_cpp

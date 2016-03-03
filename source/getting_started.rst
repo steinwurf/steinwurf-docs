@@ -51,8 +51,7 @@ Download Tools (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **C++11 compliant compiler:** You need a working C++11 compiler. We tested
-   `Visual Studio Express 2015 for Windows Desktop`_ (which is free of
-   charge).
+   `Visual Studio Express 2015 for Desktop`_ (which is free of charge).
 
 2. **Python:** You need a working Python installation. Find the available
    download on the `Python homepage`_. If you are in doubt about which version
@@ -80,7 +79,7 @@ Download Tools (Windows)
    http://msysgit.github.io/
 
 .. _`TortoiseGit`:
-   https://code.google.com/p/tortoisegit/
+   https://tortoisegit.org/
 
 Download Tools (Mac OSX)
 ~~~~~~~~~~~~~~~~~~~~~~~~
