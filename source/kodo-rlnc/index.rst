@@ -11,7 +11,7 @@ The kodo-rlnc repository: https://github.com/steinwurf/kodo-rlnc
 .. toctree::
    :maxdepth: 2
 
-   getting_started_kodo_rlnc
+   quick_start_kodo_rlnc
    including_kodo_rlnc
    tutorial_kodo_rlnc
    hacking_kodo

@@ -7,7 +7,7 @@
 Kodo Documentation
 ==================
 
-Welcome to the Kodo Network Coding library documentation.
+Welcome to the documentation of the Kodo libraries!
 
 Kodo is a C++ library for implementing Erasure Correcting Codes, in particular
 Network Codes. The library is intended to be used for reliable communication
@@ -15,38 +15,34 @@ protocols and systems and for research on implementation of Network Codes.
 
 The library enables researchers to implement new codes and algorithms,
 perform simulations, and benchmark the coding operations on any platform
-where a C++ compiler is available. The library provides a multitude of
+where a modern C++ compiler is available. The library provides a multitude of
 building blocks and parameters that can be combined to create custom codes.
 
-**Additional Links**
+There are several options to use Kodo in your project. Easy-to-use bindings
+are available for various programming languages. The :ref:`projects`
+section should help you find the best option for your needs.
 
-* `Kodo Source Code`_
-* `Build and Test Status`_
-* Login `here <http://bongo.steinwurf.com>`_ and find the doxygen `API specification <http://bongo.steinwurf.com/files/private/doxygen/kodo>`_.
-
-.. _Kodo Source Code: https://github.com/steinwurf/kodo
-.. _Build and Test Status: http://buildbot.steinwurf.com
-
-
-Documentation
--------------
-
+Contents
+--------
 .. Contents:
 
 .. toctree::
    :maxdepth: 2
 
    overview
-   tools_needed
-   waf_build_system
    nc_intro
    faq
+   getting_started
    kodo-cpp/index
    kodo-c/index
    kodo-rlnc/index
+   kodo-python/index
+   kodo_ns3_examples
+   kodo_basic_simulations
    cross_compile
    unittest
-   howto
-   misc
-   python_bindings
+   coding_style
+   version_numbering
+   using_kodo_for_research
    contribution/contribution
+   contact

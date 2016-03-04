@@ -100,7 +100,7 @@ class ``full_rlnc_encoder`` located in
 The placeholder file in this cases
 (``test/src/test_full_rlnc_encoder.cpp``) looks like the following:
 
-.. literalinclude:: ../../test/src/test_full_rlnc_encoder.cpp
+.. literalinclude:: /../../kodo-rlnc/test/src/test_full_vector_encoder.cpp
     :language: c++
     :linenos:
 
@@ -120,9 +120,9 @@ a .cpp file in the test folder.
 An example is ``src/kodo/partial_mutable_shallow_storage_layers.hpp``
 which only contains a single ``using`` declaration. It does not have
 any explicit unit tests but a place holder file is still created
-(``test/src/test_partial_mutable_shallow_storage_layers.cpp``):
+(``test/src/test_mutable_partial_shallow_symbol_storage.cpp``):
 
-.. literalinclude:: ../../test/src/test_partial_mutable_shallow_storage_layers.cpp
+.. literalinclude:: /../../kodo-core/test/src/test_mutable_partial_shallow_symbol_storage.cpp
     :language: c++
     :linenos:
 
@@ -149,7 +149,7 @@ encoder or decoder contains.
           layer to embed in every encoder and decoder the ability to
           store the number of actual data bytes.
 
-.. literalinclude:: ../../src/kodo/storage_bytes_used.hpp
+.. literalinclude:: /../../kodo-core/src/kodo_core/storage_bytes_used.hpp
     :language: c++
     :linenos:
 
@@ -159,17 +159,15 @@ As seen, the layer depends on two functions being provided by the
 1. ``SuperCoder::initialize(the_factory)``
 2. ``SuperCoder::block_size()``
 
-Using our `Doxygen`_ documentation, it is possible to look up the
+Using our Doxygen documentation, it is possible to look up the
 purpose of the two undefined functions.
-
-.. _Doxygen: http://bongo.steinwurf.com/files/private/doxygen/kodo/master/html/index.html
 
 In this case we want to check that the state is correctly updated when
 calling ``set_bytes_used`` and that the state is correctly reset when
 calling ``initialize``. The following unit test code was implemented
 in ``test/src/test_storage_bytes_used.cpp`` to test this:
 
-.. literalinclude:: ../../test/src/test_storage_bytes_used.cpp
+.. literalinclude:: /../../kodo-core/test/src/test_storage_bytes_used.cpp
     :language: c++
     :linenos:
 

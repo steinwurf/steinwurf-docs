@@ -15,7 +15,7 @@ The kodo-c repository: https://github.com/steinwurf/kodo-c
 .. toctree::
    :maxdepth: 2
 
-   getting_started_kodo_c
+   quick_start_kodo_c
    including_kodo_c
 
 

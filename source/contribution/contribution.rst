@@ -1,14 +1,13 @@
 Contributing
-++++++++++++
+============
 
 We encourage and appreciate contributions by all users e.g. in the form of
 bug reports, bug fixes, adding features, providing examples, improving
 documentation, etc.
 
-In this section we will describe both the work flow of the contributor and
-the maintainer. If you have suggestions which may make the work flow easier
-for either side please do not hesitate to :ref:`contact_us`. Better to
-suggest a pull request here :)
+In this section we will describe both the workflow of the contributor and
+the maintainer. If you have suggestions which may make the workflow easier
+for either side, please do not hesitate to :ref:`contact_us`.
 
 .. contents:: :depth: 2
 
@@ -32,21 +31,19 @@ GitHub editor with the relevant file open.
 .. note:: If you forgot to do the sign off procedure, you can can ammend the
           last commit directly in the command line with:
           ::
-          
+
             git commit --amend -m "New commit message"
-          
+
           And then pushing the commit.
-          
+
           Remember that if you want to ammend an already pushed commit, you
           will need to force push the commit with:
           ::
-          
+
             git push <remote> <branch> --force
 
 .. warning:: To force push a commit will overwrite the remote branch with the
             state of your local one.
-          
-          
 
 In both cases GitHub will automatically create a fork of the Kodo
 repository and send a pull request to notify Kodo's maintainers.
@@ -175,9 +172,7 @@ need to create a new pull request using the new feature branch as the base.
 The maintainer may now comment on your changes before they can be merged.
 
 If the maintainer pushes commits to the feature branch for you to review,
-you can pull them in by (assuming you already set an upstream):
-
-::
+you can pull them in by (assuming you already set an upstream)::
 
     git checkout newfeature
     git fetch upstream
@@ -191,23 +186,18 @@ In the following we will describe the process followed by the Kodo
 maintainers to accept changes to Kodo.
 
 * Create feature branch in response to pull requst.
-* Collaborate with contributor to fix potential issues with the changes.
-
-::
+* Collaborate with contributor to fix potential issues with the changes::
 
     git checkout master
     git pull
     git checkout -b newfeature
     git push origin newfeature
 
-Fetch changes from the contributor:
-::
+Fetch changes from the contributor::
 
     git remote add <GitHub username> git@github.com:<GitHub username>/kodo.git
 
-Get the changes:
-
-::
+Get the changes::
 
     git checkout newfeature
     git fetch <GitHub username>
@@ -238,8 +228,8 @@ order to manage this you can choose to use either of the two methods below:
 Sign-off per commit
 ...................
 
-For this option or approach is based on the sign off procedure described
-`here
+This option is based on the sign off procedure described
+`in this guide
 <http://gerrit.googlecode.com/svn/documentation/2.0/user-signedoffby.html>`_
 
 The copyright sign-off is used per commit, and as such is a more temporary
@@ -249,9 +239,7 @@ wish to sign a permanent copyright assignment.
 First read our sign-off `statement <https://github.com/steinwurf/kodo/blob/master/docs/source/contribution/SIGNOFF.rst>`_.
 
 Once you are ready to commit some of your changes add the following
-sign-off line as the last line of your commit message:
-
-::
+sign-off line as the last line of your commit message::
 
    Signed-off-to-Steinwurf-by: Developer Name <developername@example.org>
 

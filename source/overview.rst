@@ -9,20 +9,19 @@ it was designed to ensure high performance, testability, flexibility and
 extendability.
 
 A fast implementation of finite fields is a prerequisite for fast RLNC
-and other linear block codes. Kodo relies on our
+and other linear block codes. Kodo relies on our optimized
 `Fifi <http://github.com/steinwurf/fifi>`_ library which supports multiple
 finite fields with different sizes.
 
-From an implementer's perspective, Kodo exposes a simple Application
-Programming Interface (API) which allows a programmer to take advantage
-of network coding in his/her application. Kodo supports various network
-coding codecs e.g. Standard Random Linear Network Coding (RLNC),
-Systematic RLNC, Sparse RLNC. Each algorithm offers unique advantages
-and drawbacks as well as a different set of parameters that can be
-tuned in real time. This can for example be employed to adapt to time
-varying cellular channels, to change the amount of redundancy in a
-distributed storage network, or to adapt to node failures in meshed
-networks.
+The Kodo libraries expose a simple Application Programming Interface (API)
+which allows a programmer to take advantage of network coding in a
+custom application. Kodo supports various network coding codecs e.g. standard
+Random Linear Network Coding (RLNC), Systematic RLNC, Sparse RLNC.
+Each algorithm offers unique advantages and drawbacks as well as a different
+set of parameters that can be tuned in real time. For example, this can
+be employed to adapt to varying cellular channels, to change the amount of
+redundancy in a distributed storage network, or to adapt to node failures in
+meshed networks.
 
 For researchers, Kodo's layered structure greatly simplifies the
 implementation of new and experimental RLNC variants, since typically
@@ -31,6 +30,44 @@ develop codes with special structures targeted and optimized towards
 specific uses, e.g. audio and video streaming, meshed networks and
 distributed storage.
 
+.. _projects:
+
+Projects
+--------
+
+The Kodo libraries are implemented in several projects and each project has
+its own git repository. It is recommended to choose a single project and work
+with the API that is exposed by that project.
+
+:ref:`kodo_cpp`
+    The kodo-cpp library defines a simple, high-level C++ API to conveniently
+    access the basic functionality of Kodo, such as encoding and decoding data
+    with various codecs. It is very easy to integrate kodo-cpp into your
+    C++ project, so **it is the recommended option for most users**.
+
+:ref:`kodo_c`
+    The kodo-c library provides a simple C API that allows the programmer to
+    use Kodo in a C program. The C API also enables interoperability with
+    other programming languages that are not directly supported by the
+    Kodo libraries.
+
+:ref:`kodo_rlnc`
+    The kodo-rlnc project provides low-level access to the underlying C++
+    implementation of the various RLNC codecs. This enables the developer
+    to customize the operation of these codecs or create new variants, but
+    working with the low-level details might present some difficulties.
+    This option is only recommended for experienced C++ programmers.
+
+:ref:`kodo_python`
+    This library provides high-level Python bindings for Kodo. The simple
+    examples demonstrate how to use the basic functionality of Kodo through
+    the Python API. This option is recommended for Python-based projects
+    and for programmers who are not familiar with C++.
+
+:ref:`kodo_ns3_examples`
+    This project contains examples for using Kodo with the ns-3 network
+    simulator. This can be a great starting point for researchers who
+    are mainly interested in network simulations.
 
 Features
 --------
