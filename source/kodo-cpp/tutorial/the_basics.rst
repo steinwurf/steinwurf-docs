@@ -87,9 +87,7 @@ correcting codes are based on :ref:`finite fields<finite_field>`.
 * However it will typically also lead to increased computational
   complexity which results in slower applications.
 
-We're now ready to look at the next example. Building on the previous
-and very limited example, we extend this in a step by step manner to
-finally end up with something that resembles the following:
+We are now ready to look at our first example:
 
 .. literalinclude:: /../../kodo-cpp/examples/tutorial/basic.cpp
     :language: c++
