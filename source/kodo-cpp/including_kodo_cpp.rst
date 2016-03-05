@@ -1,4 +1,4 @@
-.. including_kodo_cpp:
+.. _including_kodo_cpp:
 
 Including kodo-cpp in Your Application
 ======================================
