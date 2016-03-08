@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Kodo documentation build configuration file, created by
+# Steinwurf documentation build configuration file, created by
 # sphinx-quickstart on Thu Mar 22 12:50:11 2012.
 #
 # This file is execfile()d with the current directory set to its containing
@@ -47,7 +47,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Kodo'
+project = u'Steinwurf Projects'
 copyright = u'2016, Steinwurf ApS'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -174,7 +174,7 @@ html_static_path = []
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Kododoc'
+htmlhelp_basename = 'Steinwurfdoc'
 
 try:
     import sphinx_rtd_theme
@@ -202,7 +202,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples (source start
 # file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'Kodo.tex', u'Kodo Documentation', u'Steinwurf ApS', 'manual'),
+    ('index', 'Steinwurf.tex', u'Steinwurf Documentation', u'Steinwurf ApS',
+     'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -231,7 +232,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'kodo', u'Kodo Documentation',
+    ('index', 'Steinwurf', u'Steinwurf Documentation',
      [u'Steinwurf ApS'], 1)
 ]
 
@@ -245,8 +246,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'Kodo', u'Kodo Documentation', u'Steinwurf ApS', 'Kodo',
-     'C++ library for Random Linear Network Coding.', 'Miscellaneous'),
+    ('index', 'Steinwurf', u'Steinwurf Documentation', u'Steinwurf ApS',
+     'Steinwurf', 'Collection of Steinwurf libraries.', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
