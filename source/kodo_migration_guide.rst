@@ -81,5 +81,95 @@ kodo-c
 kodo-rlnc
 ---------
 
+.. code-block:: cpp
+
+    #include <kodo_rlnc/full_vector_codes.hpp>
+
+    int main()
+    {
+        uint32_t symbols = 10;
+        uint32_t symbol_size = 1000;
+
+        using rlnc_encoder = kodo_rlnc::full_vector_encoder<fifi::binary8>;
+        using rlnc_decoder = kodo_rlnc::full_vector_decoder<fifi::binary8>;
+
+        rlnc_encoder::factory encoder_factory(symbols, symbol_size);
+        rlnc_decoder::factory decoder_factory(symbols, symbol_size);
+
+        auto encoder = encoder_factory.build();
+        auto decoder = decoder_factory.build();
+
+        encoder->set_const_symbols(sak::storage(...));
+
+        while (!decoder->is_complete())
+        {
+            encoder->write_payload(...);
+            decoder->read_payload(...);
+        }
+
+        decoder->copy_from_symbols(sak::storage(...));
+    }
+
 kodo-python
 -----------
+
+.. code-block:: python
+
+    import kodo
+
+    def main():
+
+        symbols = 10
+        symbol_size = 1000
+
+        encoder_factory = kodo.FullVectorEncoderFactoryBinary8(symbols, symbol_size)
+        decoder_factory = kodo.FullVectorDecoderFactoryBinary8(symbols, symbol_size)
+
+        encoder = encoder_factory.build()
+        decoder = decoder_factory.build()
+
+        data_in = os.urandom(encoder.block_size())
+        encoder.set_const_symbols(data_in)
+
+        while not decoder.is_complete():
+            payload = encoder.write_payload()
+            decoder.read_payload(payload)
+
+        data_out = decoder.copy_from_symbols()
+
+
+kodo (deprecated)
+-----------------
+
+We also show the API of our original kodo repository which is now deprecated.
+If you are still using this API, then consider migrating to the other projects
+that are mentioned above.
+
+.. code-block:: cpp
+
+    #include <kodo/rlnc/full_vector_codes.hpp>
+
+    int main()
+    {
+        uint32_t symbols = 10;
+        uint32_t symbol_size = 1000;
+
+        using rlnc_encoder = kodo::rlnc::full_vector_encoder<fifi::binary8>;
+        using rlnc_decoder = kodo::rlnc::full_vector_decoder<fifi::binary8>;
+
+        rlnc_encoder::factory encoder_factory(symbols, symbol_size);
+        rlnc_decoder::factory decoder_factory(symbols, symbol_size);
+
+        auto encoder = encoder_factory.build();
+        auto decoder = decoder_factory.build();
+
+        encoder->set_const_symbols(sak::storage(...));
+
+        while (!decoder->is_complete())
+        {
+            encoder->write_payload(...);
+            decoder->read_payload(...);
+        }
+
+        decoder->copy_from_symbols(sak::storage(...));
+    }
