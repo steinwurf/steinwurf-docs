@@ -38,6 +38,8 @@ File Extensions
 We use the ``.cpp`` extension for source files and ``.hpp`` for header files.
 This makes it easier to differentiate between C and C++ code.
 
+.. _files_and_classes:
+
 Files and Classes
 -----------------
 We have a one class per one file rule. If you make a new class ``happy``, then
