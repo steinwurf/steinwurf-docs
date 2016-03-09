@@ -3,11 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-==================
-Kodo Documentation
-==================
+=======================
+Steinwurf Documentation
+=======================
 
-Welcome to the documentation of the Kodo libraries!
+Welcome to the documentation of the Steinwurf libraries!
+
+Kodo
+----
 
 Kodo is a C++ library for implementing Erasure Correcting Codes, in particular
 Network Codes. The library is intended to be used for reliable communication
@@ -39,6 +42,7 @@ Contents
    kodo-python/index
    kodo_ns3_examples
    kodo_basic_simulations
+   kodo_migration_guide
    cross_compile
    unittest
    coding_style
