@@ -53,8 +53,8 @@ source tree. Exceptions to this rule are nested classes.
 
 Indentation
 -----------
-We always indent code using SPACES and NOT TABS. The size of an indentation
-is 4 spaces.
+We always indent code using **SPACES** and **NOT TABS**. The size of an
+indentation is **4 spaces**.
 
 Warnings
 --------
@@ -183,7 +183,9 @@ Member Initializer List
 -----------------------
 
 The colon starting a member initializer list should *not* be on a new line
-and it should be padded by one space::
+and it should be padded by one space:
+
+.. code-block:: cpp
 
     // CORRECT style
     class correct_style
@@ -253,7 +255,9 @@ Casts
 -----
 
 1. Numeric types: If you are casting from a numeric type use either
-   C-style cast or C++ style casts. E.g. both of these are fine::
+   C-style cast or C++ style casts. E.g. both of these are fine:
+
+   .. code-block:: cpp
 
      uint32_t o = (uint32_t) some_value;
      uint32_t k = static_cast<uint32_t>(some_value);
@@ -271,7 +275,9 @@ like ``else`` or ``catch`` should always start on a new line (they cannot
 be combined with braces).
 
 1. In very simple statements (e.g. an if with single statement) you may
-   optionally omit the braces::
+   optionally omit the braces:
+
+   .. code-block:: cpp
 
      // Fine
      if (coffee_pot == full)
@@ -284,7 +290,9 @@ be combined with braces).
      }
 
 2. However in more complicated statements we always put braces - and always
-   with a new line::
+   with a new line:
+
+   .. code-block:: cpp
 
      // CORRECT (Allman/ANSI-style)
      if (ok == true)
@@ -334,7 +342,9 @@ be combined with braces).
 
 3. The brace rules also apply for initializer lists and lambdas. If the given
    expression would fit on a single line, then you can keep the one-liner
-   since that improves readability (no need for newlines)::
+   since that improves readability (no need for newlines):
+
+   .. code-block:: cpp
 
      // CORRECT (Allman/ANSI-style)
      std::vector<uint8_t> data =
@@ -366,7 +376,9 @@ Do not start lines with operators (e.g. ``+-\*/%&^|:=``).
 Unary operators (e.g. ``~-&``) are exceptions to this rule.
 
 Add one space around common arithmetic operators to clearly separate the
-operands::
+operands:
+
+.. code-block:: cpp
 
   // CORRECT
   boost::shared_ptr<very_long_type> instance =
@@ -394,7 +406,9 @@ Padding can greatly improve the readability of long code lines.
 Try to keep symmetry and break long lines so that the code is aligned with
 similar code elements on the previous line.
 
-For example::
+For example:
+
+.. code-block:: cpp
 
   // Long method signature
   void fake_loopback::send(
@@ -452,7 +466,9 @@ Declaring pointers and references
 ---------------------------------
 
 The * and & characters should be tied to the type names, and not to the variable
-names::
+names:
+
+.. code-block:: cpp
 
   // CORRECT (C++-style)
   int* pValue;
@@ -488,7 +504,9 @@ Using ``asserts`` is a hot-potato in many development discussions. In
 particiular when talking about high performance code. In our projects we will
 adopt the following simple strategy:
 
-* Before **using** a variable or parameter we use an ``assert``::
+* Before **using** a variable or parameter we use an ``assert``:
+
+  .. code-block:: cpp
 
     void test(int* a, int* p)
     {
@@ -506,7 +524,9 @@ http://queue.acm.org/detail.cfm?id=2220317
 
 Handling unused parameters
 --------------------------
-Use the following approach to handle warnings caused by unused parameters::
+Use the following approach to handle warnings caused by unused parameters:
+
+.. code-block:: cpp
 
   void test(int a);
   {
@@ -517,7 +537,9 @@ Use the following approach to handle warnings caused by unused parameters::
 Hiding internal implementation details
 --------------------------------------
 To prevent polluting the namespace of a project with internal helper functions,
-use a nested namespace called ``detail`` to hide them::
+use a nested namespace called ``detail`` to hide them:
+
+.. code-block:: cpp
 
   namespace project_name
   {
@@ -549,7 +571,9 @@ root namespace of the project should be ``magic`` and all classes
 defined in this namespace should be placed in the ``src/magic`` folder and
 their corresponding unit tests should be placed in ``test/src/``.
 
-Example if you create a class ``speedy``::
+Example if you create a class ``speedy``:
+
+.. code-block:: cpp
 
     namespace magic
     {
@@ -565,7 +589,9 @@ Then it should be placed in ``speedy.hpp`` (as described in
 ``src/magic/speedy.hpp`` and the corresponding unit test in
 ``test/src/test_speedy.cpp``.
 
-If you create a class in a nested namespace called ``wonder``::
+If you create a class in a nested namespace called ``wonder``:
+
+.. code-block:: cpp
 
     namespace magic
     {
