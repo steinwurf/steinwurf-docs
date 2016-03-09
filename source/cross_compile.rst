@@ -1,6 +1,6 @@
 .. _cross_compile:
 
-Cross-compilation and tool options
+Cross-compilation and Tool Options
 ==================================
 
 This section describes the waf configuration options that are used to

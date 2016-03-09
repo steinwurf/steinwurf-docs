@@ -1,6 +1,5 @@
-=========
-kodo-docs
-=========
+steinwurf-docs
+==============
 
 Sphinx documentation for kodo and related projects.
 
@@ -8,12 +7,12 @@ Sphinx documentation for kodo and related projects.
    :local:
 
 Installation
-============
+------------
 
 #. Clone the project and cd into it::
 
-    git clone git@gitlab.com:steinwurf/kodo-docs.git
-    cd kodo-docs
+    git clone git@gitlab.com:steinwurf/steinwurf-docs.git
+    cd steinwurf-docs
 
 #. Install pip (if it is not installed already)::
 

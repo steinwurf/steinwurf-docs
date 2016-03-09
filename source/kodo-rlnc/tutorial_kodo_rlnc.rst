@@ -3,14 +3,14 @@
 Tutorial
 ========
 
-This tutorial will demonstrate different features of Kodo and show how it can be
-used to encode and decode data. It consists of the following subsections, each
-describing different examples:
+This tutorial demonstrates different features of kodo-rlnc and shows how it
+can be used to encode and decode data. It consists of the following subsections,
+each covering different examples:
 
 .. toctree::
     :maxdepth: 1
 
-    How to get started<tutorial/hello_kodo>
+    Hello Kodo<tutorial/hello_kodo>
     The basic functionality of Kodo<tutorial/the_basics>
     Adding losses<tutorial/simulating_losses>
     Turning off systematic coding<tutorial/turn_off_systematic_coding>
