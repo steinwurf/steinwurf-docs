@@ -571,7 +571,7 @@ root namespace of the project should be ``magic`` and all classes
 defined in this namespace should be placed in the ``src/magic`` folder and
 their corresponding unit tests should be placed in ``test/src/``.
 
-Example if you create a class ``speedy``:
+For example, if you create a class ``speedy``:
 
 .. code-block:: cpp
 
