@@ -44,6 +44,13 @@ We have a one class per one file rule. If you make a new class ``happy``, then
 put it in ``happy.hpp``. This makes the classes easier to find in the
 source tree. Exceptions to this rule are nested classes.
 
+.. note:: Remember to also add a unit test for your new class.
+          Find more information about this in our :ref:`unit_testing` section.
+
+.. note:: If your new class resides in a namespace, make sure to place
+          the source file in the corresponding directory. More details in the
+          :ref:`namespaces_and_directories` section.
+
 Indentation
 -----------
 We always indent code using SPACES and NOT TABS. The size of an indentation
@@ -174,10 +181,10 @@ and it should be padded by one space::
     class correct_style
     {
     public:
+
         correct_style() :
           m_value(42)
-        {
-        }
+        { }
 
     private:
 
@@ -188,10 +195,10 @@ and it should be padded by one space::
     class incorrect_style
     {
     public:
+
         incorrect_style():
           m_value(42)
-        {
-        }
+        { }
 
     private:
 
@@ -202,10 +209,10 @@ and it should be padded by one space::
     class incorrect_style
     {
     public:
+
         incorrect_style()
           : m_value(42)
-        {
-        }
+        { }
 
     private:
 
@@ -316,6 +323,34 @@ be combined with braces).
      {
         // handles int or std::string or any other unrelated type
      }
+
+3. The brace rules also apply for initializer lists and lambdas. If the given
+   expression would fit on a single line, then you can keep the one-liner
+   since that improves readability (no need for newlines)::
+
+     // CORRECT (Allman/ANSI-style)
+     std::vector<uint8_t> data =
+     {
+         0x67, 0x42, 0x00, 0x0A, 0xF8, 0x41, 0xA2
+     };
+
+     // WRONG (K&R style)
+     std::vector<uint8_t> data = {
+         0x67, 0x42, 0x00, 0x0A, 0xF8, 0x41, 0xA2 };
+
+     // CORRECT (one-liner expression)
+     std::vector<uint8_t> data = { 0x67, 0x42 };
+
+     // CORRECT (Allman/ANSI-style)
+     auto callback = [](const std::string& data)
+     {
+         std::cout << data << std::endl;
+     };
+
+     // WRONG (K&R style)
+     auto callback = [](const std::string& data) {
+         std::cout << data << std::endl;
+     };
 
 Operators
 ---------
@@ -495,3 +530,51 @@ use a nested namespace called ``detail`` to hide them::
 
 An example of this can be seen `here <https://github.com/steinwurf/sak/blob/
 8a75568b80c063331ae08d5667a1d67bb92c87b8/src/sak/easy_bind.hpp#L38>`_
+
+.. _namespaces_and_directories:
+
+Namespaces and Directories
+--------------------------
+
+Let's say that we are working on a project called ``magic``. Then the
+root namespace of the project should be ``magic`` and all classes
+defined in this namespace should be placed in the ``src/magic`` folder and
+their corresponding unit tests should be placed in ``test/src/``.
+
+Example if you create a class ``speedy``::
+
+    namespace magic
+    {
+        class speedy
+        {
+        ...
+        };
+
+    }
+
+Then it should be placed in ``speedy.hpp`` (as described in
+:ref:`files_and_classes`) and the file should be placed in
+``src/magic/speedy.hpp`` and the corresponding unit test in
+``test/src/test_speedy.cpp``.
+
+If you create a class in a nested namespace called ``wonder``::
+
+    namespace magic
+    {
+    namespace wonder
+    {
+        class smart
+        {
+        ...
+        };
+    }
+    }
+
+Then the file should be called ``smart.hpp`` and it should be
+placed in the ``src/magic/wonder/smart.hpp`. Similarly, the
+corresponding test file ``test_smart.cpp`` should be placed in
+``test/src/wonder/test_smart.cpp``.
+
+The general rule is that namespaces are represented by a directory in
+the filesystem. So if you see a class in a namespace, then you know
+the directory of the corresponding source file.
