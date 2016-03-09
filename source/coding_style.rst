@@ -80,7 +80,9 @@ Using #pragma once is preferred instead of the lengthy include guards, as this
 approach is shorter and less error-prone. Furthermore, it might speed up the
 compilation on modern compilers.
 
-Start every header file like this (after the copyright comment)::
+Start every header file like this (after the copyright comment):
+
+.. code-block:: cpp
 
     #pragma once
 
@@ -94,7 +96,9 @@ this point. Therefore every header file should have a corresponding ``.cpp``
 (implementation or test).
 
 After the first include, the include list should go from the most general
-to the most specific::
+to the most specific:
+
+.. code-block:: cpp
 
     #include "my_own_header.hpp"
 
@@ -123,7 +127,9 @@ Insert a newline between these 6 groups (as shown above).
 Class Declarations
 -------------------
 
-We group private and public functions and members in different sections::
+We group private and public functions and members in different sections:
+
+.. code-block:: cpp
 
   class foo
   {
@@ -144,7 +150,9 @@ We group private and public functions and members in different sections::
       // Private members
   };
 
-With one newline between scope specifiers, members and functions::
+With one newline between scope specifiers, members and functions:
+
+.. code-block:: cpp
 
   class coffee_machine
   {
@@ -571,7 +579,7 @@ If you create a class in a nested namespace called ``wonder``::
     }
 
 Then the file should be called ``smart.hpp`` and it should be
-placed in the ``src/magic/wonder/smart.hpp`. Similarly, the
+placed in the ``src/magic/wonder/smart.hpp``. Similarly, the
 corresponding test file ``test_smart.cpp`` should be placed in
 ``test/src/wonder/test_smart.cpp``.
 
