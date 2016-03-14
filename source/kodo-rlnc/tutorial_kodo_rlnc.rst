@@ -4,8 +4,10 @@ Tutorial
 ========
 
 This tutorial demonstrates different features of kodo-rlnc and shows how it
-can be used to encode and decode data. It consists of the following subsections,
-each covering different examples:
+can be used to encode and decode data. Each subsection covers different 
+examples and these are based on the latest commit in the master branch of the 
+kodo-rlnc library, so make sure that you have the latest version when starting
+the tutorial.
 
 .. toctree::
     :maxdepth: 1
