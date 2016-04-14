@@ -43,7 +43,7 @@ By default, a new folder called ``score`` will be created.
 
 
 Building the Score Examples and Unit Tests
------------------------------------------
+------------------------------------------
 
 In the following, we will look at how you can build the Score examples
 and unit tests using the Waf build system.

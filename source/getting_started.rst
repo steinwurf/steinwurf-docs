@@ -6,14 +6,14 @@ Getting Started
 Obtain a Steinwurf License
 --------------------------
 
-Before you download or use Kodo you **MUST** obtain a valid license.
+Before you download or use libraries, you **MUST** obtain a valid license.
 
 * If you will use Kodo for **research and educational** purposes, please
   fill out this form_ to obtain a Research License.
 
-* If you will **evaluate or test** Kodo in a commercial context, you can
-  obtain a Commercial Evaluation License for a license fee. You can fill out
-  this form_ or contact us at sales@steinwurf.com.
+* If you will **evaluate or test** Kodo or Score in a commercial context,
+  you can obtain a Commercial Evaluation License for a license fee. You can
+  fill out this form_ or contact us at sales@steinwurf.com.
 
 * For a general **commercial license**, contact us at sales@steinwurf.com.
 
@@ -24,17 +24,16 @@ Before you download or use Kodo you **MUST** obtain a valid license.
 Tools Needed
 ------------
 
-If you wish to build Kodo (using our build system), you will need to
+If you wish to build our libraries with our build system, you will need to
 install the following tools:
 
-1. **C++11 compliant compiler:** Kodo is a C++11 library so you will need
-   a C++ compiler that supports the new C++11 standard. You
-   can see a list of compilers on our buildbot page (`Steinwurf Buildbot`_).
+1. **C++11 compliant compiler:** A C++ compiler that supports the
+   C++11 standard. You can see a list of currently supported compilers on our
+   Buildbot page (`Steinwurf Buildbot`_).
 
-2. **Git:** we use the git version control system for managing our libraries.
+2. **Git:** The git version control system for managing our libraries.
 
-3. **Python:** needed by our build scripts. We use the Python-based `waf`_
-   build system.
+3. **Python:** We use the Python-based `waf`_ build system.
 
 .. _waf: https://waf.io/
 .. _Steinwurf Buildbot: http://buildbot.steinwurf.com
@@ -58,12 +57,12 @@ Download Tools (Windows)
    to install, you may use the `Python 2.7.10 Windows Installer`_.
 
 3. **Git:** There are several ways to get git on Windows. If you plan to use
-   the waf build scripts to build the Kodo examples and unit tests, you should
-   install the msysgit_ tool (version 1.8.x or above).
+   the waf build scripts to build our examples and unit tests, you should
+   install the `Git for Windows`_ tool (version 2.8.x or above).
 
 4. **TortoiseGit (Optional):**
    You can also install the latest version of TortoiseGit_ if you prefer to use
-   a GUI instead of the command-line git tools. Version 1.8.1 and later should
+   a GUI instead of the command-line git tools. Version 2.1.0 and later should
    work fine.
 
 .. _`Visual Studio Express 2015 for Desktop`:
@@ -75,8 +74,8 @@ Download Tools (Windows)
 .. _`Python 2.7.10 Windows Installer`:
    https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi
 
-.. _msysgit:
-   http://msysgit.github.io/
+.. _`Git for Windows`:
+   https://git-for-windows.github.io/
 
 .. _`TortoiseGit`:
    https://tortoisegit.org/
@@ -84,8 +83,8 @@ Download Tools (Windows)
 Download Tools (Mac OSX)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**C++11 compliant compiler:** You need a working C++ compiler. We have
-tested using `XCode`_ 7.0 and the Apple LLVM 7.0 compiler which can be
+**C++11 compliant compiler:** You need a working C++ compiler. We tested
+tested `XCode`_ 7.1 with the Apple LLVM 7.0 compiler which can be
 downloaded free of charge. Newer versions should also be fine.
 
 On Mavericks or above (OSX 10.9+):
@@ -104,7 +103,7 @@ On Mavericks or above (OSX 10.9+):
 Waf (Build System)
 ------------------
 
-We use the Waf build system to build all Kodo examples and unit tests.
+We use the Waf build system to build our libraries, examples and unit tests.
 Waf is a Python-based build system that supports a wide variety of use cases.
 You may read more about Waf at the project homepage: https://waf.io/
 
@@ -127,11 +126,12 @@ Our projects can be downloaded with git. This version control system allows you
 to easily get new updates whenever a project is updated.
 
 If you don't want to type your GitHub username and password when downloading
-Kodo (and its dependencies), then we recommend using Git-over-SSH. It is easy
-to configure SSH authentication on all platforms following this `Github guide`_.
+our main libraries (and their dependencies), then we recommend using
+Git-over-SSH. It is easy to configure SSH authentication on all platforms
+following this `Github guide`_.
 
 You don't have to use a passphrase, and you can skip Step 3. If you are using
-Windows, then run these commands in Git Bash (which is installed with msysgit).
+Windows, then run these commands in Git Bash.
 We don't recommend using "GitHub for Windows", so don't follow the
 Windows-specific guide (the generic guide is good for all platforms).
 
@@ -142,10 +142,10 @@ login works for you::
 
 
 .. note:: If you don't want to configure SSH authentication on github.com,
-          you can also clone the repository with the ``https`` protocol.
+          you can also clone the repository using the ``https`` protocol.
 
           Normally, you have to type your GitHub username and password with
-          ``https``. On Windows, you can configure msysgit to store your
+          ``https``. On Windows, you can configure git to store your
           credentials with the following command::
 
               git config --global credential.helper wincred

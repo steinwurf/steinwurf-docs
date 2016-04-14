@@ -1,6 +1,6 @@
 .. _score:
 
-score
+Score
 =====
 
 The score library implements the Simple Coded Reliability Protocol (SCORE)
@@ -9,6 +9,8 @@ for distribution of data from a sender to one or more receivers. It is
 primarily intended for reliable transmission, but it also supports best-effort
 delivery, e.g. for cases where no feedback channel is available. Reliability
 is ensured using Random Linear Network Coding.
+
+Score is only available under a commercial license.
 
 The score repository: https://gitlab.com/steinwurf/score
 
