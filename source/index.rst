@@ -43,6 +43,7 @@ Contents
    kodo_ns3_examples
    kodo_basic_simulations
    kodo_migration_guide
+   score/index
    cross_compile
    unittest
    coding_style
