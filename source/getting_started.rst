@@ -6,7 +6,7 @@ Getting Started
 Obtain a Steinwurf License
 --------------------------
 
-Before you download or use libraries, you **MUST** obtain a valid license.
+Before you download or use our libraries, you **MUST** obtain a valid license.
 
 * If you will use Kodo for **research and educational** purposes, please
   fill out this form_ to obtain a Research License.
