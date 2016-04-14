@@ -1,14 +1,15 @@
+.. _overview:
+
 Overview
 ========
-
-.. _overview:
 
 Kodo
 ----
 
 Kodo is a C++ library for implementing Erasure Correcting Codes, in particular
-Network Codes. The library is intended to be used for reliable communication
-protocols and systems and for research on implementation of Network Codes.
+Network Codes. The library is intended to be used as a building block for
+reliable communication protocols and systems and for research on the
+implementation of Network Codes.
 
 Kodo is available under a research- and education-friendly license, and
 it enables researchers to implement new codes and algorithms,
