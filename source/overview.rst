@@ -3,13 +3,13 @@
 Overview
 ========
 
-:ref:`kodo`
+Kodo
 ----
 
-Kodo is a C++ library for implementing Erasure Correcting Codes, in particular
-Network Codes. The library is intended to be used as a building block for
-reliable communication protocols and systems and for research on the
-implementation of Network Codes.
+:ref:`kodo` is a C++ library for implementing Erasure Correcting Codes, in
+particular Network Codes. The library is intended to be used as a building
+block for reliable communication protocols and systems and for research on
+the implementation of Network Codes.
 
 Kodo is available under a research- and education-friendly license, and
 it enables researchers to implement new codes and algorithms,
@@ -21,11 +21,11 @@ There are several options to use Kodo in your project. Easy-to-use bindings
 are available for various programming languages. The :ref:`projects_kodo`
 section should help you find the best option for your needs.
 
-:ref:`score`
+Score
 -----
 
-The Simple Coded Reliability Protocol (SCORE) provides a specialized solution
-for Reliable Multicast over UDP. The protocol makes it easy to efficiently
+The :ref:`score` (Simple COded REliability) protocol provides a specialized
+solution for Reliable Multicast over UDP. The protocol makes it easy to efficiently
 transmit data to many devices simultaneously over a shared medium, e.g. WiFi.
 
 Score is a commercial product, and therefore a commercial license is required
