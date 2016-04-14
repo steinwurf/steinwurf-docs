@@ -6,7 +6,7 @@ Kodo
 Kodo is a high-performance erasure coding library with a special focus on
 network coding algorithms and codecs.
 
-See the :ref:`_overview_kodo` section for a detailed description.
+See the :ref:`overview_kodo` section for a detailed description.
 
 .. toctree::
    :maxdepth: 2

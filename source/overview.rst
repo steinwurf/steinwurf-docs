@@ -3,7 +3,7 @@
 Overview
 ========
 
-Kodo
+:ref:`kodo`
 ----
 
 Kodo is a C++ library for implementing Erasure Correcting Codes, in particular
@@ -21,7 +21,7 @@ There are several options to use Kodo in your project. Easy-to-use bindings
 are available for various programming languages. The :ref:`projects_kodo`
 section should help you find the best option for your needs.
 
-Score
+:ref:`score`
 -----
 
 The Simple Coded Reliability Protocol (SCORE) provides a specialized solution
