@@ -21,12 +21,12 @@ Contents
 
    overview
    nc_intro
-   faq
    getting_started
    kodo/index
    score/index
    cross_compile
-   unittest
    coding_style
+   unittest
    version_numbering
+   faq
    contact
