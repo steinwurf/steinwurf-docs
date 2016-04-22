@@ -1,4 +1,4 @@
-.. _quick_start_kodo_rlnc:
+.. _quick_start_score_c:
 
 Quick Start
 ===========
@@ -19,10 +19,10 @@ Recommended: Clone the Git Repository Using the Terminal (Linux and Mac OSX)
     mkdir dev
     cd dev
 
-2. Clone and download the kodo-rlnc library by running (this will create a
-   new directory called ``kodo-rlnc``)::
+2. Clone and download the score-c library by running (this will create a
+   new directory called ``score-c``)::
 
-    git clone git@github.com:steinwurf/kodo-rlnc.git
+    git clone git@gitlab.com:steinwurf/score-c.git
 
 Recommended: Clone the Git Repository Using TortoiseGit (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,39 +31,34 @@ Open the directory where you want to clone the project, right-click on empty
 space and select ``Git Clone...`` from the context menu. The TortoiseGit clone
 dialog will appear, copy this to the URL field::
 
-    git@github.com:steinwurf/kodo-rlnc.git
+    git@gitlab.com:steinwurf/score-c.git
 
 You can also customize the name of the target directory if you wish.
-By default, a new folder called ``kodo-rlnc`` will be created.
+By default, a new folder called ``score-c`` will be created.
 
 .. note:: If you decide to clone the repository with the ``https`` protocol
           then use this URL in TortoiseGit::
 
-            https://github.com/steinwurf/kodo-rlnc.git
+            https://gitlab.com/steinwurf/score-c.git
 
 
-Building the Kodo Examples and Unit Tests
------------------------------------------
+Building the Score Examples and Unit Tests
+------------------------------------------
 
-In the following, we will look at how you can build the Kodo examples
+In the following, we will look at how you can build the Score examples
 and unit tests using the Waf build system.
 
-.. note:: We recommend trying to build and run the unit tests before
-          using Kodo in your own project. However, if you want to skip this step
-          you may jump directly to :ref:`including_kodo_rlnc`
+1. Navigate to the directory where you have downloaded the Score source code::
 
-1. Navigate to the directory where you have downloaded the Kodo source code::
+     cd ~/dev/score-c/
 
-     cd ~/dev/kodo-rlnc/
-
-2. Invoke ``waf`` to build the Kodo unit tests and examples::
+2. Invoke ``waf`` to build the Score unit tests and examples::
 
      python waf configure
 
-   The ``waf configure`` command ensures that all tools needed by Kodo are
-   available and prepares to build Kodo. This step will also download
-   several auxiliary libraries into a folder called ``bundle_dependencies``
-   within the kodo folder.
+   The ``waf configure`` command ensures that all tools needed by Score are
+   available and prepares to build Score. This step will also download
+   several libraries into a local folder called ``bundle_dependencies``.
 
    .. note:: The ``waf configure`` step might take several minutes depending on
              the speed of your Internet connection. This would be a
@@ -84,7 +79,7 @@ and unit tests using the Waf build system.
                  python waf configure --bundle-path=C:\dev\bundle_dependencies
 
    .. note:: If you have not configured Git-over-SSH to automatically
-             authenticate on github.com, you might see an error when waf
+             authenticate on gitlab.com, you might see an error when waf
              tries to resolve the dependencies.
 
              In this case, you can instruct the waf tools to use the ``https``
@@ -99,7 +94,7 @@ and unit tests using the Waf build system.
 
        python waf build
 
-4. Run the Kodo unit tests::
+4. Run the unit tests::
 
        python waf --run_tests
 

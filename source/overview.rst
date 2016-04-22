@@ -25,8 +25,9 @@ Score
 -----
 
 The :ref:`score` (Simple COded REliability) protocol provides a specialized
-solution for Reliable Multicast over UDP. The protocol makes it easy to efficiently
-transmit data to many devices simultaneously over a shared medium, e.g. WiFi.
+solution for Reliable Multicast over UDP. The protocol makes it easy to
+efficiently transmit data to many devices simultaneously over a shared
+medium, e.g. WiFi.
 
 Score is a commercial product, and therefore a commercial license is required
 for using it. The library is available on a wide range of platforms, and

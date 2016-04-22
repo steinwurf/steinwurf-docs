@@ -96,7 +96,7 @@ It is important to note that you need to link with the C++ standard library
 (by using ``-lstdc++`` above), because the kodo-c library actually wraps a
 C++ library (kodo) that uses the C++ standard library. However, you can omit
 this flag if you link your application with g++ instead of gcc (g++
-automatically includes the stdc++)::
+automatically includes the stdc++ library)::
 
     g++ myapp.c -o myapp -I./include -Wl,-Bstatic -L. -lkodoc_static -lfifi \
     -lcpuid -Wl,-Bdynamic
