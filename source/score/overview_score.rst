@@ -30,7 +30,7 @@ with the API that is exposed by that project.
     use Score in a C program. The C API also enables interoperability with
     other programming languages that are not directly supported.
 
-:ref:`score`
+score
     The score repository contains the low-level C++ implementation of the SCORE
     protocol. This is intended for experienced C++ developers who would like
     to know more about the inner workings of the library.
