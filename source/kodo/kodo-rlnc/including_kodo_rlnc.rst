@@ -1,4 +1,4 @@
-.. _including-kodo-rlnc:
+.. _including_kodo_rlnc:
 
 Including kodo-rlnc in Your Application
 =======================================

@@ -50,7 +50,7 @@ and unit tests using the Waf build system.
 
 .. note:: We recommend trying to build and run the unit tests before
           using Kodo in your own project. However, if you want to skip this step
-          you may jump directly to :ref:`including-kodo-rlnc`
+          you may jump directly to :ref:`including_kodo_rlnc`
 
 1. Navigate to the directory where you have downloaded the Kodo source code::
 
@@ -103,14 +103,13 @@ and unit tests using the Waf build system.
 
        python waf --run_tests
 
-   You can also run the generated executables by specifying their relative path
-   (this will vary depending on the operating system):
+   You can find the compiled library and executables in the waf build folder,
+   which depends on your operating system:
 
-   a. **Linux**: Run unit tests from the Kodo directory by running
-      ``./build/linux/test/kodo_rlnc_tests`` in your terminal.
+   a. **Linux**: ``./build/linux``
 
-   b. **Mac OSX**: Run unit tests from the Kodo directory by running
-      ``./build/darwin/test/kodo_rlnc_tests`` in your terminal.
+   b. **Mac OSX**: ``./build/darwin``
 
-   c. **Windows**: Run unit tests from the Kodo directory by running
-      ``build/win32/test/kodo_rlnc_tests.exe`` in your command prompt.
+   c. **Windows**: ``./build/win32``
+
+   You can directly run the executables here.

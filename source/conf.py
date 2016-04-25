@@ -71,9 +71,9 @@ release = 'master'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['contribution/SIGNOFF.rst',
-                    'contribution/contributors.rst',
-                    'contribution/ASSIGNMENT.rst']
+exclude_patterns = ['kodo/contribution/SIGNOFF.rst',
+                    'kodo/contribution/contributors.rst',
+                    'kodo/contribution/ASSIGNMENT.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.

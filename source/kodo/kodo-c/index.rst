@@ -17,6 +17,3 @@ The kodo-c repository: https://github.com/steinwurf/kodo-c
 
    quick_start_kodo_c
    including_kodo_c
-
-
-
