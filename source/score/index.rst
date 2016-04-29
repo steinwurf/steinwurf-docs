@@ -15,5 +15,6 @@ See the :ref:`overview_score` section for a detailed description.
 
    overview_score
    score-c/index
+   score-cpp/index
 
 

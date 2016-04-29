@@ -19,7 +19,7 @@ The score libraries are implemented in several projects and each project has
 its own git repository. It is recommended to choose a single project and work
 with the API that is exposed by that project.
 
-.. :ref:`score_cpp`
+:ref:`score_cpp`
     The score-cpp library defines a simple, high-level C++ API to conveniently
     access the basic functionality of Score, such as sending and receiving
     data. It is very easy to integrate score-cpp into your C++ project,
