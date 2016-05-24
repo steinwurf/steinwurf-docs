@@ -14,7 +14,7 @@ correcting codes.  However, for the time being we will just use it as
 a standard erasure correcting code, namely to encode and decode some
 data.
 
-In the following, we will go through three of the key-parameters to
+In the following, we will go through three of the key parameters to
 choose when configuring an erasure correcting code:
 
 * The number of ``symbols``
@@ -112,7 +112,7 @@ Fifi library defines a number of different finite fields such as
 can simple replace ``field::binary8`` with one of the other field types,
 e.g. ``field::binary``.
 
-Once the key parameters have been selected we are ready to create an
+Once the key parameters have been selected, we are ready to create an
 encoder and a decoder to perform the actual coding.
 
 .. literalinclude:: /../../kodo-cpp/examples/tutorial/basic.cpp

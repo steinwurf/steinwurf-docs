@@ -17,6 +17,7 @@ The score-c repository: https://gitlab.com/steinwurf/score-c
 
    quick_start_score_c
    including_score_c
+   basic_sender_receiver
 
 
 
