@@ -20,5 +20,6 @@ The score-cpp repository: https://gitlab.com/steinwurf/score-cpp
    quick_start_score_cpp
    including_score_cpp
    basic_sender_receiver
+   stream_sender_receiver
 
 
