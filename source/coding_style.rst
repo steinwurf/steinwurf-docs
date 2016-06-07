@@ -88,47 +88,49 @@ Start every header file like this (after the copyright comment):
 
     #pragma once
 
-Style of #include Statements
-----------------------------
+#include Statements
+-------------------
 
-The first include in a cpp file should always be the associated header file
+The first include in a ``.cpp`` file should always be the associated header file
 (if any). The goal of this is to enforce that all necessary includes are
-specified within the header.
+specified within the header. If some necessary includes are missing from 
+that header, then the compilation of the ``.cpp`` will break at this point. 
 
-In a library, internal includes should be included with double-quotes
+In a library, internal includes should be included with double quotes
 (``#include "header.hpp"``), like so:
 
 .. code-block:: cpp
 
     #include "associated_header_file.hpp"
 
-    // ...
+    // C/C++ standard headers
+    // Headers from dependencies
 
     #include "header_from_same_project.hpp"
     #include "inner_namespace/other_header_from_same_project.hpp"
 
-In a unit test for a header in a library, the header should be included as if it
-as a dependency, with angle brackets (``#include <project/header.hpp>``), like
-so:
+In a unit test for a header in a library, the header should be included
+with angle brackets (``#include <project/header.hpp>``), like so:
 
 .. code-block:: cpp
 
     #include <my_project/associated_header_file.hpp>
 
-    // ...
+    // C/C++ standard headers
+    // Headers from dependencies
 
     #include <my_project/header_from_same_project.hpp>
     #include <my_project/inner_namespace/other_header_from_same_project.hpp>
 
-The order of the includes should be as followed:
+The order of the includes should be as follows (a newline should be
+added between these groups):
 
 #. The header of the ``.hpp`` belonging to this ``.cpp`` file (if any).
 #. C/C++ standard headers
 #. Grouped Headers from dependencies
 #. Headers of the current project
 
-Insert a newline between these groups. Complete example
-(from library ``.cpp`` file):
+Complete example (from a library ``.cpp`` file):
 
 .. code-block:: cpp
 
