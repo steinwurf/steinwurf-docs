@@ -118,7 +118,7 @@ so:
     // ...
 
     #include <my_project/header_from_same_project.hpp>
-    #include <inner_namespace/other_header_from_same_project.hpp>
+    #include <my_project/inner_namespace/other_header_from_same_project.hpp>
 
 The order of the includes should be as followed:
 
