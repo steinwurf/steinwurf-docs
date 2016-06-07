@@ -33,39 +33,6 @@ Naming
   character names as long as you use common sense (what you think makes the
   code the most readable).
 
-Constructor Initialization Colon
---------------------------------
-
-The constructor initialization colon should be padded one space::
-
-  // Correct style
-  class correct_style
-  {
-  public:
-    correct_style() :
-      m_value(42)
-    {
-    }
-
-  private:
-
-    int m_value;
-  };
-
-  // Incorrect style
-  class incorrect_style
-  {
-  public:
-    incorrect_style():
-      m_value(42)
-    {
-    }
-
-  private:
-
-    int m_value;
-  };
-
 File Extensions
 ---------------
 We use the ``.cpp`` extension for source files and ``.hpp`` for header files.
@@ -128,37 +95,37 @@ The first include in a cpp file should always be the associated header file
 (if any). The goal of this is to enforce that all necessary includes are
 specified within the header.
 
-In a library, internal includes should be included with double-quotes 
+In a library, internal includes should be included with double-quotes
 (``#include "header.hpp"``), like so:
 
 .. code-block:: cpp
 
     #include "associated_header_file.hpp"
 
+    // ...
+
     #include "header_from_same_project.hpp"
     #include "inner_namespace/other_header_from_same_project.hpp"
 
-    // ...
-
 In a unit test for a header in a library, the header should be included as if it
- as a dependency, with angle brackets (``#include <project/header.hpp>``), like
- so:
+as a dependency, with angle brackets (``#include <project/header.hpp>``), like
+so:
 
 .. code-block:: cpp
 
     #include <my_project/associated_header_file.hpp>
 
+    // ...
+
     #include <my_project/header_from_same_project.hpp>
     #include <inner_namespace/other_header_from_same_project.hpp>
-
-    // ...
 
 The order of the includes should be as followed:
 
 #. The header of the ``.hpp`` belonging to this ``.cpp`` file (if any).
 #. C/C++ standard headers
-#. Headers of the current project
 #. Grouped Headers from dependencies
+#. Headers of the current project
 
 Insert a newline between these groups. Complete example
 (from library ``.cpp`` file):
@@ -166,9 +133,6 @@ Insert a newline between these groups. Complete example
 .. code-block:: cpp
 
     #include "associated_header_file.hpp"
-
-    #include "header_from_same_project.hpp"
-    #include "inner_namespace/other_header_from_same_project.hpp"
 
     #include <vector>
     #include <math>
@@ -180,10 +144,12 @@ Insert a newline between these groups. Complete example
 
     #include <kodo/storage.hpp>
 
+    #include "header_from_same_project.hpp"
+    #include "inner_namespace/other_header_from_same_project.hpp"
+
 The reasoning behind having the system headers before the dependencies is that
 it will enable us to handle any include issues with external dependencies,
 without breaking our coding style.
-
 
 Header file extension
 ---------------------
