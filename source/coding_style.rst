@@ -88,21 +88,53 @@ Start every header file like this (after the copyright comment):
 
     #pragma once
 
-Order of #include statements
-----------------------------
+#include Statements
+-------------------
 
-If this ``.cpp`` file implements or tests a specific header file, then the first
-include should always be that header file. If some necessary includes are
-missing from that header, then the compilation of the ``.cpp`` will break at
-this point. Therefore every header file should have a corresponding ``.cpp``
-(implementation or test).
+The first include in a ``.cpp`` file should always be the associated header file
+(if any). The goal of this is to enforce that all necessary includes are
+specified within the header. If some necessary includes are missing from 
+that header, then the compilation of the ``.cpp`` will break at this point. 
 
-After the first include, the include list should go from the most general
-to the most specific:
+In a library, internal includes should be included with double quotes
+(``#include "header.hpp"``), like so:
 
 .. code-block:: cpp
 
-    #include "my_own_header.hpp"
+    #include "associated_header_file.hpp"
+
+    // C/C++ standard headers
+    // Headers from dependencies
+
+    #include "header_from_same_project.hpp"
+    #include "inner_namespace/other_header_from_same_project.hpp"
+
+In a unit test for a header in a library, the header should be included
+with angle brackets (``#include <project/header.hpp>``), like so:
+
+.. code-block:: cpp
+
+    #include <my_project/associated_header_file.hpp>
+
+    // C/C++ standard headers
+    // Headers from dependencies
+
+    #include <my_project/header_from_same_project.hpp>
+    #include <my_project/inner_namespace/other_header_from_same_project.hpp>
+
+The order of the includes should be as follows (a newline should be
+added between these groups):
+
+#. The header of the ``.hpp`` belonging to this ``.cpp`` file (if any).
+#. C/C++ standard headers
+#. Grouped Headers from dependencies
+#. Headers of the current project
+
+Complete example (from a library ``.cpp`` file):
+
+.. code-block:: cpp
+
+    #include "associated_header_file.hpp"
 
     #include <vector>
     #include <math>
@@ -114,20 +146,21 @@ to the most specific:
 
     #include <kodo/storage.hpp>
 
-In practice, the include order will be something like this:
+    #include "header_from_same_project.hpp"
+    #include "inner_namespace/other_header_from_same_project.hpp"
 
-#. The hpp belonging to this cpp
-#. C/C++ standard headers
-#. Boost headers
-#. gtest headers
-#. Headers from dependencies (start with the most general)
-#. Headers of the current project
+The reasoning behind having the system headers before the dependencies is that
+it will enable us to handle any include issues with external dependencies,
+without breaking our coding style.
 
-Insert a newline between these 6 groups (as shown above).
+Header file extension
+---------------------
 
+We have decided to start using ``.hpp`` for header files. This makes it easier
+to differentiate between C and C++ code.
 
 Class Declarations
--------------------
+------------------
 
 We group private and public functions and members in different sections:
 
