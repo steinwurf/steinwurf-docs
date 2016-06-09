@@ -214,6 +214,41 @@ With one newline between scope specifiers, members and functions:
       }
   };
 
+
+Getters and Setters
+-------------------
+
+We use the following approach for handling getters and setters:
+
+* The setter should be the name of the value which is to be set, prefixed with
+  ``set_``.
+* The getter should be the name of the value. So without a ``get_`` prefix.
+
+Example:
+
+.. code-block:: cpp
+
+    class my_class
+    {
+    public:
+        my_class() :
+            m_value(0U)
+        { }
+
+        uint32_t value() const
+        {
+            return m_value;
+        }
+
+        void set_value(uint32_t value)
+        {
+            m_value = value;
+        }
+    private:
+        uint32_t m_value;
+    };
+
+
 Member Initializer List
 -----------------------
 
