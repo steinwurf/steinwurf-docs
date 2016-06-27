@@ -19,6 +19,8 @@ Before you download or use our libraries, you **MUST** obtain a valid license.
 
 .. _form: http://steinwurf.com/license/
 
+
+
 .. _tools-needed:
 
 Tools Needed
@@ -119,6 +121,8 @@ A Waf project typically contains two types of files:
 .. note:: See the ``waf`` build options by running ``python waf -h``
           in your terminal.
 
+.. _git_version_control_system:
+
 Git Version Control System
 --------------------------
 
@@ -134,31 +138,56 @@ to easily get new updates whenever a project is updated.
           The :ref:`score` libraries are hosted on GitLab with some dependencies
           hosted on Github. Therefore you will need an account on both platforms.
 
-If you don't want to type your GitHub  username and password when downloading
-our main libraries (and their dependencies), then we recommend using
+.. _github_gitlab_accounts:
+
+GitHub / GitLab accounts
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Accounts for GitHub and GitLab respectively can be created at:
+
+1. `Sign-up GitHub <https://github.com/join>`_
+2. `Sign-up GitLab <https://gitlab.com/users/sign_in>`_
+
+.. note:: Users utilizing our commercial license or commercial evaluation
+          license needs to register their user-name with Steinwurf before they
+          can access the repositories. This can be done by sending an email to
+          sales@steinwurf.com containing the GitHub/GitLab username and company
+          affiliation of the specific user.
+
+GitHub / GitLab authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you don't want to type your GitHub or GitLab username and password when
+downloading our main libraries (and their dependencies), then we recommend using
 Git-over-SSH. It is easy to configure SSH authentication on all platforms
-following this `Github guide`_.
+following this `GitHub guide`_ or `GitLab guide`_.
 
 You don't have to use a passphrase, and you can skip Step 3. If you are using
 Windows, then run these commands in Git Bash.
 We don't recommend using "GitHub for Windows", so don't follow the
 Windows-specific guide (the generic guide is good for all platforms).
 
-After adding your SSH key on Github, please make sure that the following
+After adding your SSH key on GitHub, please make sure that the following
 login works for you::
 
     ssh -T git@github.com
 
+Unfortunately a similar pre-check is not possible with GitLab.
 
-.. note:: If you don't want to configure SSH authentication on github.com,
-          you can also clone the repository using the ``https`` protocol.
 
-          Normally, you have to type your GitHub username and password with
+.. note:: If you don't want to configure SSH authentication on github.com or
+          gitlab.com you can also clone the repository using the ``https``
+          protocol.
+
+          Normally, you have to type your GitLab/GitHub username and password with
           ``https``. On Windows, you can configure git to store your
           credentials with the following command::
 
               git config --global credential.helper wincred
 
 
-.. _`Github guide`:
+.. _`GitHub guide`:
    https://help.github.com/articles/generating-ssh-keys/#platform-all
+
+.. _`GitLab guide`:
+   http://docs.gitlab.com/ce/ssh/README.html
