@@ -22,3 +22,18 @@ Installation
 
     sudo apt-get install python-sphinx
     sudo pip install sphinx_rtd_theme
+
+Building the docs
+-----------------
+
+After installing the dependencies simply run make in the `steinwurf-docs`
+folder::
+
+    cd steinwurf-docs
+    make html
+
+Launch a browser to see the result e.g.::
+
+    google-chrome build/html/index.html
+
+    

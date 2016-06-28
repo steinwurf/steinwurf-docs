@@ -9,6 +9,17 @@ try to download and build the source code.
 Download the Source Code
 ------------------------
 
+.. note:: We are currently migrating our private repositories from github.com to
+          gitlab.com.
+
+          The :ref:`score` libraries are hosted on GitLab with some dependencies
+          hosted on Github. Therefore you will need an account on both platforms.
+          See section :ref:`git_version_control_system` in :ref:`getting_started`
+          for more information.
+
+          Remember to register you GitHub/GitLab username as described in
+          :ref:`github_gitlab_accounts`.
+
 Recommended: Clone the Git Repository Using the Terminal (Linux and Mac OSX)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

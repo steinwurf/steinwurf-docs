@@ -10,10 +10,10 @@ It is primarily intended for reliable transmission, but it also supports
 best-effort delivery, e.g. for cases where no feedback channel is available.
 Reliability is ensured using Random Linear Network Coding.
 
-.. _projects_score:
+.. _libraries_score:
 
-Projects
---------
+Libraries
+---------
 
 The score libraries are implemented in several projects and each project has
 its own git repository. It is recommended to choose a single project and work
@@ -39,7 +39,8 @@ score
 Platform Support
 ----------------
 
-Score is portable to a wide range of platforms.
+Score is portable to a wide range of platforms (both hardware platforms and
+operating systems).
 
 We ensure compatibility with the supported platforms through a suite of unit
 tests, the current status can be checked at the `Steinwurf Buildbot`_ page.
