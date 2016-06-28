@@ -129,14 +129,14 @@ Git Version Control System
 Our projects can be downloaded with git. This version control system allows you
 to easily get new updates whenever a project is updated.
 
-.. note:: We are currently migrating our private repositories from github.com to
-          gitlab.com.
+..note:: We are currently migrating our private repositories from github.com to
+         gitlab.com.
 
-          The :ref:`kodo` libraries are currently still hosted on GitHub so to
-          access those you just need a GitHub account.
+* The :ref:`kodo` libraries are currently still hosted on GitHub so to
+  access those you just need a GitHub account.
 
-          The :ref:`score` libraries are hosted on GitLab with some dependencies
-          hosted on Github. Therefore you will need an account on both platforms.
+* The :ref:`score` libraries are hosted on GitLab with some dependencies
+  hosted on Github. Therefore you will need an account on both platforms.
 
 .. _github_gitlab_accounts:
 
