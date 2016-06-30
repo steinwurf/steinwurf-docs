@@ -181,15 +181,15 @@ command-line binaries, so you will need a terminal application to run them.
 
 Raspberry Pi
 ............
-You can download our pre-built Raspberry Pi toolchain for 64-bit Linux here:
-http://buildbot.steinwurf.dk/toolchains/linux/
+You can download the pre-built Raspberry Pi toolchain for 64-bit Linux here:
+http://files.steinwurf.com/toolchains/linux/raspberry-gcc-4.9.3/
 
-Extract ``raspberry-gxx49-arm.zip`` to a folder of your liking. You also need
+Extract ``raspberry-gxx493-arm.zip`` to a folder of your liking. You also need
 to add the `bin`` folder of the Raspberry toolchain to your PATH. For example,
 you can add the following lines to your ``~/.profile`` (please adjust the
 paths to match your folder names and locations)::
 
-    PATH="$PATH:$HOME/toolchains/raspberry-gxx49-arm/bin"
+    PATH="$PATH:$HOME/toolchains/arm-rpi-4.9.3-linux-gnueabihf/bin"
 
 You need to log in again or open a new terminal to get the updated PATH.
 You can check that the required binaries are in your PATH with this command::
