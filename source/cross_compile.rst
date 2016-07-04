@@ -96,7 +96,7 @@ the instructions in our `Android guide`_ to quickly create a toolchain using
 the latest Android NDK.
 
 You can also download a toolchain for your platform from this page:
-http://bongo.steinwurf.dk/files/toolchains
+http://bongo.steinwurf.com/files/public/toolchains
 
 You also need the Android SDK, because we need to find the ``adb`` tool
 during the configure step. If you do not have it already the `Android
