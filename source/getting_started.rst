@@ -17,8 +17,11 @@ Before you download or use our libraries, you **MUST** obtain a valid license.
 
 * For a general **Commercial License**, contact us at sales@steinwurf.com.
 
-.. _form: http://steinwurf.com/license/
+.. note:: Commercial and commercial evaluation users also needs to register via
+          this form_ when a license has been signed.
 
+
+.. _form: http://steinwurf.com/license/
 
 
 .. _tools-needed:
@@ -129,7 +132,7 @@ Git Version Control System
 Our projects can be downloaded with git. This version control system allows you
 to easily get new updates whenever a project is updated.
 
-..note:: We are currently migrating our private repositories from github.com to
+.. note:: We are currently migrating our private repositories from github.com to
          gitlab.com.
 
 * The :ref:`kodo` libraries are currently still hosted on GitHub so to
@@ -147,12 +150,6 @@ Accounts for GitHub and GitLab respectively can be created at:
 
 1. `Sign-up GitHub <https://github.com/join>`_
 2. `Sign-up GitLab <https://gitlab.com/users/sign_in>`_
-
-.. note:: Users utilizing our commercial license or commercial evaluation
-          license needs to register their user-name with Steinwurf before they
-          can access the repositories. This can be done by sending an email to
-          sales@steinwurf.com containing the GitHub/GitLab username and company
-          affiliation of the specific user.
 
 GitHub / GitLab authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
