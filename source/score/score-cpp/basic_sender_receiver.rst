@@ -21,7 +21,7 @@ same ``write_data`` function. This small 1-byte message is the
 end-of-transmission message. When the receiving application sees this message,
 it knows no data more will arrive, and it can shut down.
 The end-of-transmission message format is defined by the application, and can be
-anything. After this, we call flush`` to make sure all data is written to
+anything. After this, we call ``flush`` to make sure all data is written to
 the network. ``flush`` takes a callback as argument. This callback is called
 immediately after all data is pushed to the network interface. In this example
 we stop the IO service in this callback.
@@ -29,7 +29,7 @@ we stop the IO service in this callback.
 The actual network operations start when we run the io_service (this is the
 event loop that drives the sender). The event loop will terminate when the
 sender finishes all transmissions, because we explicitly stop the io_service
-in our ``flush`` callback function. This also means that receivers that has not
+in our ``flush`` callback function. This also means that receivers that have not
 received everything when ``flush`` is called will never finish transmission,
 as this does not leave much time for repairing packet loss. A more advanced
 application may want to leave time for receivers to request and receive repair
