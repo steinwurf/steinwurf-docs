@@ -19,7 +19,7 @@ the user closes the stream by typing Q.
 We start a separate thread for running the io_service (this is the event
 loop that drives the sender and all network operations), because we will
 use the main thread to get input from the user. We read lines from standard
-input in a whileloop, and each line is written to the sender as a separate
+input in a while loop, and each line is written to the sender as a separate
 atomic message. After ``write_data`` we also call ``flush`` to ensure
 the transmission of the current message to the receivers. Without this call,
 the sender would buffer data to send coded packets of optimal size, but
@@ -29,7 +29,7 @@ in the data stream will occur. It is not needed when messages are generated
 continuously like from a live video stream. In such a scenario it should only
 be used after the very last message in the video stream.
 
-We exit the while loop if the user types Q or q,  then we call
+We exit the while loop if the user types Q or q, then we call
 ``flush`` again to ensure everything is transmitted.
 The receivers will stop after receiving the end-of-transmission message
 ("Q" or "q"). After this, we join ``io_thread`` to wait for the io_service to
@@ -49,4 +49,4 @@ from the sender. It is guaranteed that the messages are delivered in order,
 but some messages might be lost under poor network conditions. The score sender
 can be configured to compensate a certain level of packet loss or to
 automatically adjust the data redundancy based on the feedback from the
-receivers. For these adjustments, see the score parameters section.
+receivers. For these adjustments, see the :ref:`score parameters` section.
