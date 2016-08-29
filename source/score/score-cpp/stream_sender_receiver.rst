@@ -1,5 +1,5 @@
 Stream sender & receiver
-------------------------
+========================
 
 This example shows a score-cpp sender and receiver application that are
 used to multicast a stream of atomic messages on a local network.
