@@ -49,4 +49,4 @@ from the sender. It is guaranteed that the messages are delivered in order,
 but some messages might be lost under poor network conditions. The score sender
 can be configured to compensate a certain level of packet loss or to
 automatically adjust the data redundancy based on the feedback from the
-receivers. For these adjustments, see the :ref:`score parameters` section.
+receivers. For these adjustments, see the :ref:`score_parameters` section.
