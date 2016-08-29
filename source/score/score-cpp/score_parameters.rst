@@ -1,4 +1,4 @@
-.. _score_parameters
+.. _score_parameters:
 
 Score Parameters
 ================
