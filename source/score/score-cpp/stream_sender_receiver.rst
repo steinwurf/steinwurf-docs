@@ -20,7 +20,7 @@ We start a separate thread for running the io_service (this is the event
 loop that drives the sender and all network operations), because we will
 use the main thread to get input from the user. We read lines from standard
 input in a whileloop, and each line is written to the sender as a separate
-atomic message. After ``write_data`` we also call ``flush_message`` to expedite
+atomic message. After ``write_data`` we also call ``flush`` to ensure
 the transmission of the current message to the receivers. Without this call,
 the sender would buffer some data to send coded packets of optimal size, but
 here we prefer low delay over optimal link utilization.
