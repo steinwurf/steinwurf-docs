@@ -1,5 +1,5 @@
 Basic sender & receiver
------------------------
+=======================
 
 This basic example shows a score-cpp sender and receiver application that are
 used to multicast a single buffer of data on a local network.
