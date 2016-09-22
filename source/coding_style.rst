@@ -717,8 +717,8 @@ other (provided that they are on the same level).
     score::generation_storage_out::coder_type::factory factory(generation_size,
                                                                symbol_size);
 
-If the line is broken after the opening ``(``, then the parameters will be
-indented by 4 spaces:
+If the line is broken after the opening ``(``, then the next line will be
+indented by 4 spaces (even if the line has multiple opening ``(`` characters):
 
 .. code-block:: cpp
 
@@ -764,7 +764,11 @@ to break the lines at appropriate places:
                            data_out.end(),
                            data_in.begin()));
 
-    // CORRECT (simpler layout)
+    // CORRECT (only 4 spaces are added)
+    EXPECT_TRUE(std::equal(
+        data_out.begin(), data_out.end(), data_in.begin()));
+
+    // CORRECT (cleaner layout)
     EXPECT_TRUE(
         std::equal(data_out.begin(), data_out.end(), data_in.begin()));
 
@@ -932,9 +936,11 @@ layout (no nesting for each ``<``):
         kodo_core::pivot_aware_generator<
         SuperCoder> > >;
 
-In contrast with this, we apply a new level indentation for each ``<`` in
-standalone template instantiations and template argument lists. In this case,
-the closing ``>`` should be placed on a new line to get a symmetrical layout:
+In contrast with this, we apply a new level of indentation for each ``<`` in
+standalone template instantiations and template argument lists. However, if
+you open multiple template instantiations on the same line (with multiple
+``<`` characters), then you only get a single indent. It is recommended to
+place the closing ``>`` on a new line to get a symmetrical layout.
 
 .. code-block:: cpp
 
@@ -950,15 +956,15 @@ the closing ``>`` should be placed on a new line to get a symmetrical layout:
         Decoder<fifi::binary16> >(
     symbols, symbol_size);
 
-    // CORRECT (two indents are added if a line has two < openers)
+    // CORRECT (single indent for two < openers on the same line)
     parser<
         box::moov<parser<
-                box::trak<parser<
-                        box::mdia<parser<
-                                box::hdlr,
-                                box::mdhd
-                        >>
+            box::trak<parser<
+                box::mdia<parser<
+                    box::hdlr,
+                    box::mdhd
                 >>
+            >>
         >>
     > parser;
 
