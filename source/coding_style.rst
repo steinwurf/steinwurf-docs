@@ -770,31 +770,27 @@ to break the lines at appropriate places:
 
 When a function call is placed on the right side of an assignment and
 the line is broken after the opening ``(``, then the function parameters will
-be indented on the right side of the ``=`` sign. This might look slightly
-weird at first, but this is the logical layout:
+be indented by 4 spaces. So the assignment expression is not constrained to
+fit on the right side of the ``=`` sign.
 
 .. code-block:: cpp
 
     // CORRECT
     uint32_t snacks = detail::calculate_redundancy(
-                          1, message.m_feedback_probability - 1.0);
+        1, message.m_feedback_probability - 1.0);
 
     // CORRECT
     m_encoded_symbols += kodo_core::write_payloads(
-                           *m_encoder, m_payloads.data(), m_payloads.size());
+        *m_encoder, m_payloads.data(), m_payloads.size());
 
-Breaking the line after the ``=`` might lead to better results for long lines:
+If the line is not after the opening ``(``, then the function arguments
+will be properly aligned:
 
 .. code-block:: cpp
 
     // CORRECT
-    uint32_t snacks =
-        detail::calculate_redundancy(1, message.m_feedback_probability - 1.0);
-
-    // CORRECT
-    m_encoded_symbols +=
-        kodo_core::write_payloads(
-            *m_encoder, m_payloads.data(), m_payloads.size());
+    statistics iter = calculate_statistics(iterations.cbegin(),
+                                           iterations.cend());
 
 An indentation is added if the line ends with ``->``, this is common for
 new-style function definitions using the ``auto`` keyword:
@@ -834,10 +830,9 @@ indentation is not constrained by the ``=`` sign or the opening ``(``:
         boost::python::call<void>(function, zone, message);
     };
 
-    // WRONG (the line should not be broken)
+    // CORRECT (useful when the parameter list is long)
     auto callback = [function](
-                        const std::string& zone,
-                        const std::string& message)
+        const std::string& zone,const std::string& message)
     {
         boost::python::call<void>(function, zone, message);
     };
@@ -883,23 +878,14 @@ of the ``return`` statement.
            loooooooooooong_operand3;
 
 If the line is broken after the opening ``(`` of a function parameter list,
-then we get the following formatting:
+then then the parameters will be indented by 4 spaces:
 
 .. code-block:: cpp
 
     // CORRECT
     return detail::easy_bind(
-               detail::build_indices<sizeof...(Args)>(),
-               mf, std::forward<Args>(args)...));
-
-Breaking the line after the ``return`` leads to a different layout:
-
-.. code-block:: cpp
-
-    // CORRECT
-    return
-        detail::easy_bind(detail::build_indices<sizeof...(Args)>(),
-                          mf, std::forward<Args>(args)...));
+        detail::build_indices<sizeof...(Args)>(),
+        mf, std::forward<Args>(args)...));
 
 Template expressions
 ....................
