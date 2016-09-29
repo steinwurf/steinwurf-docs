@@ -586,9 +586,13 @@ be combined with braces).
 
      // CORRECT (Allman/ANSI-style)
      std::vector<uint8_t> data =
-     {
-         0x67, 0x42, 0x00, 0x0A, 0xF8, 0x41, 0xA2
-     };
+         {
+             0x67, 0x42, 0x00, 0x0A, 0xF8, 0x41, 0xA2
+         };
+
+     // ALSO CORRECT
+     std::vector<uint8_t> data =
+         { 0x67, 0x42, 0x00, 0x0A, 0xF8, 0x41, 0xA2 };
 
      // WRONG (K&R style)
      std::vector<uint8_t> data = {
