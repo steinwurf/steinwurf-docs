@@ -16,6 +16,22 @@ For Python the `PEP8 <http://legacy.python.org/dev/peps/pep-0008/>`_ standard
 is used. There are plenty of plugins and tools to automatically locate and fix
 any diversions from this style.
 
+We use the following format for docstrings:
+
+.. code-block:: python
+
+    def add(value1, value2):
+        """
+        Add the given values and return the result.
+
+        This function uses the given objects built-in + operator to add
+        them together. Afterwards the result is returned.
+
+        :param value1: the first value.
+        :param value2: the second value.
+        :return: the result of the addition of value1 and value2.
+        """
+        return value1 + value2
 
 ----------------------
 C++ general guidelines
