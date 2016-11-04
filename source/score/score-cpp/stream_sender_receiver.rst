@@ -20,21 +20,25 @@ We start a separate thread for running the io_service (this is the event
 loop that drives the sender and all network operations), because we will
 use the main thread to get input from the user. We read lines from standard
 input in a whileloop, and each line is written to the sender as a separate
-atomic message. After ``write_data`` we also call ``flush`` to ensure
-the transmission of the current message to the receivers. Without this call,
-the sender would buffer data to send coded packets of optimal size, but
-for these small chat-style messages we prefer low delay over optimal link
-utilization. The ``flush`` function should only be called when a break or pause
-in the data stream will occur. It is not needed when messages are generated
-continuously like from a live video stream. In such a scenario it should only
-be used after the very last message in the video stream.
+atomic message. If the message is the end-of-transmission message ('Q'),
+we call ``flush`` after ``write_data`` to ensure the internal buffers are
+cleared and everything is queued for transmission. After this we set a callback
+to be executed when the sender transmission queue is empty (everything is sent).
+Here we just stop the IO service.
 
-We exit the while loop if the user types Q or q,  then we call
-``flush`` again to ensure everything is transmitted.
+The ``flush`` function should only be called when it should be certain that no
+data is buffered within the sender. For example before shutting down the sender.
+It may also be used before a break or pause in the data stream will occur.
+However for such cases the sender has a built-in auto flush mechanism that will
+trigger a flush after an idle period, ensuring that no data will be buffered
+in the sender for long periods of time.
+
+We exit the while loop if the user types Q or q.
 The receivers will stop after receiving the end-of-transmission message
 ("Q" or "q"). After this, we join ``io_thread`` to wait for the io_service to
-stop. The io_service is stopped in the callback given to ``flush``. This means
-that the thread stops when all data has been pushed to the network.
+stop. The io_service is stopped in the callback given to
+``set_on_send_queue_threshold_callback``. This means that the thread stops when
+all data has been pushed to the network.
 
 The code for the corresponding receiver application is shown below.
 
