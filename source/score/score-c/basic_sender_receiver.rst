@@ -11,22 +11,27 @@ The complete sender example is shown below.
     :linenos:
 
 First we create an io_service and a sender object, then configure the
-destination address for the sender. We also set the end-of-transmission
-callback that will be executed when the sender completes the transmission of
-all data and repair packets. This is a normal C function where we can also
-pass an arbitrary value using the ``context`` parameter.
+destination address for the sender.
 
 After the initialization, we allocate a small buffer that should be transmitted
 to the receiver(s). We could fill this block with some actual data (e.g. from
 a small file), but that is not relevant here. We write this data block to the
-sender with ``score_write_data``, then we call ``score_end_of_transmission``
-to notify the sender that no more data will be added after this. The receivers
-will also get this information.
+sender with ``score_write_data``. After this, we send a small
+end-of-transmission message that the receiver recognizes and can act upon.
+Here this message is just a single byte with value 'zero'.
+Finally, we call ``score_flush`` to make sure that everything buffered inside
+the sender will be queued for transmission.
+
+We also set the callback that will be executed when the sender transmission
+queue is emptied. This is a normal C function where we can also pass an
+arbitrary value using the ``context`` parameter. If this callback is set before
+any data is written to the sender (and thus the send queue is empty when it is
+set), the callback will be called immediately.
 
 The actual network operations start when we run the io_service (this is the
 event loop that drives the sender). The event loop will terminate when the
 sender finishes all transmissions, because we explicitly stop the io_service
-in our ``eot_callback`` function.
+in our ``on_queue_empty_callback`` function.
 
 The final step is cleaning up all resources with the appropriate deleters.
 This is very important in C that does not provide automatic memory management.
