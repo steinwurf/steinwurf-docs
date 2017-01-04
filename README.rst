@@ -14,14 +14,9 @@ Installation
     git clone git@gitlab.com:steinwurf/steinwurf-docs.git
     cd steinwurf-docs
 
-#. Install pip (if it is not installed already)::
-
-    sudo apt-get install python-pip
-
 #. Install the sphinx package and the ReadTheDocs theme::
 
-    sudo apt-get install python-sphinx
-    sudo pip install sphinx_rtd_theme
+    sudo apt install python-sphinx python-sphinx-rtd-theme
 
 Building the docs
 -----------------
@@ -36,4 +31,3 @@ Launch a browser to see the result e.g.::
 
     google-chrome build/html/index.html
 
-    
