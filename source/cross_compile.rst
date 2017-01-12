@@ -108,7 +108,7 @@ following lines to your ``~/.profile`` (please adjust the paths to match
 your folder names and locations)::
 
     PATH="$PATH:$HOME/toolchains/android-sdk-linux-r22.6/platform-tools"
-    PATH="$PATH:$HOME/toolchains/arm-linux-androideabi-4.8-r10/bin"
+    PATH="$PATH:$HOME/toolchains/arm-linux-androideabi-4.9-r13b/bin"
 
 You need to log in again or open a new terminal to get the updated PATH.
 You can check that the required binaries are really in your PATH with these
@@ -121,7 +121,7 @@ Once you have everything in your PATH, use the following mkspec when you
 configure Kodo (you may also select another Android mkspec if available
 in the list provided by ``config.py``)::
 
-    python waf configure --cxx_mkspec=cxx_android_gxx48_armv7
+    python waf configure --cxx_mkspec=cxx_android5_gxx49_armv7
 
 The configure command should find your toolchain and the necessary binaries,
 and you can build the codebase as usual after this::
@@ -136,9 +136,9 @@ If you don't want to add the Android toolchains to your PATH, then we also
 provide explicit options to specify these folders during the configure step.
 Here is an example for that::
 
-    python waf configure --cxx_mkspec=cxx_android_gxx48_armv7 \
+    python waf configure --cxx_mkspec=cxx_android5_gxx49_armv7 \
     --android_sdk_dir=~/toolchains/android-sdk-linux-r22.6 \
-    --android_ndk_dir=~/toolchains/arm-linux-androideabi-4.8-r10
+    --android_ndk_dir=~/toolchains/arm-linux-androideabi-4.9-r13b
 
 .. note:: If you want to use the generated static libraries with ``ndk-build``,
           then make sure that you process at least one C++ source file (.cpp)
