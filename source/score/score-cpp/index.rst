@@ -21,4 +21,3 @@ The score-cpp repository: https://gitlab.com/steinwurf/score-cpp
    including_score_cpp
    basic_sender_receiver
    stream_sender_receiver
-   score_parameters

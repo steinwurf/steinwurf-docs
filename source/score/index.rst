@@ -10,11 +10,9 @@ Score is only available under a Commercial License. To get more information
 about pricing and how to get a license get in touch with us at
 sales@steinwurf.com.
 
-See the :ref:`overview_score` section for a detailed description.
-
 .. toctree::
    :maxdepth: 2
 
-   overview_score
-   score-c/index
+   overview
    score-cpp/index
+   score-c/index

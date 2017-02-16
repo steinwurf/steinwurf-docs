@@ -1,20 +1,85 @@
+.. _overview_score:
+
+Overview
+========
+
+The score library implements the Simple COded REliability (SCORE) protocol
+for reliable unicast and multicast communication over UDP. The protocol is
+designed for distribution of data from a sender to one or more receivers.
+It is primarily intended for reliable transmission, but it also supports
+best-effort delivery, e.g. for cases where no feedback channel is available.
+Reliability is ensured using an erasure correcting code, provided by Kodo.
+
+.. _libraries_score:
+
+Libraries
+---------
+
+The score libraries are implemented in several projects and each project has
+its own git repository. It is recommended to choose a single project and work
+with the API that is exposed by that project.
+
+:ref:`score_cpp`
+    The score-cpp library defines a simple, high-level C++ API to conveniently
+    access the basic functionality of Score, such as sending and receiving
+    data. It is very easy to integrate score-cpp into your C++ project,
+    so **it is the recommended option for most users**.
+
+:ref:`score_c`
+    The score-c library provides a simple C API that allows the programmer to
+    use Score in a C program. The C API also enables interoperability with
+    other programming languages that are not directly supported.
+
+score
+    The score repository contains the low-level C++ implementation of the SCORE
+    protocol. This is intended for experienced C++ developers who would like
+    to know more about the inner workings of the library.
+
+
 .. _score_parameters:
 
-Score Parameters
-================
+Features
+--------
 
-The score protocol provides a set of parameters that can be tuned to accommodate
-the needs of an application.
-The two sender types (stream and object senders) set these parameters to
-default values adjusted towards stream or object use cases respectively.
-For most usage scenarios choosing a sender is adequate. A stream sender should
-be chosen for scenarios where timely delivery is more important than
-reliability. This could be audio or video streaming. An object sender should be
-chosen in scenarios where data integrity (reliable transmission) is important,
-e.g. file delivery.
+Proactive Redundancy
+    Redundancy generated using an erasure correcting code can be scheduled
+    proactively e.g. to overcome some know link erasure probability and/or to reduce
+    delay due to reduced feedback and scheduling additional redundancy.
 
-Should the default stream and object senders not provide the needed performance,
-a set of parameters can be adjusted depending on the requirements:
+Reactive Redundancy
+    When too little data is received to ensure reliability, additional redundancy
+    can be generated using and erasure correcting code and transmitted from the
+    sender.
+
+Data Flush
+    When a file transfer is completed or a pause in a stream occurs, the
+    outgoing data at the sender can be flushed to ensure reliability and avoid
+    adding delay.
+
+Sender Profiles
+    Different profiles catering to different scnearios and use cases are provided.
+    The stream profile sender should be chosen for scenarios where timely delivery
+    is more important than reliability, e.g. audio or video streaming. The object
+    profile should be used in scenarios where data integrity (reliable transmission)
+    is important, e.g. file delivery.
+
+Receiver Feedback (Optional)
+    The receivers can provide feedback to the sender over the link where data is
+    transmitted or over some independent link, e.g. if a one-way link is used for
+    transmitting the data. The feedback is can be used by the sender to report user
+    statistics and adapt to changing network conditions.
+
+Serializing and Deseserializing (Optional)
+    Application data can be send as atomic units (messages) or as a stream.
+
+
+Parameters
+----------
+
+The score protocol provides a set of parameters that can be adpated to
+accommodate the needs of different applications. Should the default stream and
+object senders not provide the needed performance, a set of parameters can be
+adjusted depending on the requirements:
 
 - Symbol size
 - Generation size
@@ -23,19 +88,20 @@ a set of parameters can be adjusted depending on the requirements:
 - Generation window size
 - Send rate
 
-These parameters and their function are covered in the following sections.
+All of these parameters can be controlled by a custom controller which can
+adjust the parameter based on available state information and the priority of
+the specific application.
 
 Symbol and Generation Size
---------------------------
+..........................
 
 The symbol size defines the size (in bytes) of the data chunks that the score
-protocol operates on. These chunks are denoted symbols, because they are treated
-as mathematical entities within score.
+protocol operates on.
 In general, this symbol size should be as big as possible, while
 staying below the network MTU. E.g. for WiFi networks with an MTU of 1500 bytes,
 a symbol size of roughly 1400 bytes is recommended.
 For low bandwidth streams that require a low delay, it may be beneficial to
-lower the symbol size to e.g. 400 bytes. This lowers the data delivery delay, as
+lower the symbol size. This lowers the data delivery delay, as
 data packets are sent more frequently from the sender, as well as the repair
 process is triggered more often.
 
@@ -46,7 +112,8 @@ generation size generally means lower latency between transmission and delivery
 of data.
 
 Data Redundancy
----------------
+...............
+
 The data redundancy parameter is used to pro-actively introduce repair data
 to counteract packet loss on the network. A parameter value of ``0.0`` means
 that only the original data is transmitted initially, and then the repair phase
@@ -59,7 +126,8 @@ the transmission. However, the data delivery delay will generally be reduced,
 as data is readily available without the need for repair phases.
 
 Feedback Probability
---------------------
+....................
+
 Internally, score schedules repair data based on feedback received from
 receivers. Feedback messages are generated at specific feedback events during
 transmission. For multicast scenarios with a lot of receivers
@@ -83,7 +151,8 @@ mode of operation, where no feedback will be sent at all, and the recovery of
 packet loss fully relies on the data redundancy parameter.
 
 Generation Window Size
-----------------------
+......................
+
 The sender temporarily stores previously transmitted data in an internal buffer
 in case a receiver needs repair data at a later point in time. The size of this
 internal buffer denotes how far back in the data stream repair data can be
@@ -109,7 +178,8 @@ size parameter should be set to 50 in order to get a resulting internal buffer
 size of 500 kB (= 0.5 MB).
 
 Send Rate
----------
+.........
+
 It is possible to limit the send rate to a desired max rate, either to make room
 for other network traffic or to prevent packet loss due to congestion.
 Since score uses UDP traffic, it does not implement any sort of congestion
@@ -119,3 +189,21 @@ application at rate ``X`` will also be sent at roughly rate ``X``,
 as long as the specified send rate ``Y`` is higher than ``X``.
 The send rate is a limit, and only guarantees that this limit is not exceeded.
 The actual send rate may be lower than the specified limit.
+
+
+Platform Support
+----------------
+
+Score is portable to a wide range of platforms (both hardware platforms and
+operating systems).
+
+We ensure compatibility with the supported platforms through a suite of unit
+tests, the current status can be checked at the `Steinwurf Buildbot`_ page.
+At the bottom of the main page, you can find detailed information
+about which platforms and compilers are currently tested by Steinwurf.
+
+.. _Steinwurf Buildbot: http://buildbot.steinwurf.com
+
+.. note:: The Buildbot is used for several different libraries. The
+  score-c and score-cpp libraries can be found in the overview on the
+  main page.
