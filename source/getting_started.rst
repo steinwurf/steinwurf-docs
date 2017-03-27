@@ -169,7 +169,11 @@ login works for you::
 
     ssh -T git@github.com
 
-Unfortunately a similar pre-check is not possible with GitLab.
+And try the same thing on GitLab::
+
+    ssh -T git@gitlab.com
+    
+In both cases, you should get a short welcome message.
 
 
 .. note:: If you don't want to configure SSH authentication on github.com or
