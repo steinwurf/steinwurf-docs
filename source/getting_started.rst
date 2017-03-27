@@ -159,7 +159,8 @@ downloading our main libraries (and their dependencies), then we recommend using
 Git-over-SSH. It is easy to configure SSH authentication on all platforms
 following this `GitHub guide`_ or `GitLab guide`_.
 
-You don't have to use a passphrase, and you can skip Step 3. If you are using
+You don't have to use a passphrase, and you can skip anything about the
+ssh-agent, because your key will be loaded automatically. If you are using
 Windows, then run these commands in Git Bash.
 We don't recommend using "GitHub for Windows", so don't follow the
 Windows-specific guide (the generic guide is good for all platforms).
@@ -172,7 +173,7 @@ login works for you::
 And try the same thing on GitLab::
 
     ssh -T git@gitlab.com
-    
+
 In both cases, you should get a short welcome message.
 
 
@@ -188,7 +189,7 @@ In both cases, you should get a short welcome message.
 
 
 .. _`GitHub guide`:
-   https://help.github.com/articles/generating-ssh-keys/#platform-all
+   https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 
 .. _`GitLab guide`:
-   http://docs.gitlab.com/ce/ssh/README.html
+   https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html
