@@ -184,10 +184,17 @@ Raspberry Pi
 You can download the pre-built Raspberry Pi toolchain for 64-bit Linux here:
 http://files.steinwurf.com/toolchains/linux/raspberry-gcc-4.9.3/
 
-Extract ``raspberry-gxx493-arm.zip`` to a folder of your liking. You also need
-to add the `bin`` folder of the Raspberry toolchain to your PATH. For example,
-you can add the following lines to your ``~/.profile`` (please adjust the
-paths to match your folder names and locations)::
+Extract ``raspberry-gxx493-arm.zip`` to a folder of your liking. Use the 
+``unzip`` commandline tool to make sure the extraction handles symbolic links
+correctly::
+
+    sudo apt-get update
+    sudo apt-get install unzip
+    unzip raspberry-gxx493-arm.zip -d [folder of your liking]
+
+You also need to add the ``bin`` folder of the Raspberry toolchain to your PATH.
+For example, you can add the following lines to your ``~/.profile`` 
+(please adjust the paths to match your folder names and locations)::
 
     PATH="$PATH:$HOME/toolchains/arm-rpi-4.9.3-linux-gnueabihf/bin"
 
