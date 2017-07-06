@@ -54,8 +54,10 @@ Get the dependencies using the following command::
 Download Tools (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **C++11 compliant compiler:** You need a working C++11 compiler. We tested
-   `Visual Studio Express 2015 for Desktop`_ (which is free of charge).
+1. **C++11 compliant compiler:** You need a working C++11 compiler. The latest
+   supported version is `Visual Studio Express 2015 for Desktop`_, the
+   Professional and Community Editions should also work. Visual Studio 2017
+   is not supported at the moment.
 
 2. **Python:** You need a working Python installation. Find the available
    download on the `Python homepage`_. If you are in doubt about which version
@@ -71,7 +73,7 @@ Download Tools (Windows)
    work fine.
 
 .. _`Visual Studio Express 2015 for Desktop`:
-   https://www.visualstudio.com/downloads/download-visual-studio-vs
+   https://www.visualstudio.com/post-download-vs/?sku=xdesk&clcid=0x409&telem=ga
 
 .. _`Python homepage`:
    http://www.python.org/download/
