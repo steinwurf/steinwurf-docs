@@ -53,7 +53,7 @@ encoder or decoder.
 Overview of Typical Codec Stack
 -------------------------------
 In the figure below you see what a typical codec stack looks like. The
-APIs used at each layer is documented in our API Documentation (`Doxygen`_).
+APIs used at each layer is documented in our Doxygen API Documentation.
 In this section we will briefly describe the functionality of each layer.
 This should hopefully make it easier for developers to find the right
 place to add new functionality and thereby also which API they should
@@ -76,9 +76,8 @@ In the following we will provide an overview of the purpose of each API
 layer. The goal is to make it easier to figure out where to look for
 specific functionality or where new functionality should be added.
 
-You may find the exact API specifications in our `Doxygen`_ documentation.
+You may find the exact API specifications in our Doxygen documentation.
 
-.. _Doxygen: http://bongo.steinwurf.dk/static/files/doxygen/kodo/master/html
 .. _mixin layers: http://www.drdobbs.com/cpp/mixin-based-programming-in-c/184404445
 
 User API
