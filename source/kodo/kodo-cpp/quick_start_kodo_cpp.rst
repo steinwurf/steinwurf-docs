@@ -58,25 +58,25 @@ and unit tests using the Waf build system.
 
    The ``waf configure`` command ensures that all tools needed by Kodo are
    available and prepares to build Kodo. This step will also download
-   several libraries into a local folder called ``bundle_dependencies``.
+   several libraries into a local folder called ``resolved_dependencies``.
 
    .. note:: The ``waf configure`` step might take several minutes depending on
              the speed of your Internet connection. This would be a
              good time to grab a coffee or similar while the dependencies are
              downloaded.
 
-   .. note:: You can use the ``--bundle-path`` option to specify the download
+   .. note:: You can use the ``--resolve_path`` option to specify the download
              location for the dependencies (if you want to change the default
              location).
 
              On Linux and Mac OSX::
 
-                 python waf configure --bundle-path=~/dev/bundle_dependencies
+                 python waf configure --resolve_path=~/dev/resolved_dependencies
 
-             On Windows, you can also specify the ``bundle-path`` as an absolute
+             On Windows, you can also specify the ``resolve_path`` as an absolute
              path with a drive letter, for example::
 
-                 python waf configure --bundle-path=C:\dev\bundle_dependencies
+                 python waf configure --resolve_path=C:\dev\resolved_dependencies
 
    .. note:: If you have not configured Git-over-SSH to automatically
              authenticate on github.com, you might see an error when waf

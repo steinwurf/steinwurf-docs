@@ -15,26 +15,17 @@ Reliability is ensured using an erasure correcting code, provided by Kodo.
 Libraries
 ---------
 
-The score libraries are implemented in several projects and each project has
-its own git repository. It is recommended to choose a single project and work
-with the API that is exposed by that project.
+The score repository is located here: https://gitlab.com/steinwurf/score
 
-:ref:`score_cpp`
-    The score-cpp library defines a simple, high-level C++ API to conveniently
-    access the basic functionality of Score, such as sending and receiving
-    data. It is very easy to integrate score-cpp into your C++ project,
-    so **it is the recommended option for most users**.
+The score library implements the underlying protocol and also contains
+high-level C++ wrappers (located in the ``src/score/api`` folder).
+These wrappers provide access to the full functionality of score without
+exposing any implementation details to the user. Using **this high-level API
+is the recommended option for most users**.
 
-:ref:`score_c`
-    The score-c library provides a simple C API that allows the programmer to
-    use Score in a C program. The C API also enables interoperability with
-    other programming languages that are not directly supported.
-
-score
-    The score repository contains the low-level C++ implementation of the SCORE
-    protocol. This is intended for experienced C++ developers who would like
-    to know more about the inner workings of the library.
-
+Experienced C++ developers can also access the low-level protocol
+implementation in the same repository. This can be useful to make custom
+modifications or to learn more about the inner workings of the library.
 
 .. _score_parameters:
 
@@ -43,8 +34,8 @@ Features
 
 Proactive Redundancy
     Redundancy generated using an erasure correcting code can be scheduled
-    proactively e.g. to overcome some know link erasure probability and/or to reduce
-    delay due to reduced feedback and scheduling additional redundancy.
+    proactively e.g. to overcome some know link erasure probability and/or to
+    reduce delay due to reduced feedback and scheduling additional redundancy.
 
 Reactive Redundancy
     When too little data is received to ensure reliability, additional redundancy
