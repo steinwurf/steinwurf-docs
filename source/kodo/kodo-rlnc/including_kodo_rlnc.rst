@@ -44,7 +44,7 @@ application.
     python waf configure
 
 #. Assuming everything went as planned, you should have a folder called
-   ``bundle_dependencies`` in your kodo folder. You can now build
+   ``resolved_dependencies`` in your kodo folder. You can now build
    Kodo and its dependencies::
 
     python waf build
@@ -72,12 +72,12 @@ application.
     -ftree-vectorize \
     -std=c++0x \
     -I../../src \
-    -I../../bundle_dependencies/boost-abe3de/1.7.0 \
-    -I../../bundle_dependencies/cpuid-4d8071/3.1.0/src \
-    -I../../bundle_dependencies/fifi-8960fd/15.0.0/src \
-    -I../../bundle_dependencies/platform-bccd32/1.1.0/src \
-    -I../../bundle_dependencies/recycle-b2469b/1.0.1/src \
-    -I../../bundle_dependencies/sak-1bdcea/13.0.0/src \
+    -I../../resolved_dependencies/boost-abe3de/1.7.0 \
+    -I../../resolved_dependencies/cpuid-4d8071/3.1.0/src \
+    -I../../resolved_dependencies/fifi-8960fd/15.0.0/src \
+    -I../../resolved_dependencies/platform-bccd32/1.1.0/src \
+    -I../../resolved_dependencies/recycle-b2469b/1.0.1/src \
+    -I../../resolved_dependencies/sak-1bdcea/13.0.0/src \
     encode_decode_simple.cpp \
     -o encode_decode_simple \
     -Wl,-Bstatic \

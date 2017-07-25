@@ -13,6 +13,8 @@ sales@steinwurf.com.
 .. toctree::
    :maxdepth: 2
 
-   overview
-   score-cpp/index
-   score-c/index
+   overview_score
+   quick_start_score
+   including_score
+   basic_sender_receiver
+   stream_sender_receiver

@@ -1,12 +1,12 @@
 Basic sender & receiver
 =======================
 
-This basic example shows a score-cpp sender and receiver application that are
+This basic example shows a score sender and receiver application that are
 used to multicast a single buffer of data on a local network.
 
 The complete sender example is shown below.
 
-.. literalinclude:: /../../score-cpp/examples/simple_sender/simple_sender.cpp
+.. literalinclude:: /../../score/examples/udp_object_sender_receiver/udp_object_sender.cpp
     :language: c++
     :linenos:
 
@@ -28,20 +28,16 @@ IO service in this callback.
 The actual network operations start when we run the io_service (this is the
 event loop that drives the sender). The event loop will terminate when the
 sender finishes all transmissions, because we explicitly stop the io_service
-in our ``on_send_queue_threshold_callback`` callback function. This also means
+in our ``on_queue_empty_callback`` callback. This also means
 that receivers that have not received everything when this callback is executed
 will never finish transmission. This approach does not leave much time for
 repairing packet loss. A more advanced application may want to leave time for
 receivers to request and receive repair data before shutting down
 the event loop.
 
-There is no need to manually clean up the allocated objects, since score-cpp
-provides automatic memory management. The objects will be deleted when they
-go out of scope.
-
 The code for the corresponding receiver application is shown below.
 
-.. literalinclude:: /../../score-cpp/examples/simple_receiver/simple_receiver.cpp
+.. literalinclude:: /../../score/examples/udp_object_sender_receiver/udp_object_receiver.cpp
     :language: c++
     :linenos:
 
@@ -56,5 +52,5 @@ so the same block will be received in one go (i.e. ``read_data`` will be called
 once when the full block is available, and finally when the end-of-transmission
 message is received.). If we send multiple blocks, this callback function would
 be invoked for each block.
-The data messages are atomic in scorecpp, so no partial message will be passed
-to the read_data function.
+The data messages are atomic in score, so no partial message will be passed
+to the ``read_data`` function.

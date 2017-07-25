@@ -1,11 +1,11 @@
-.. _including_score_cpp:
+.. _including_score:
 
-Including score-cpp in Your Application
-=======================================
+Including score in Your Application
+===================================
 
-This guide shows how to include the score-cpp library in your application.
+This guide shows how to include the score library in your application.
 
-First of all, you need to build score-cpp following the :ref:`getting_started`
+First of all, you need to build score following the :ref:`getting_started`
 guide. If you want to cross-compile for your target platform (e.g. Android,
 iOS, Raspberry Pi), please follow the :ref:`cross_compile` section.
 
@@ -22,25 +22,24 @@ In this example, we will create the ``shared_test`` folder for this purpose::
 
     python waf install --install_shared_libs --install_path="./shared_test"
 
-Actually, score-cpp uses the score-c shared library that is called
-``libscorec.so`` on Linux, ``scorec.dll`` on Windows and ``libscorec.dylib``
-on Mac OSX. You can link with this shared library using your own build system.
-You also need to include the ``scorecpp.hpp`` header in your code. This header
-file depends on other headers from score-cpp and on ``scorec.h`` from score-c.
-All the necessary header files are installed to the ``include`` folder within
-the specified ``install_path``.
+The score shared library is called ``libscore_shared.so`` on Linux,
+``score_shared.dll`` on Windows and ``libscore_shared.dylib`` on Mac OSX.
+You can link with this shared library using your own build system.
+The necessary header files are installed to the ``include`` folder within
+the specified ``install_path``. So you can include the necessary header
+files in your code, for example ``<score/api/udp_sender.hpp>``.
 
-Now we copy an existing score-cpp example (simple_sender) to the
+Now we copy an existing score example (udp_object_sender) to the
 ``shared_test`` folder and we compile it to a binary called ``myapp``::
 
-    cp examples/simple_sender/simple_sender.cpp shared_test/myapp.cpp
+    cp examples/udp_object_sender_receiver/udp_object_sender.cpp shared_test/myapp.cpp
     cd shared_test
 
 The following command demonstrates the necessary flags for the g++ compiler
 (other compilers require similar settings)::
 
-    g++ myapp.cpp -o myapp -std=c++11 -I./include -L. -Wl,-Bdynamic -lscorec \
-    -Wl,-rpath .
+    g++ myapp.cpp -o myapp -std=c++14 -I./include -L. -Wl,-Bdynamic \
+    -lscore_shared -Wl,-rpath .
 
 In practice, you should set the ``-I`` and ``-L`` flags to the path where you
 installed the shared library.
@@ -59,34 +58,34 @@ the path where you installed the shared library.
 Static Library
 --------------
 
-After building score-cpp, you can install the static libraries to your target
+After building score, you can install the static libraries to your target
 folder with the following command (the ``install_path`` option specifies
 the target folder which will be ``static_test`` in this example)::
 
     python waf install --install_static_libs --install_path="./static_test"
 
-Actually, score-cpp is a header-only wrapper for the score-c static library that
-is called ``libscorec_static.a`` on Linux and Mac and ``scorec_static.lib`` on
-Windows. The install command also installs the static libraries from the
-score-cpp dependencies (you will need the ``fifi``and ``cpuid`` libraries as
-well to link your application).
+The top-level score static library is called ``libscore_static.a`` on Linux and
+Mac and ``score_static.lib`` on Windows. Actually, the install command also
+installs the static libraries from several score dependencies that are needed
+when you link your application against the top-level shared library (the
+compilation commands below show the list of required libraries).
 
-You can link with these static libraries using your own build system. Of course,
-you will need to include ``scorecpp.hpp`` in your code that depends on other
-header files. All the necessary header files are installed to the ``include``
-folder within the specified ``install_path``.
+You can link with these static libraries using your own build system.
+The necessary header files are installed to the ``include`` folder within
+the specified ``install_path``. So you can include the necessary header
+files in your code, for example ``<score/api/udp_sender.hpp>``.
 
-Now we copy an existing score-cpp example (simple_sender) to the
+Now we copy an existing score example (udp_object_sender) to the
 ``static_test`` folder and we compile it to a binary called ``myapp``::
 
-    cp examples/simple_sender/simple_sender.cpp static_test/myapp.cpp
+    cp examples/udp_object_sender_receiver/udp_object_sender.cpp static_test/myapp.cpp
     cd static_test
 
 The following command demonstrates the necessary flags for the g++ compiler
 (other compilers require similar settings)::
 
-    g++ myapp.cpp -o myapp -std=c++11 -I./include -Wl,-Bstatic -L. \
-    -lscorec_static -lfifi -lcpuid -Wl,-Bdynamic
+    g++ myapp.cpp -o myapp -std=c++14 -I./include -L. -lscore_static \
+    -lscore_internal -lchunkie -lfifi -lcpuid -lboost_system
 
 In practice, you should set the ``-I`` and ``-L`` flags to the path where you
 installed the static libraries.

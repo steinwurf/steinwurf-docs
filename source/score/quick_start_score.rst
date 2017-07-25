@@ -1,4 +1,4 @@
-.. _quick_start_score_cpp:
+.. _quick_start_score:
 
 Quick Start
 ===========
@@ -28,10 +28,10 @@ Recommended: Clone the Git Repository Using the Terminal (Linux and Mac OSX)
     mkdir dev
     cd dev
 
-2. Clone and download the score-cpp library by running (this will create a
-   new directory called ``score-cpp``)::
+2. Clone and download the score library by running (this will create a
+   new directory called ``score``)::
 
-    git clone git@gitlab.com:steinwurf/score-cpp.git
+    git clone git@gitlab.com:steinwurf/score.git
 
 Recommended: Clone the Git Repository Using TortoiseGit (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,15 +40,15 @@ Open the directory where you want to clone the project, right-click on empty
 space and select ``Git Clone...`` from the context menu. The TortoiseGit clone
 dialog will appear, copy this to the URL field::
 
-    git@gitlab.com:steinwurf/score-cpp.git
+    git@gitlab.com:steinwurf/score.git
 
 You can also customize the name of the target directory if you wish.
-By default, a new folder called ``score-cpp`` will be created.
+By default, a new folder called ``score`` will be created.
 
 .. note:: If you decide to clone the repository with the ``https`` protocol
           then use this URL in TortoiseGit::
 
-            https://gitlab.com/steinwurf/score-cpp.git
+            https://gitlab.com/steinwurf/score.git
 
 
 Building the Score Examples and Unit Tests
@@ -59,7 +59,7 @@ and unit tests using the Waf build system.
 
 1. Navigate to the directory where you have downloaded the Score source code::
 
-     cd ~/dev/score-cpp/
+     cd ~/dev/score/
 
 2. Invoke ``waf`` to build the Score unit tests and examples::
 
@@ -67,25 +67,25 @@ and unit tests using the Waf build system.
 
    The ``waf configure`` command ensures that all tools needed by Score are
    available and prepares to build Score. This step will also download
-   several libraries into a local folder called ``bundle_dependencies``.
+   several libraries into a local folder called ``resolved_dependencies``.
 
    .. note:: The ``waf configure`` step might take several minutes depending on
              the speed of your Internet connection. This would be a
              good time to grab a coffee or similar while the dependencies are
              downloaded.
 
-   .. note:: You can use the ``--bundle-path`` option to specify the download
+   .. note:: You can use the ``--resolve_path`` option to specify the download
              location for the dependencies (if you want to change the default
              location).
 
              On Linux and Mac OSX::
 
-                 python waf configure --bundle-path=~/dev/bundle_dependencies
+                 python waf configure --resolve_path=~/dev/resolved_dependencies
 
-             On Windows, you can also specify the ``bundle-path`` as an absolute
+             On Windows, you can also specify the ``resolve_path`` as an absolute
              path with a drive letter, for example::
 
-                 python waf configure --bundle-path=C:\dev\bundle_dependencies
+                 python waf configure --resolve_path=C:\dev\resolved_dependencies
 
    .. note:: If you have not configured Git-over-SSH to automatically
              authenticate on gitlab.com, you might see an error when waf
