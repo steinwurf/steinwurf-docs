@@ -65,7 +65,7 @@ the target folder which will be ``static_test`` in this example)::
 
 The kodo-c static library is called ``libkodoc_static.a`` on Linux and Mac and
 ``kodoc_static.lib`` on Windows. The install command also installs the static
-libraries from the kodo-c dependencies (you will need the ``fifi``and ``cpuid``
+libraries from the kodo-c dependencies (you will need the ``fifi`` and ``cpuid``
 libraries as well).
 
 You can link with these static libraries using your own build system. Of course,

@@ -68,8 +68,8 @@ the target folder which will be ``static_test`` in this example)::
 Actually, kodo-cpp is a header-only wrapper for the kodo-c static library that
 is called ``libkodoc_static.a`` on Linux and Mac and ``kodoc_static.lib`` on
 Windows. The install command also installs the static libraries from the
-kodo-cpp dependencies (you will need the ``fifi``and ``cpuid`` libraries as well
-to link your application).
+kodo-cpp dependencies (you will need the ``fifi`` and ``cpuid`` libraries
+as well to link your application).
 
 You can link with these static libraries using your own build system. Of course,
 you will need to include ``kodocpp.hpp`` in your code that depends on other
