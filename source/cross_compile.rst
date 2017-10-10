@@ -101,14 +101,14 @@ http://bongo.steinwurf.com/files/public/toolchains
 You also need the Android SDK, because we need to find the ``adb`` tool
 during the configure step. If you do not have it already the `Android
 guide`_ describes both where to download the Android SDK and how to get the
-``adb`` tool. To ensure our build system will pick up the dependencies the
+``adb`` tool. To ensure our build system will pick up the dependencies, the
 easiest solution is to add the path to ``adb`` and the ``bin`` folder of
 the standalone toolchain to your PATH. For example, you can add the
 following lines to your ``~/.profile`` (please adjust the paths to match
 your folder names and locations)::
 
-    PATH="$PATH:$HOME/toolchains/android-sdk-linux-r22.6/platform-tools"
-    PATH="$PATH:$HOME/toolchains/arm-linux-androideabi-4.9-r13b/bin"
+    PATH="$PATH:$HOME/toolchains/android-sdk-linux/platform-tools"
+    PATH="$PATH:$HOME/toolchains/arm-linux-androideabi-r14/bin"
 
 You need to log in again or open a new terminal to get the updated PATH.
 You can check that the required binaries are really in your PATH with these
@@ -118,10 +118,19 @@ commands::
     arm-linux-androideabi-g++ --version
 
 Once you have everything in your PATH, use the following mkspec when you
-configure Kodo (you may also select another Android mkspec if available
+configure (you may also select another Android mkspec if available
 in the list provided by ``config.py``)::
 
     python waf configure --cxx_mkspec=cxx_android5_gxx49_armv7
+
+Starting from NDK r14, you can also use the clang compiler to compile our
+projects::
+
+    python waf configure --cxx_mkspec=cxx_android5_clang38_armv7
+
+Note that the ``android5`` designation in the mkspec indicates that a
+position independent executable (PIE) will be generated. This is required
+on Android 5 and above, but Android 4.1+ can also run a PIE binary.
 
 The configure command should find your toolchain and the necessary binaries,
 and you can build the codebase as usual after this::
@@ -129,16 +138,17 @@ and you can build the codebase as usual after this::
     python waf build
 
 You can find the generated Android binaries in the
-``build/cxx_android_gxx48_arm`` folder. You can transfer these binaries to your
-Android device with adb. Read our `Android guide`_ for more information on this.
+``build/cxx_android5_gxx49_armv7`` folder. You can transfer these binaries to
+your Android device with adb (you can use ``/data/local/tmp/`` as a target
+folder). Read our `Android guide`_ for more information on this.
 
 If you don't want to add the Android toolchains to your PATH, then we also
 provide explicit options to specify these folders during the configure step.
 Here is an example for that::
 
     python waf configure --cxx_mkspec=cxx_android5_gxx49_armv7 \
-    --android_sdk_dir=~/toolchains/android-sdk-linux-r22.6 \
-    --android_ndk_dir=~/toolchains/arm-linux-androideabi-4.9-r13b
+    --android_sdk_dir=~/toolchains/android-sdk-linux \
+    --android_ndk_dir=~/toolchains/arm-linux-androideabi-r14
 
 .. note:: If you want to use the generated static libraries with ``ndk-build``,
           then make sure that you process at least one C++ source file (.cpp)
@@ -184,7 +194,7 @@ Raspberry Pi
 You can download the pre-built Raspberry Pi toolchain for 64-bit Linux here:
 http://files.steinwurf.com/toolchains/linux/raspberry-gcc-4.9.3/
 
-Extract ``raspberry-gxx493-arm.zip`` to a folder of your liking. Use the 
+Extract ``raspberry-gxx493-arm.zip`` to a folder of your liking. Use the
 ``unzip`` commandline tool to make sure the extraction handles symbolic links
 correctly::
 
@@ -193,7 +203,7 @@ correctly::
     unzip raspberry-gxx493-arm.zip -d [folder of your liking]
 
 You also need to add the ``bin`` folder of the Raspberry toolchain to your PATH.
-For example, you can add the following lines to your ``~/.profile`` 
+For example, you can add the following lines to your ``~/.profile``
 (please adjust the paths to match your folder names and locations)::
 
     PATH="$PATH:$HOME/toolchains/arm-rpi-4.9.3-linux-gnueabihf/bin"
@@ -225,7 +235,7 @@ Here we explain how to do that for a device with an ARM CPU.
 First, you should install the required packages to build the toolchain (this
 list works for Ubuntu and Debian)::
 
-    sudo apt-get install gcc g++ subversion git-core build-essential gawk libncurses5-dev zlib1g-dev unzip
+    sudo apt-get install gcc g++ subversion git-core build-essential gawk libncurses5-dev zlib1g-dev libssl1.0-dev unzip
 
 Then clone the standard OpenWrt toolchain (you change the target path if
 you prefer)::
@@ -234,16 +244,16 @@ you prefer)::
     git clone git://git.openwrt.org/openwrt.git
     cd openwrt
 
-This guide was written using revision 46117 of OpenWrt, and it is recommended
+This guide was written using revision 49395 of OpenWrt, and it is recommended
 to check out the same revision (you can also try the master).
 You can check your current revision::
 
     git show --summary
 
-To find the corresponding git commit ID and check out revision 46117::
+To find the corresponding git commit ID and check out revision 49395::
 
-    git log --grep=46117
-    git checkout be88f0504603a
+    git log --grep=49395
+    git checkout 9b4650
 
 This command will pop up a menuconfig window::
 
@@ -256,12 +266,12 @@ Save this initial menuconfig, and then open the full menuconfig::
 
     make menuconfig
 
-Here we need to change the GCC version to 4.8.x::
+Make sure that GCC 5.x is selected in the Toolchain Options::
 
     [*] Advanced configuration options (for developers)  --->
      Toolchain Options  --->
-      GCC compiler Version (gcc 4.8.x with Linaro enhancements)  --->
-       (X) gcc 4.8.x with Linaro enhancements
+      GCC compiler Version (gcc 5.x)  --->
+       (X) gcc 5.x
 
 Save the configuration and build the OpenWrt toolchain (``-j4`` uses 4 cores to
 speed up the process)::
@@ -275,8 +285,8 @@ to point to the ``staging_dir`` folder. For example, you can add the following
 lines to your ``~/.profile`` (please adjust the paths to match your folder
 names and locations if necessary)::
 
-    PATH="$PATH:$HOME/toolchains/openwrt/staging_dir/toolchain-arm_v6k_gcc-4.8-linaro_uClibc-0.9.33.2_eabi/bin"
-    STAGING_DIR="$HOME/toolchains/openwrt/trunk/staging_dir/"
+    PATH="$PATH:$HOME/toolchains/openwrt/staging_dir/toolchain-arm_mpcore+vfp_gcc-5.3.0_musl-1.1.14_eabi/bin"
+    STAGING_DIR="$HOME/toolchains/openwrt/staging_dir/"
     export STAGING_DIR
 
 You need to log in again or open a new terminal to get the updated PATH.
@@ -286,20 +296,19 @@ You can check that the required binaries are in your PATH with this command::
 
 Go to your Kodo folder, and configure Kodo with the following mkspec::
 
-    python waf configure --cxx_mkspec=cxx_openwrt_gxx48_arm
+    python waf configure --cxx_mkspec=cxx_openwrt_gxx53_arm
 
 The configure command should find your toolchain binaries,
 and you can build the codebase as usual after this::
 
     python waf build
 
-You can find the generated binaries in the
-``build/cxx_openwrt_gxx48_arm`` folder. You can transfer these binaries
-to your OpenWrt device with any tool you like (e.g. SCP). The binaries
-can be a bit large, because the mkspec embeds the C++ standard library (with
-the ``-static-libstdc++`` linker flag). The ``libstdcpp`` package is usually
-not installed on OpenWrt devices, or it might be incompatible with the
-GCC 4.8.x compiler.
+You can find the generated binaries in the ``build/cxx_openwrt_gxx53_arm``
+folder. You can transfer these binaries to your OpenWrt device with any tool
+you like (e.g. SCP). The binaries can be a bit large, because the mkspec embeds
+the C++ standard library (with the ``-static-libstdc++`` linker flag).
+The ``libstdcpp`` package is usually not installed on OpenWrt devices, or it
+might be incompatible with the GCC 5.x compiler.
 
 Note that the following packages are required on your OpenWrt device to
 run the generated binaries, you can run these commands on your device if it
