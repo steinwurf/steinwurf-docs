@@ -18,3 +18,4 @@ sales@steinwurf.com.
    including_score
    basic_sender_receiver
    stream_sender_receiver
+   wifi_multicast_configuration
