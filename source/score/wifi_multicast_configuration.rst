@@ -52,7 +52,7 @@ is controlled by the DTIM period.
 For these reasons you should consider the following configurations:
 
 * Setting the **DTIM period to 1** will make every beacon a DTIM beacon.
-  Multicast/broadcast traffic will be sent after each beacon. Set the
+  Multicast/broadcast traffic will be sent after each beacon. 
 * Set a low **beacon interval e.g. 15ms** (most access points use per
   default 100ms)
 
