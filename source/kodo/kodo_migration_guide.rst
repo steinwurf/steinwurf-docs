@@ -89,25 +89,25 @@ kodo-rlnc
     {
         uint32_t symbols = 10;
         uint32_t symbol_size = 1000;
+        fifi::api::field field = fifi::api::field::binary8;
 
-        using rlnc_encoder = kodo_rlnc::full_vector_encoder<fifi::binary8>;
-        using rlnc_decoder = kodo_rlnc::full_vector_decoder<fifi::binary8>;
+        using rlnc_encoder = kodo_rlnc::full_vector_encoder;
+        using rlnc_decoder = kodo_rlnc::full_vector_decoder;
 
-        rlnc_encoder::factory encoder_factory(symbols, symbol_size);
-        rlnc_decoder::factory decoder_factory(symbols, symbol_size);
+        rlnc_encoder::factory encoder_factory(field, symbols, symbol_size);
+        rlnc_decoder::factory decoder_factory(field, symbols, symbol_size);
 
         auto encoder = encoder_factory.build();
         auto decoder = decoder_factory.build();
 
-        encoder->set_const_symbols(sak::storage(...));
+        encoder->set_const_symbols(storage::storage(...));
+        decoder->set_mutable_symbols(storage::storage(...));
 
         while (!decoder->is_complete())
         {
             encoder->write_payload(...);
             decoder->read_payload(...);
         }
-
-        decoder->copy_from_symbols(sak::storage(...));
     }
 
 kodo-python
@@ -136,40 +136,3 @@ kodo-python
             decoder.read_payload(payload)
 
         data_out = decoder.copy_from_symbols()
-
-
-kodo (deprecated)
------------------
-
-We also show the API of our original kodo repository which is now deprecated.
-If you are still using this API, then consider migrating to the other projects
-that are mentioned above.
-
-.. code-block:: cpp
-
-    #include <kodo/rlnc/full_vector_codes.hpp>
-
-    int main()
-    {
-        uint32_t symbols = 10;
-        uint32_t symbol_size = 1000;
-
-        using rlnc_encoder = kodo::rlnc::full_vector_encoder<fifi::binary8>;
-        using rlnc_decoder = kodo::rlnc::full_vector_decoder<fifi::binary8>;
-
-        rlnc_encoder::factory encoder_factory(symbols, symbol_size);
-        rlnc_decoder::factory decoder_factory(symbols, symbol_size);
-
-        auto encoder = encoder_factory.build();
-        auto decoder = decoder_factory.build();
-
-        encoder->set_const_symbols(sak::storage(...));
-
-        while (!decoder->is_complete())
-        {
-            encoder->write_payload(...);
-            decoder->read_payload(...);
-        }
-
-        decoder->copy_from_symbols(sak::storage(...));
-    }

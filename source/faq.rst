@@ -8,6 +8,128 @@ This page tries to answer common questions about network coding and Kodo.
 
 .. contents::
 
+Practical Questions about Kodo
+------------------------------
+
+Our users typically ask questions like these when using Kodo.
+
+Which Kodo codec should I choose for my application?
+....................................................
+
+The Kodo library provides multiple code variants and most of these have
+dedicated examples that demonstrate the API differences. Therefore it is a
+good idea to go through the ``examples`` folder of the given repository
+before choosing a codec. You can also find a detailed description of each
+codec and its API in the corresponding ``kodo-rlnc`` header file and the
+generated Doxygen documentation.
+
+For most applications, the ``full_vector`` code is a good first choice, since
+it provides a straightforward API that is used in many of our examples.
+If you want to minimize the coding vector overhead and you don't use recoding
+in your network, then our ``seed`` code might be an optimal choice. If you
+cannot wait for a full block of symbols, then take a look at the ``on_the_fly``
+or ``sliding_window`` code variants.
+
+Which finite field should I choose?
+...................................
+
+Our fastest finite field is GF(2) which is called ``binary`` in our Fifi
+library, so this can be a good starting point. We should note that using the
+``binary`` field entails higher linear_dependency_ and therefore it might not
+be optimal for all applications. We also provide GF(2^4) as ``binary4`` and
+GF(2^8) as ``binary8`` which are slower, but their linear_dependency_ is much
+lower. The ``binary`` field can be up to 10 times faster than ``binary4`` and
+``binary8``, but the difference largely depends on the available hardware
+acceleration (the gap is a lot smaller on CPUs with SSSE3, AVX2 or NEON
+instruction sets).
+
+How can I choose the number of symbols in a generation?
+.......................................................
+
+The number of symbols has a very significant impact on coding performance,
+therefore it is recommended to choose the smallest number of symbols
+(i.e. generation size) that works for your application. A good starting
+point can be 100 symbols and the maximum recommended value is about 1000,
+but this largely depends on the hardware. You can start with a lower value
+and increase it as necessary according to the packet loss patterns of your
+network. You should also consider that a higher generation size will result
+in a higher delay, and that could be problematic for your application. If
+you have to work with a large number of symbols, you can also lower the
+code_density_ to improve performance (using our ``sparse`` or ``sparse_seed``
+codecs).
+
+What is a good symbol size for my application?
+..............................................
+
+If there are no external constraints, you are free to set the symbol size to
+large values, even megabytes are feasible. However, if you want to send some
+coded symbols over a network, then it makes sense to choose a symbol size that
+is a bit smaller than your network MTU (which is typically 1500 bytes).
+If you choose a symbol size that is too high, then your UDP packets will get
+fragmented and that will increase your packet loss.
+
+Kodo adds a small header to the symbols and the exact header size depends
+on your configuration, so it is recommended to check the maximum payload size
+with the ``payload_size()`` function. Typically we choose a symbol size of 1400
+bytes to make room for the header. The ``seed`` codec has a fixed header size,
+so it is safe to set 1480 bytes to stay below the MTU of 1500 bytes.
+
+Can I code an entire file with Kodo?
+....................................
+
+Yes, you can encode any data you like. If you have a regular file, please
+take a look at the encode_decode_file_ example.
+
+If the file is relatively small, then all data can fit into a single block
+that contains a moderate number of symbols. However, if you have a large file,
+then it is not a good idea to code everything in a single block. As explained
+above, the coding performance largely depends on the number of symbols in a
+block. Fortunately, the file encoder in the encode_decode_file_ example
+can partition the file into multiple smaller blocks to improve performance.
+You can set the number of symbols and the symbol size parameters following
+the recommendations above. Of course, if you have multiple blocks, then your
+decoder has to complete all blocks to recover the full file.
+
+If you want to transmit a file over the network to one or more receivers,
+then the udp_file_sender_receiver_ example should be helpful.
+
+How to choose the coding parameters based on my packet loss statistics?
+.......................................................................
+
+If you have accurate and timely feedback about the lost packets from your
+receiver or receivers, then you can retransmit as many coded packets as needed
+to repair the packet losses (this is called backward error correction).
+So in this case, you are essentially free to choose coding parameters that
+are optimal for performance.
+
+If you cannot rely on feedback, then Forward Error Correction (FEC) is an obvious
+strategy. For example, if you estimate that 10-15% of your packets will be lost
+based on previous measurements, then you can send an additional 20% of coded
+packets right away to compensate for the expected losses. This 20% is called
+overhead, and the decoder should be able to recover the original data as long
+as the overhead is higher than the actual loss rate. Obviously, we cannot
+know the actual loss rate in advance, therefore we commonly use a worst-case
+estimate. Note that it is not possible to implement fully reliable data transfer
+without some minimal feedback, so FEC only provides a partial solution if
+reliability is required.
+
+In addition to the nominal packet loss rate, we should also consider the
+typical burst losses on the target network. For example, if the overall loss
+rate is relatively low, but it is common to lose 100 packets in a row, then
+such a loss event can completely erase a block of 100 symbols. One option is
+to increase the number of symbols to e.g. 200, then we can protect the block
+against a burst loss of 100 packets with 50% overhead, i.e. 100 coded symbols.
+Of course, this would significantly decrease our coding performance and using
+such a high overhead can be wasteful. A better strategy is interleaving the
+packets from multiple blocks: for example, we send 10 packets from the first
+block, then 10 packets from the second block and so on. If we encounter a burst
+loss of 100 packets, then the erasures will be evenly spread to 10 different
+blocks (each missing about 10 symbols). Therefore we can compensate for such
+a loss event with only 10% overhead and we don't have to increase the number
+of symbols. Our udp_file_sender_receiver_ example implements a customizable
+interleaving scheme.
+
+.. _udp_file_sender_receiver: https://github.com/steinwurf/kodo-rlnc/tree/master/examples/udp_file_sender_receiver
 
 Network Coding
 --------------
@@ -50,8 +172,8 @@ What is a code?
 Coding can be thought of as transforming the original data
 to a form that is more appropriate for transportation. The erasure codes
 that are implemented in Kodo can be used to recover packet erasures.
-A packet erasure is the loss of a packet,
-similar to a lost letter in the postal service.
+A packet erasure is the loss of a packet, similar to a lost letter in the
+postal service.
 
 What is a rateless code?
 ........................
@@ -66,28 +188,27 @@ What is a finite field?
 .......................
 .. _finite_field:
 
-A finite field or Galois Field (GF) is a mathematical construct and entails
-to much explanations to be included here. It is not necessary to have
-a deep understanding of finite fields, but some understanding is
-useful. Simplified a finite field is a variable where special rules
-are defined for the arithmetic operations. These rules guarantee that
-the result of operating on a finite field will always result in a
-value that is in the field which is very useful on computers with
-fixed precision. One common field is the binary field GF(2) where
-addition is defined by the XOR operation. Typically GF(2) or GF(2^8)
-is used since they correspond to a bit and a byte respectively. The
-size of a field is typically denoted :math:`q`.
+A finite field or Galois Field (GF) is a mathematical construct that entails
+too much explanation to be included here, but some basic understanding can be
+useful. In simple terms, a finite field is a field that contains a finite
+number of elements where special rules are defined for the arithmetic
+operations. These rules guarantee that the result of an arithmetic operation
+is always an element that is in the field. This feature is very useful on
+computers with fixed precision. One common field is the binary fieldm GF(2)
+where addition is defined as the XOR operation. Typically we use GF(2) or
+GF(2^8) where an element corresponds to a bit and a byte, respectively. The
+size of a field is typically denoted as :math:`q`.
 
 What is an element?
 ...................
 .. _finite_field_element:
 
-An element is an element in a GF which can be thought of as a variable
-with the type of a specific finite field variable.
+A finite field element can be thought of as an integer variable with a range
+that corresponds to a specific finite field.
 
 What is a symbol?
 .................
-.. _symboĺ:
+.. _symbol:
 
 A symbol is a vector of GF elements that represent some data. The size
 of a symbol is given by the number of elements and the size of each
@@ -152,7 +273,7 @@ What is a coded packet?
 .......................
 .. _coded_packet:
 
-Is a pair of a coded symbol and a coding vector. To decode a coded
+It is a pair of a coded symbol and a coding vector. To decode a coded
 symbol the corresponding coding vector must be known and therefore
 typically the two are transmitted together in a single packet;
 :math:`\{ \boldsymbol{v}, \boldsymbol{x} \}`
@@ -165,7 +286,8 @@ What is linear dependency?
 A packet is non-innovative or linearly dependent if it only contains
 information about previously known symbols. In other words, the packet
 can be reduced to the zero vector using the linear combination of some
-(partially) decoded symbols.
+(partially) decoded symbols, therefore it is not useful in the decoding
+process.
 
 What is systematic coding?
 ..........................
