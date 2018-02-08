@@ -52,7 +52,7 @@ is controlled by the DTIM period.
 For these reasons you should consider the following configurations:
 
 * Setting the **DTIM period to 1** will make every beacon a DTIM beacon.
-  Multicast/broadcast traffic will be sent after each beacon. 
+  Multicast/broadcast traffic will be sent after each beacon.
 * Set a low **beacon interval e.g. 15ms** (most access points use per
   default 100ms)
 
@@ -69,7 +69,7 @@ the Samsung galaxy s6 does not connect to the network if the value is below
 for more broadcast packets than usual.
 
 Force Physical Layer Data Rate - PHY Rate (OpenWrt)
---------------------------------------------------
+---------------------------------------------------
 
 Default multicast PHY rate varies from access point to access point. But,
 the WiFi standard mandates that it be at least 1 Mbps for 2.4 Ghz and 6

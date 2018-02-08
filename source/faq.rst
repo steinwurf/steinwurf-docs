@@ -39,7 +39,7 @@ library, so this can be a good starting point. We should note that using the
 be optimal for all applications. We also provide GF(2^4) as ``binary4`` and
 GF(2^8) as ``binary8`` which are slower, but their linear_dependency_ is much
 lower. The ``binary`` field can be up to 10 times faster than ``binary4`` and
-``binary8``, but the difference largely depends on the available hardware
+``binary8``, although the difference largely depends on the available hardware
 acceleration (the gap is a lot smaller on CPUs with SSSE3, AVX2 or NEON
 instruction sets).
 
@@ -72,19 +72,20 @@ Kodo adds a small header to the symbols and the exact header size depends
 on your configuration, so it is recommended to check the maximum payload size
 with the ``payload_size()`` function. Typically we choose a symbol size of 1400
 bytes to make room for the header. The ``seed`` codec has a fixed header size,
-so it is safe to set 1480 bytes to stay below the MTU of 1500 bytes.
+so it is safe to set 1480 bytes for the symbol size to stay below the MTU of
+1500 bytes.
 
 Can I code an entire file with Kodo?
 ....................................
 
 Yes, you can encode any data you like. If you have a regular file, please
-take a look at the encode_decode_file_ example.
+take a look at the :ref:`encode_decode_file` example.
 
 If the file is relatively small, then all data can fit into a single block
 that contains a moderate number of symbols. However, if you have a large file,
 then it is not a good idea to code everything in a single block. As explained
 above, the coding performance largely depends on the number of symbols in a
-block. Fortunately, the file encoder in the encode_decode_file_ example
+block. Fortunately, the file encoder in the :ref:`encode_decode_file` example
 can partition the file into multiple smaller blocks to improve performance.
 You can set the number of symbols and the symbol size parameters following
 the recommendations above. Of course, if you have multiple blocks, then your
@@ -109,9 +110,9 @@ packets right away to compensate for the expected losses. This 20% is called
 overhead, and the decoder should be able to recover the original data as long
 as the overhead is higher than the actual loss rate. Obviously, we cannot
 know the actual loss rate in advance, therefore we commonly use a worst-case
-estimate. Note that it is not possible to implement fully reliable data transfer
-without some minimal feedback, so FEC only provides a partial solution if
-reliability is required.
+estimate to set the overhead. Note that it is not possible to implement fully
+reliable data transfer without some minimal feedback, so FEC only provides a
+partial solution if reliability is required.
 
 In addition to the nominal packet loss rate, we should also consider the
 typical burst losses on the target network. For example, if the overall loss
