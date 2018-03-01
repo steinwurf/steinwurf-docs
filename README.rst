@@ -14,13 +14,17 @@ Installation
     git clone git@gitlab.com:steinwurf/steinwurf-docs.git
     cd steinwurf-docs
 
+#. Install pip (if it is not installed already)::
+
+    sudo apt-get install python-pip
+
 #. Install the sphinx package::
 
     sudo apt-get install python-sphinx
 
-#. Install the ReadTheDocs theme (tested with version 0.1.9)::
+#. Install version 0.1.9 of the ReadTheDocs theme::
 
-    sudo apt-get install sphinx-rtd-theme
+    sudo pip install sphinx-rtd-theme==0.1.9
 
    Newer versions of the RTD theme might be incompatible with Google Chrome
    due to the Lato 2.0 fonts that were added on Dec 5, 2016. Google Chrome
