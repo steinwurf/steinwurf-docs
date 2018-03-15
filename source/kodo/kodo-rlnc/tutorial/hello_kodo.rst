@@ -30,12 +30,15 @@ The remaining two files are needed to build the executable.
 The ``waf`` file is a `complete standalone build system <https://waf.io/>`_,
 whereas the ``wscript`` is the recipe used by ``waf`` to build our example.
 The ``wscript`` contains information regarding dependencies and build targets.
-The simplest way to get started is to copy the files to a folder of your own
-choosing, and then run the following commands in a terminal (while using the
-selected folder as your working directory).
+The simplest way to get started is to copy the ``hello_kodo`` files to a folder
+where you want to develop your application, and then run the standard waf
+commands in that folder (the ``cp`` command is Unix-only)::
 
 .. code-block:: none
 
+    cd kodo-rlnc
+    cp -R examples/hello_kodo/ ~/my_app
+    cd my_app
     python waf configure
     python waf build
 
@@ -51,12 +54,29 @@ folder, which depends on your operating system:
 
 You can directly run the executable by executing the appropriate command::
 
-    ./build/linux/hello_kodo
-    ./build/darwin/hello_kodo
+    build/linux/hello_kodo
+    build/darwin/hello_kodo
     build\win32\hello_kodo.exe
 
 You can use this as a starting point for the coming examples, or even your own
 application.
 
-For more information regarding how to use the waf build systems, go
+For more information regarding how to use the waf build system, go
 :ref:`here<waf_build_system>`.
+
+Note that the currently used version of kodo-rlnc is set in the ``resolve``
+function of the ``wscript`` file like this:
+
+.. code-block:: python
+    :emphasize-lines: 5
+
+    ctx.add_dependency(
+        name='kodo-rlnc',
+        resolver='git',
+        method='semver',
+        major=9,
+        sources=['github.com/steinwurf/kodo-rlnc.git'])
+
+When a new major version is released and you want to update, you can just
+modify this version number and run ``python waf configure`` again to get
+the chosen version.
