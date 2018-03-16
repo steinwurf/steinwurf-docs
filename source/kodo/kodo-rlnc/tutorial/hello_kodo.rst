@@ -34,8 +34,6 @@ The simplest way to get started is to copy the ``hello_kodo`` files to a folder
 where you want to develop your application, and then run the standard waf
 commands in that folder (the ``cp`` command is Unix-only)::
 
-.. code-block:: none
-
     cd kodo-rlnc
     cp -R examples/hello_kodo/ ~/my_app
     cd my_app
