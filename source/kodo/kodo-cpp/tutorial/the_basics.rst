@@ -22,7 +22,7 @@ choose when configuring an erasure correcting code:
 * The finite field, or more specifically the field size used.
 
 In general if a block of data is to be encoded, it's split into a number of
-:ref:`symbols <symboĺ>` of a specific size. If you multiply the number of
+:ref:`symbols <symbol>` of a specific size. If you multiply the number of
 symbols with the symbol size, you get the total amount of data in bytes that
 will be either encoded or decoded per :ref:`generation <generation>`.
 
