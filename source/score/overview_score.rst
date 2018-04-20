@@ -23,6 +23,17 @@ These wrappers provide access to the full functionality of score without
 exposing any implementation details to the user. Using **this high-level API
 is the recommended option for most users**.
 
+The high-level API includes the ``udp_sender`` and ``udp_receiver`` classes
+that implement the score protocol features on top of a boost::asio UDP socket.
+This is the most convenient option when a customized socket implementation is
+not necessary.
+
+The score API also contains the generic ``source`` and ``sink`` objects that
+can process data without relying on a specific network stack. It is possible to
+use this generic API with a custom socket implementation, so this could be
+the preferred option if you want to integrate score into an application that
+already has a custom socket framework.
+
 Experienced C++ developers can also access the low-level protocol
 implementation in the same repository. This can be useful to make custom
 modifications or to learn more about the inner workings of the library.
@@ -196,5 +207,4 @@ about which platforms and compilers are currently tested by Steinwurf.
 .. _Steinwurf Buildbot: http://buildbot.steinwurf.com
 
 .. note:: The Buildbot is used for several different libraries. The
-  score-c and score-cpp libraries can be found in the overview on the
-  main page.
+  score library can be found in the overview on the main page.

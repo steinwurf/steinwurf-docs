@@ -1,4 +1,4 @@
-Stream sender & receiver
+Stream Sender & Receiver
 ========================
 
 This example shows a score sender and receiver application that are
@@ -11,7 +11,7 @@ The complete sender example is shown below.
     :linenos:
 
 After creating an io_service and a sender object, we configure the
-destination address for the sender with ``set_remote``. We set the
+destination address for the sender with ``add_remote``. We set the
 end-of-transmission callback to stop the io_service when the sender completes
 the transmission of all data and repair packets. This should happen after
 the user closes the stream by typing Q.
@@ -21,13 +21,13 @@ loop that drives the sender and all network operations), because we will
 use the main thread to get input from the user. We read lines from standard
 input in a while loop, and each line is written to the sender as a separate
 atomic message. We call ``flush`` after each ``write_data`` to ensure that
-the messages are transmitted immediately. **Calling ``flush()`` after each
+the messages are transmitted immediately. **Calling flush() after each
 message is not recommended in a real application,** but this example functions
-like a multicast chat program, and we want to deliver the messages to receivers
-right away. The ``flush`` function should only be called when we want to ensure
-that no data is buffered within the sender. For example, before shutting down
-the sender. It may also be used before a break or pause in the data stream
-will occur.
+like a multicast chat program, and we want to deliver the messages to our
+receivers right away. The ``flush`` function should only be called when we want
+to ensure that no data is buffered within the sender. For example, before
+shutting down the sender. It may also be used before a break or pause in the
+data stream will occur.
 
 If the input message is the end-of-transmission message ('Q'), then we set a
 callback to be executed when the sender transmission queue gets empty
@@ -44,7 +44,7 @@ The code for the corresponding receiver application is shown below.
     :linenos:
 
 The receiver is less complex in this case, since we only run the main thread
-where we print the incoming messages in the ``read_data`` lambda function.
+where we print the incoming messages in the ``read_message`` lambda function.
 This callback function is invoked for each atomic message that is received
 from the sender. It is guaranteed that the messages are delivered in order,
 but some messages might be lost under poor network conditions. The score sender

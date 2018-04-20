@@ -6,9 +6,7 @@ Score
 The score library implements the Simple COded REliability (SCORE) protocol
 for reliable unicast and multicast communication over UDP.
 
-Score is only available under a Commercial License. To get more information
-about pricing and how to get a license get in touch with us at
-sales@steinwurf.com.
+See the :ref:`overview_score` section for a detailed description.
 
 .. toctree::
    :maxdepth: 2
@@ -16,6 +14,7 @@ sales@steinwurf.com.
    overview_score
    quick_start_score
    including_score
+   generic_source_sink
    basic_sender_receiver
    stream_sender_receiver
    wifi_multicast_configuration
