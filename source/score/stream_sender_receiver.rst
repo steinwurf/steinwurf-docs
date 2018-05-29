@@ -6,7 +6,7 @@ used to multicast a stream of atomic messages on a local network.
 
 The complete sender example is shown below.
 
-.. literalinclude:: /../../score/examples/udp_stream_sender_receiver/udp_stream_sender.cpp
+.. literalinclude:: /../../score-udp/examples/udp_stream_sender_receiver/udp_stream_sender.cpp
     :language: c++
     :linenos:
 
@@ -39,7 +39,7 @@ pushed to the network.
 
 The code for the corresponding receiver application is shown below.
 
-.. literalinclude:: /../../score/examples/udp_stream_sender_receiver/udp_stream_receiver.cpp
+.. literalinclude:: /../../score-udp/examples/udp_stream_sender_receiver/udp_stream_receiver.cpp
     :language: c++
     :linenos:
 

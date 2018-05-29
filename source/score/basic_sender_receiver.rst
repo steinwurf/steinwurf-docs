@@ -6,7 +6,7 @@ used to multicast a single buffer of data on a local network.
 
 The complete sender example is shown below.
 
-.. literalinclude:: /../../score/examples/udp_object_sender_receiver/udp_object_sender.cpp
+.. literalinclude:: /../../score-udp/examples/udp_object_sender_receiver/udp_object_sender.cpp
     :language: c++
     :linenos:
 
@@ -37,7 +37,7 @@ the event loop.
 
 The code for the corresponding receiver application is shown below.
 
-.. literalinclude:: /../../score/examples/udp_object_sender_receiver/udp_object_receiver.cpp
+.. literalinclude:: /../../score-udp/examples/udp_object_sender_receiver/udp_object_receiver.cpp
     :language: c++
     :linenos:
 
