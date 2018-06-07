@@ -3,10 +3,9 @@
 Encoding and decoding files
 ---------------------------
 
-In this example we show how to encode/decode files with Kodo. In Kodo
-this is example is nearly identical to the example
-:ref:`encoding_and_decoding_large_objects`. For this reason we will mainly
-highlight the differences.
+In this example we show how to encode/decode files with Kodo. Note that
+this example is nearly identical to the :ref:`encoding_and_decoding_large_objects`
+example. For this reason, we will mainly highlight the differences.
 
 .. contents:: Table of Contents
    :local:
@@ -31,23 +30,21 @@ and ``kodo_core::object::file_decoder`` classes.
     :end-before: //! [1]
     :linenos:
 
-
 Specifying the coding parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the file encoder/decoder case three options are new. The first is
-the file name of the file we want to encode, the seconds is the file
-name of the file we want to decode data into and finally the size of
-file.
+the file name for encoding, the second is the file name for decoding
+and finally the file size.
 
-.. note:: In a real application we would most likely not use different
+.. note:: In a real application, we would most likely not use different
           file names for the encoder and decoder.
 
 .. note:: The file size is only needed by the file decoder. The file
           encoder knows the file size after opening the file.
 
-As with the :ref:`encoding_and_decoding_large_objects` we pass type of
-the actual encoding and decoding algorithm as a template argument.
+As with the :ref:`encoding_and_decoding_large_objects` example, we pass the
+type of the actual encoder and decoder as a template argument.
 
 .. literalinclude:: /../../kodo-rlnc/examples/encode_decode_file/encode_decode_file.cpp
     :language: c++
@@ -72,9 +69,9 @@ the sake of the example.
 Using the file encoder and decoder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As with the storage encoders we now build the file encoder and decoder.
+As with the storage encoders, we now build the file encoder and decoder.
 
-.. literalinclude:: /../../kodo-rlnc/examples/encode_decode_storage/encode_decode_storage.cpp
+.. literalinclude:: /../../kodo-rlnc/examples/encode_decode_file/encode_decode_file.cpp
     :language: c++
     :start-after: //! [6]
     :end-before: //! [7]
@@ -85,7 +82,7 @@ Also the encoding/decoding loop is similar to the
 potentially need more than one encoder/decoder pair to code the entire
 file.
 
-.. literalinclude:: /../../kodo-rlnc/examples/encode_decode_storage/encode_decode_storage.cpp
+.. literalinclude:: /../../kodo-rlnc/examples/encode_decode_file/encode_decode_file.cpp
     :language: c++
     :start-after: //! [8]
     :end-before: //! [9]
