@@ -72,7 +72,7 @@ function of the ``wscript`` file like this:
         name='kodo-rlnc',
         resolver='git',
         method='semver',
-        major=9,
+        major=12,
         sources=['github.com/steinwurf/kodo-rlnc.git'])
 
 When a new major version is released and you want to update, you can just
