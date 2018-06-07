@@ -22,8 +22,8 @@ Adding the includes
 ~~~~~~~~~~~~~~~~~~~
 
 First we have to provide the appropriate includes which defines the
-codec that we want to use and the ``kodo::object::file_encoder``
-and ``kodo::object::file_decoder`` classes.
+codec that we want to use and the ``kodo_core::object::file_encoder``
+and ``kodo_core::object::file_decoder`` classes.
 
 .. literalinclude:: /../../kodo-rlnc/examples/encode_decode_file/encode_decode_file.cpp
     :language: c++
@@ -72,8 +72,7 @@ the sake of the example.
 Using the file encoder and decoder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As with the storage encoders we now build the file encoder and
-decoder.
+As with the storage encoders we now build the file encoder and decoder.
 
 .. literalinclude:: /../../kodo-rlnc/examples/encode_decode_storage/encode_decode_storage.cpp
     :language: c++
@@ -82,7 +81,7 @@ decoder.
     :linenos:
 
 Also the encoding/decoding loop is similar to the
-:ref:`encoding_and_decoding_large_objects` example since we
+:ref:`encoding_and_decoding_large_objects` example, since we
 potentially need more than one encoder/decoder pair to code the entire
 file.
 

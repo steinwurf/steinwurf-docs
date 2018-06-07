@@ -25,10 +25,9 @@ The change is fairly simple. We introduce a 50% loss using ``rand() %
 2`` and add a variable ``dropped_count`` to keep track of the dropped
 symbols.
 
-The encoder can, in theory, create an infinite number of
-packages. This is a feature called rate-less which is unique to
-network coding. This means that as long as the loss is below 100% the
-decoder will be able to finish the decoding.
+The encoder can, in theory, create an infinite number of coded symbols,
+since RLNC is a rateless code. This means that as long as the loss rate is
+below 100% the decoder will be able to finish the decoding.
 
 A graphical representation of the setup is seen in the figure below.
 
@@ -36,10 +35,26 @@ A graphical representation of the setup is seen in the figure below.
    :align: center
 
 Running the example will result in the following output (the output
-will always be the same as the random function is never seeded):
+will always be the same as the ``rand()`` function is never seeded):
 
 .. code-block:: none
 
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
+    Bytes used = 1403
     Bytes used = 1405
     Bytes used = 1405
     Bytes used = 1405
@@ -51,22 +66,6 @@ will always be the same as the random function is never seeded):
     Bytes used = 1405
     Bytes used = 1405
     Bytes used = 1405
-    Bytes used = 1405
-    Bytes used = 1405
-    Bytes used = 1405
-    Bytes used = 1405
-    Bytes used = 1405
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
-    Bytes used = 1417
     Encoded count = 27
     Dropped count = 11
 

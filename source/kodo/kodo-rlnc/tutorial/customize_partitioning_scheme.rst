@@ -70,8 +70,8 @@ but changed the types of the ``storage_encoder`` and
 
 It is possible to query the partitioning scheme about the way the
 object was split. The object encoder/decoder uses the
-``kodo::object::partitioning`` layer (defined in
-``SEC/kodo/object/partitioning.hop``). We can query that layer to get
+``kodo_core::object::partitioning`` layer (defined in
+``src/kodo_core/object/partitioning.hop``). We can query that layer to get
 information about the how partitioning was done.
 
 .. literalinclude:: /../../kodo-rlnc/examples/customize_partitioning_scheme/customize_partitioning_scheme.cpp

@@ -5,15 +5,15 @@ Encoding and decoding large objects
 
 In practice we often have to encode/decode data which does not fit
 into a single encoder or decoder. To support this use-case Kodo
-provides the ``kodo::object::storage_encoder`` and
-``kodo::object::storage_decoder`` classes.
+provides the ``kodo_core::object::storage_encoder`` and
+``kodo_core::object::storage_decoder`` classes.
 
 It is recommended that you first familiarize yourself with using a
 single encoder/decoder pair. You will notice that extending
 to several encoders and decoders requires only a few changes to the
 code. We will not explain all parameters in detail in this example
-only those relevant to using the ``kodo::object::storage_encoder`` and
-``kodo::object::storage_decoder`` classes. If you find some
+only those relevant to using the ``kodo_core::object::storage_encoder`` and
+``kodo_core::object::storage_decoder`` classes. If you find some
 information missing, please check the :ref:`the_basics` example as it is likely
 you find it there.
 
@@ -31,8 +31,8 @@ Adding the includes
 ~~~~~~~~~~~~~~~~~~~
 
 First we have to provide the appropriate includes which defines the
-codec that we want to use and the ``kodo::object::storage_encoder``
-and ``kodo::object::storage_decoder`` classes.
+codec that we want to use and the ``kodo_core::object::storage_encoder``
+and ``kodo_core::object::storage_decoder`` classes.
 
 .. literalinclude:: /../../kodo-rlnc/examples/encode_decode_storage/encode_decode_storage.cpp
     :language: c++
@@ -70,14 +70,14 @@ In addition we will also specify the size of the object we want to code.
 Specifying the encoder and decoder types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``kodo::object::storage_encoder`` and
-``kodo::object::storage_decoder`` classes take one template argument
+The ``kodo_core::object::storage_encoder`` and
+``kodo_core::object::storage_decoder`` classes take one template argument
 which is the actual type of the erasure correcting code to use. In
-this case we are using the ``kodo::shallow_full_rlnc_encoder`` for
-encoding and ``kodo::shallow_full_rlnc_decoder`` for decoding. These
+this case we are using the ``kodo_rlnc::encoder`` for
+encoding and ``kodo_rlnc::decoder`` for decoding. These
 are standard RLNC (Random Linear Network Coding) codes.
 
-.. note:: We use the shallow variant of the RLNC codes. This simply
+.. note:: The encoder and decoder use shallow storage which
           means that Kodo will not copy the data into the
           encoder/decoder, but operate directly on the user provided
           buffer (this is currently the only supported mode).

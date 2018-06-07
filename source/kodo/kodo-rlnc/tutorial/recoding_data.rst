@@ -9,12 +9,12 @@ to be transmitted through a chain of nodes. Here the data can be re-encoded at
 each node. Examples of such networks include:
 
 * Relay networks
-* P2P networks,
-* multi-path networks, and
-* mesh networks.
+* P2P networks
+* multi-path networks
+* mesh networks
 
-In this example a total of three nodes is in the network. At each link a loss
-can occure at a 50% chance. The complete example code for this is as follows.
+In this example, we have three nodes  in the network. At each link a loss
+can occur at a 50% chance. The complete example code for this is as follows.
 
 .. literalinclude:: /../../kodo-rlnc/examples/tutorial/recoding.cpp
     :language: c++
@@ -47,9 +47,9 @@ Both the channel from ``encoder`` to ``decoder1`` and the channel from
    :align: center
 
 In a network without recoding, the overall success rate would be the product of
-all the networks success rates, i.e., for this network the success rate would be
+the success rates of all links, i.e., for this network the success rate would be
 50% * 50% = 25%.
-When using recoding the overall success rate will be the minimum success rate
+When using recoding, the overall success rate will be the minimum success rate
 for any of the nodes, i.e., 50% in this example.
 
 The output when running this example looks like so:
