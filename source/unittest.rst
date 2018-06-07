@@ -93,38 +93,28 @@ specific class. In some cases it makes sense to have multiple classes
 tested in the same file. In those cases we still make a placeholder
 cpp file referring to the actual cpp file where the test can be
 found. An example of this can be seen for some of the codecs e.g. the
-class ``full_rlnc_encoder`` located in
-``src/kodo/rlnc/full_rlnc_encoder.hpp`` is tested in
-``full_rlnc_codes.cpp`` but the place-holder still exists.
+class ``encoder`` located in ``src/kodo/rlnc/encoder.hpp`` is tested in
+``test_coders.cpp`` but the place holder still exists.
 
-The placeholder file in this cases
-(``test/src/test_full_rlnc_encoder.cpp``) looks like the following:
+The placeholder file in this case
+(``test/src/test_encoder.cpp``) looks like the following:
 
-.. literalinclude:: /../../kodo-rlnc/test/src/test_full_vector_encoder.cpp
+.. literalinclude:: /../../kodo-rlnc/test/src/test_encoder.cpp
     :language: c++
     :linenos:
 
-Once the ``.cpp`` test file has been created we can start to implement
+Once the ``.cpp`` test file has been created, we can start to implement
 the unit test code. This is done with the help of the gtest framework.
 
 Dealing with type aliases
 .........................
 
-In some cases we have headers containing only ``type-aliases`` such as
+In some cases we have headers containing only ``type aliases`` such as
 ``using`` statements. We currently do not require that
-these are explicitly unit tested.
+these are unit tested in isolation.
 
 Regardless of whether a unit test is implemented or not we still leave
-a .cpp file in the test folder.
-
-An example is ``src/kodo/partial_mutable_shallow_storage_layers.hpp``
-which only contains a single ``using`` declaration. It does not have
-any explicit unit tests but a place holder file is still created
-(``test/src/test_mutable_partial_shallow_symbol_storage.cpp``):
-
-.. literalinclude:: /../../kodo-core/test/src/test_mutable_partial_shallow_symbol_storage.cpp
-    :language: c++
-    :linenos:
+a place holder .cpp file in the test folder.
 
 Example unit test
 -----------------
