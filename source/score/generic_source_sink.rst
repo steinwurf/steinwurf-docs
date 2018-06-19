@@ -9,7 +9,7 @@ already has a custom socket framework.
 
 The complete example is shown below.
 
-.. literalinclude:: /../../score/examples/pure_source_sink/pure_source_sink.cpp
+.. literalinclude:: /../../score/examples/source_sink/source_sink.cpp
     :language: c++
     :linenos:
 
