@@ -173,19 +173,17 @@ https://github.com/steinwurf/stub
 Naming the test case
 --------------------
 
-When we define a test using gtest we use the ``TEST(test_case_name,
-test_name)`` macro to define and name a test function. In Kodo we use
-the following naming guideline:
+When we define a test using gtest we use the ``TEST(test_case_name, test_name)``
+macro to define and name a test function. We follow this naming guideline:
 
-1. The ``test_case_name`` should be name according to its placement in
-   the ``test/src`` directory. If the file is place in the root of the
-   ``test/src`` folder e.g. ``test/src/test_my_fancy_code.cpp`` we
-   name the ``test_case_name`` as ``test_my_fancy_code``. Similarly if
-   the file is placed in a subdirectory
-   e.g. ``object/test_new_code.cpp`` we will specify the
-   ``test_case_name`` as ``object_test_new_code``. This should make
-   it easy to find the source code of a failing unit test. Remember to
-   place the test file as described in
+1. The ``test_case_name`` should match the name of the .cpp file. For example,
+   ``test_my_fancy_code.cpp`` contains ``test_my_fancy_code`` test cases.
+   This should make it trivial to find the .cpp if a unit test fails.
+   If a project contains multiple classes with the same name (in different
+   subfolders), then it is recommended to modify those class names.
+   If that is not possible, then we can add the subfolder as a prefix to the
+   ``test_case_name``, e.g. ``subfolder_test_my_fancy_code``.
+   Remember to place the test files as described in
    :ref:`namespaces_and_directories`
-2. The ``test_name`` is up to the developer but should be as
+2. The ``test_name`` is up to the developer, but should be as
    descriptive of the purpose of the unit test as possible.
