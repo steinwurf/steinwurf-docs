@@ -17,26 +17,23 @@ Libraries
 
 The score repository is located here: https://gitlab.com/steinwurf/score
 
-The score library implements the underlying protocol and also contains
-high-level C++ wrappers (located in the ``src/score/api`` folder).
-These wrappers provide access to the full functionality of score without
-exposing any implementation details to the user. Using **this high-level API
-is the recommended option for most users**.
-
-The high-level API includes the ``udp_sender`` and ``udp_receiver`` classes
-that implement the score protocol features on top of a boost::asio UDP socket.
-This is the most convenient option when a customized socket implementation is
-not necessary.
-
 The score API also contains the generic ``source`` and ``sink`` objects that
 can process data without relying on a specific network stack. It is possible to
 use this generic API with a custom socket implementation, so this could be
 the preferred option if you want to integrate score into an application that
-already has a custom socket framework.
+already has a custom socket framework. If you want to make to experiment with 
+other custom modification or learn more about the inner workings of the library 
+this would also be the place to look.
 
-Experienced C++ developers can also access the low-level protocol
-implementation in the same repository. This can be useful to make custom
-modifications or to learn more about the inner workings of the library.
+
+A high level C++ Wrapper is available here https://gitlab.com/steinwurf/score_udp
+
+These wrappers provide access to the full functionality of score without
+exposing any implementation details to the user. 
+The high-level API includes the ``udp_sender`` and ``udp_receiver`` classes
+that implement the score protocol features on top of a boost::asio UDP socket.
+This can be a convenient option when a customized socket implementation is
+not necessary.
 
 .. _score_parameters:
 
