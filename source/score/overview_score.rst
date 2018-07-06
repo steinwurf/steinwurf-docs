@@ -26,7 +26,7 @@ other custom modification or learn more about the inner workings of the library
 this would also be the place to look.
 
 
-A high level C++ Wrapper is available here https://gitlab.com/steinwurf/score_udp
+A high level C++ Wrapper is available here https://gitlab.com/steinwurf/score-udp
 
 These wrappers provide access to the full functionality of score without
 exposing any implementation details to the user. 
