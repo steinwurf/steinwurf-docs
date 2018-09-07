@@ -22,6 +22,7 @@ Contents
    overview
    nc_intro
    getting_started
+   fifi
    kodo/index
    score/index
    cross_compile
