@@ -18,11 +18,8 @@ be employed to adapt to varying cellular channels, to change the amount of
 redundancy in a distributed storage network, or to adapt to node failures in
 meshed networks.
 
-Subpages
---------
-
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    kodo-rlnc/index
    kodo-cpp/index
@@ -30,6 +27,8 @@ Subpages
    using_kodo_for_research
    contribution/contribution
 
+
+.. _projects_kodo:
 
 Codecs and Repositories
 -----------------------
