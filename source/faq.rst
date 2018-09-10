@@ -23,12 +23,9 @@ before choosing a codec. You can also find a detailed description of each
 codec and its API in the corresponding ``kodo-rlnc`` header file and the
 generated Doxygen documentation.
 
-For most applications, the ``full_vector`` code is a good first choice, since
-it provides a straightforward API that is used in many of our examples.
-If you want to minimize the coding vector overhead and you don't use recoding
-in your network, then our ``seed`` code might be an optimal choice. If you
-cannot wait for a full block of symbols, then take a look at the ``on_the_fly``
-or ``sliding_window`` code variants.
+For most applications, the standard RLNC implementation in kodo-rlnc is a
+good first choice, since it provides a straightforward API that is used in
+many of our examples.
 
 Which finite field should I choose?
 ...................................
