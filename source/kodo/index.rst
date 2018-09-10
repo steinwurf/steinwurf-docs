@@ -18,16 +18,6 @@ be employed to adapt to varying cellular channels, to change the amount of
 redundancy in a distributed storage network, or to adapt to node failures in
 meshed networks.
 
-.. toctree::
-   :maxdepth: 2
-
-   kodo-rlnc/index
-   kodo-cpp/index
-   kodo-c/index
-   using_kodo_for_research
-   contribution/contribution
-
-
 .. _projects_kodo:
 
 Codecs and Repositories
@@ -40,37 +30,10 @@ and work with the API that is exposed by that project.
 kodo-rlnc: https://github.com/steinwurf/kodo-rlnc
     The :ref:`kodo_rlnc` project implements a standard RLNC codec and provides
     a simple, high-level C++ API which is the **the recommended starting
-    option for most users**.
-
-Standard RLNC
-    All symbols are combined uniformly at random. In general, this type
-    of coding is "dense", since the symbols in the data block are mixed
-    as much as possible. Density is lower for small field sizes.
-
-Sparse RLNC with uniform density
-    Some symbols are excluded with a given probability during encoding.
-    The remaining symbols are combined as in the standard RLNC case.
-    This is typically useful when the block size is very high. The density
-    can be reduced significantly without any negative effect and
-    the decoding throughput can be increased substantially at the same time.
-
-Sparse RLNC with fixed density
-    A fixed number of symbols are combined at random. This can be used
-    when feedback is available from the decoder. The encoding process
-    can be tuned at the encoder according to the state of the decoder.
-
-Seed-based RLNC
-    Instead of sending the full coding vector, a small random seed can
-    be sent to generate the coding vector. This reduces the overhead,
-    but makes recoding difficult and in some cases impossible. This is
-    typically used when recoding is not necessary or used very sparingly.
-
-On-the-fly RLNC
-    Symbols can be encoded as they are made available and data is released from
-    the decoder as decoding progresses. This is different from traditional block
-    codes where all data has to be available before encoding or decoding takes
-    place. This codec is well suited for low-delay services such as messaging,
-    voice over IP or video streaming.
+    option for most users**. The RLNC codec has a number of parameters that
+    can be configured to fit the user requirements: e.g. the code density
+    can be adjusted and the coding vector representation can include the
+    full vector or just a random seed to reduce overhead.
 
 kodo-perpetual: https://github.com/steinwurf/kodo-perpetual
     Perpetual RLNC is a sparse and structured code where the non-zero coding
@@ -88,17 +51,23 @@ kodo-fulcrum: https://github.com/steinwurf/kodo-fulcrum
     For a detailed description of the Fulcrum codec, see the following
     `paper <http://arxiv.org/abs/1404.6620>`_ by Lucani et. al.
 
+kodo-slide: https://github.com/steinwurf/kodo-slide
+    The kodo-slide library implements a sliding window RLNC code that could
+    provide interesting benefits over a traditional block code.
+    See the `project documentation <https://steinwurf.github.io/kodo-slide/>`_
+    for more details.
+
 kodo-reed-solomon: https://github.com/steinwurf/kodo-reed-solomon
     Traditional Reed-Solomon (RS) code which does not support recoding. The
     current implementation uses a systematic Vandermonde matrix as described in
     `RFC 5510 <http://tools.ietf.org/html/rfc5510>`_.
 
-Carousel code
-    Also called a repetition code, the data is simply transmitted in a
-    round-robin fashion. This code is mostly useful for simulation
-    purposes and performance evaluations. Furthermore it can be used to
-    provide the Compact No-Code scheme described in
-    `RFC 5445 <http://tools.ietf.org/html/rfc5445>`_.
+kodo-core: https://github.com/steinwurf/kodo-core
+    The kodo-core repository contains general erasure coding components that
+    are used by the other codec implementations that are listed above.
+    This project also includes a carousel code (or repetition code) where
+    the data is simply transmitted in a round-robin fashion. This code can
+    be useful for simulation and testing purposes.
 
 
 Language Bindings and Wrappers
@@ -110,16 +79,23 @@ kodo-python: https://github.com/steinwurf/kodo-python
     the Python API. This option is recommended for Python-based projects
     and for programmers who are not familiar with C++.
 
-:ref:`kodo_c`
-    The kodo-c library provides a simple C API that allows the programmer to
-    use Kodo in a C program. The C API also enables interoperability with
-    other programming languages that are not directly supported by the
+kodo-rlnc-c: https://github.com/steinwurf/kodo-rlnc-c
+    The kodo-rlnc-c library provides a simple C API that allows the programmer
+    to use kodo-rlnc in a C program. The C API also enables interoperability
+    with other programming languages that are not directly supported by the
     Kodo libraries.
 
-:ref:`kodo_cpp`
-    The kodo-cpp library defines a simple, high-level C++ API to conveniently
-    access the basic functionality of Kodo, such as encoding and decoding data
-    with various codecs.
+kodo-c: https://github.com/steinwurf/kodo-c
+    The :ref:`kodo_c` library is a **deprecated project** that was created to
+    provide a C wrapper over some earlier implementation of our RLNC codecs.
+    This project will not be updated, please use kodo-rlnc-c if a C wrapper
+    is needed.
+
+kodo-cpp: https://github.com/steinwurf/kodo-cpp
+    The :ref:`kodo_cpp` library is a **deprecated project** that was
+    designed as a high-level C++ wrapper over kodo-c and it only exposed
+    a limited API to access the Kodo codecs. This project will not be updated,
+    please use kodo-rlnc that provides a complete C++ API.
 
 
 Simulations
@@ -202,3 +178,12 @@ about which platforms and compilers are currently tested by Steinwurf.
 
 .. note:: The Buildbot is used for several different libraries. The
   various Kodo libraries can be found in the overview on the main page.
+
+.. toctree::
+   :maxdepth: 1
+
+   kodo-rlnc/index
+   kodo-cpp/index
+   kodo-c/index
+   using_kodo_for_research
+   contribution/contribution
