@@ -35,14 +35,6 @@ kodo-rlnc: https://github.com/steinwurf/kodo-rlnc
     can be adjusted and the coding vector representation can include the
     full vector or just a random seed to reduce overhead.
 
-kodo-perpetual: https://github.com/steinwurf/kodo-perpetual
-    Perpetual RLNC is a sparse and structured code where the non-zero coding
-    coefficients are localized to a specific part of the coding vector.
-    The width of this non-zero part is analogous to the density parameter of
-    random sparse codes. This approach allows for structured decoding, which
-    can yield a substantially higher throughput than random sparse codes,
-    especially for large generation sizes.
-
 kodo-fulcrum: https://github.com/steinwurf/kodo-fulcrum
     The Fulcrum network codes use a concatenated code structure with an "outer"
     and "inner" code. They provide an end-to-end performance that is close
@@ -50,6 +42,14 @@ kodo-fulcrum: https://github.com/steinwurf/kodo-fulcrum
     while simultaneously catering to low–end ones that can only decode in GF(2).
     For a detailed description of the Fulcrum codec, see the following
     `paper <http://arxiv.org/abs/1404.6620>`_ by Lucani et. al.
+
+kodo-perpetual: https://github.com/steinwurf/kodo-perpetual
+    Perpetual RLNC is a sparse and structured code where the non-zero coding
+    coefficients are localized to a specific part of the coding vector.
+    The width of this non-zero part is analogous to the density parameter of
+    random sparse codes. This approach allows for structured decoding, which
+    can yield a substantially higher throughput than random sparse codes,
+    especially for large generation sizes.
 
 kodo-slide: https://github.com/steinwurf/kodo-slide
     The kodo-slide library implements a sliding window RLNC code that could
@@ -178,6 +178,9 @@ about which platforms and compilers are currently tested by Steinwurf.
 
 .. note:: The Buildbot is used for several different libraries. The
   various Kodo libraries can be found in the overview on the main page.
+
+
+.. rubric:: Subpages
 
 .. toctree::
    :maxdepth: 1
