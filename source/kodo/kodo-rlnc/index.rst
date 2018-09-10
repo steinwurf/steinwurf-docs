@@ -8,7 +8,7 @@ kodo-core library.
 
 The kodo-rlnc repository: https://github.com/steinwurf/kodo-rlnc
 
-.. rubric:: Subpages
+.. rubric:: Codecs
 
 Standard RLNC
     All symbols are combined uniformly at random. In general, this type

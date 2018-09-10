@@ -19,4 +19,3 @@ The kodo-cpp repository: https://github.com/steinwurf/kodo-cpp
 
    quick_start_kodo_cpp
    including_kodo_cpp
-   tutorial_kodo_cpp

@@ -180,7 +180,8 @@ about which platforms and compilers are currently tested by Steinwurf.
   various Kodo libraries can be found in the overview on the main page.
 
 
-.. rubric:: Subpages
+Subpages
+--------
 
 .. toctree::
    :maxdepth: 1
