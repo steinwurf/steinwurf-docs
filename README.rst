@@ -18,31 +18,13 @@ Installation
 
     sudo apt-get install python-pip
 
-#. Install the sphinx package::
+#. Install the sphinx and our theme::
 
-    sudo apt-get install python-sphinx
-
-#. Install version 0.1.9 of the ReadTheDocs theme::
-
-    sudo pip install sphinx-rtd-theme==0.1.9
-
-   Newer versions of the RTD theme might be incompatible with Google Chrome
-   due to the Lato 2.0 fonts that were added on Dec 5, 2016. Google Chrome
-   cannot load these fonts so almost all text will be white on the generated
-   website (verified with Google Chrome 55 on Windows). The font updates
-   can be followed here:
-   https://github.com/snide/sphinx_rtd_theme/commits/master/sphinx_rtd_theme/static/fonts/Lato-Regular.ttf
+    pip install -r requirements.txt
 
 Building the docs
 -----------------
 
-After installing the dependencies simply run make in the `steinwurf-docs`
-folder::
+After installing the dependencies simply run sphinx-build::
 
-    cd steinwurf-docs
-    make html
-
-Launch a browser to see the result e.g.::
-
-    google-chrome build/html/index.html
-
+    sphinx-build -b html source build/html
