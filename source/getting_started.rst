@@ -71,7 +71,7 @@ Download Tools (Windows)
 .. _`Python homepage`:
    http://www.python.org/download/
 
-.. _`Python 2.7.10 Windows Installer`:
+.. _`Python 2.7.15 Windows Installer`:
    https://www.python.org/ftp/python/2.7.15/python-2.7.15.msi
 
 .. _`Git for Windows`:
