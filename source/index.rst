@@ -23,7 +23,7 @@ Contents
    nc_intro
    getting_started
    kodo/index
-   score/index
+   score
    cross_compile
    coding_style
    unittest
