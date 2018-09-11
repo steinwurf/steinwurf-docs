@@ -42,14 +42,16 @@ Get the dependencies using the following command::
 Download Tools (Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **C++11 compliant compiler:** You need a working C++11 compiler. The latest
-   supported version is `Visual Studio Express 2015 for Desktop`_, the
-   Professional and Community Editions should also work. Visual Studio 2017
-   is not supported at the moment.
+1. **C++14 compliant compiler:** You need a working C++14 compiler. The latest
+   supported version is Visual Studio 2017: you can get the Community,
+   Express or Professional versions from the `VS download page`_ or you can
+   install the standalone Build Tools for Visual Studio 2017 (which is
+   a smaller package). If you need an earlier version, you may also use
+   `Visual Studio Express 2015 for Desktop`_.
 
 2. **Python:** You need a working Python installation. Find the available
    download on the `Python homepage`_. If you are in doubt about which version
-   to install, you may use the `Python 2.7.10 Windows Installer`_.
+   to install, you may use the `Python 2.7.15 Windows Installer`_.
 
 3. **Git:** There are several ways to get git on Windows. If you plan to use
    the waf build scripts to build our examples and unit tests, you should
@@ -60,14 +62,17 @@ Download Tools (Windows)
    a GUI instead of the command-line git tools. Version 2.1.0 and later should
    work fine.
 
+.. _`VS download page`:
+   https://visualstudio.microsoft.com/downloads/
+
 .. _`Visual Studio Express 2015 for Desktop`:
-   https://www.visualstudio.com/post-download-vs/?sku=xdesk&clcid=0x409&telem=ga
+   https://visualstudio.microsoft.com/vs/older-downloads/
 
 .. _`Python homepage`:
    http://www.python.org/download/
 
 .. _`Python 2.7.10 Windows Installer`:
-   https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi
+   https://www.python.org/ftp/python/2.7.15/python-2.7.15.msi
 
 .. _`Git for Windows`:
    https://git-for-windows.github.io/

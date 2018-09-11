@@ -6,25 +6,23 @@ Sphinx documentation for kodo and related projects.
 .. contents:: Table of Contents:
    :local:
 
-Installation
-------------
+Automated build
+---------------
 
-#. Clone the project and cd into it::
+You can generate the docs using waf which will create a temporary virtualenv
+and install all dependencies::
 
     git clone git@gitlab.com:steinwurf/steinwurf-docs.git
     cd steinwurf-docs
+    python waf configure
+    python waf docs
 
-#. Install pip (if it is not installed already)::
 
-    sudo apt-get install python-pip
+Manual build
+------------
 
-#. Install the sphinx and our theme::
+If you don't want to use waf, you can also install the requirements
+and invoke sphinx-build manually::
 
-    pip install -r requirements.txt
-
-Building the docs
------------------
-
-After installing the dependencies simply run sphinx-build::
-
+    pip install -r source/requirements.txt
     sphinx-build -b html source build/html
