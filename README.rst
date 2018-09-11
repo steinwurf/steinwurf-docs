@@ -18,7 +18,7 @@ Installation
 
     sudo apt-get install python-pip
 
-#. Install the sphinx and our theme:
+#. Install the sphinx and our theme::
 
     pip install -r requirements.txt
 
