@@ -28,5 +28,6 @@ Contents
    coding_style
    unittest
    version_numbering
+   wifi_multicast_configuration
    faq
    contact
