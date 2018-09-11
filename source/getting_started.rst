@@ -6,23 +6,11 @@ Getting Started
 Obtain a Steinwurf License
 --------------------------
 
-Before you download or use our libraries, you **MUST** obtain a valid license.
+Before you download or use our libraries, you **MUST** obtain a valid
+Steinwurf license.
 
-* If you intend to use Kodo for **research and educational** purposes, please
-  fill out this form_ to obtain a Research License.
-
-* If you intend to **evaluate or test** Kodo or Score in a commercial context,
-  you can obtain a Commercial Evaluation License. Please contact us at
-  sales@steinwurf.com.
-
-* For a general **Commercial License**, contact us at sales@steinwurf.com.
-
-.. note:: Commercial and commercial evaluation users also needs to register via
-          this form_ when a license has been signed.
-
-
-.. _form: http://steinwurf.com/license/
-
+Please read the license terms at http://steinwurf.com/license.html and
+fill out the license request form with the appropriate details.
 
 .. _tools-needed:
 

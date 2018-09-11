@@ -9,8 +9,9 @@ Steinwurf Documentation
 
 Welcome to the documentation of the Steinwurf libraries!
 
-The :ref:`overview` section can be a good starting point to learn about
-our libraries.
+This information is intended for developers who would like to download and
+compile our libraries. For a high-level overview of our products, please
+refer to our main website: http://steinwurf.com/index.html
 
 Contents
 --------
@@ -19,7 +20,6 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   overview
    nc_intro
    getting_started
    fifi

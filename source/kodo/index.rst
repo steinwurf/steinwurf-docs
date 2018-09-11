@@ -10,13 +10,19 @@ extendability.
 
 The Kodo libraries expose a simple Application Programming Interface (API)
 which allows a programmer to take advantage of network coding in a
-custom application. Kodo supports various network coding codecs e.g. standard
+custom application. Kodo supports various network coding codecs, e.g. standard
 Random Linear Network Coding (RLNC), Systematic RLNC, Sparse RLNC.
 Each algorithm offers unique advantages and drawbacks as well as a different
 set of parameters that can be tuned in real time. For example, this can
 be employed to adapt to varying cellular channels, to change the amount of
 redundancy in a distributed storage network, or to adapt to node failures in
 meshed networks.
+
+Kodo is available under a research- and education-friendly license, and
+it enables researchers to implement new codes and algorithms,
+perform simulations, and benchmark the coding operations on any platform
+where a modern C++ compiler is available. The library provides a multitude of
+building blocks and parameters that can be combined to create custom codes.
 
 .. _projects_kodo:
 
@@ -26,6 +32,9 @@ Codecs and Repositories
 The Kodo libraries implement various codecs and each codec has its own git
 repository. As a first step, it is recommended to choose a single codec/project
 and work with the API that is exposed by that project.
+
+Note that these repositories are **private** on Github, so you need to complete
+all steps in the :ref:`getting_started` guide before you can access them.
 
 kodo-rlnc: https://github.com/steinwurf/kodo-rlnc
     The :ref:`kodo_rlnc` project implements a standard RLNC codec and provides
