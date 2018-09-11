@@ -32,10 +32,11 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
+    'guzzle_sphinx_theme',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = []
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -176,14 +177,17 @@ html_static_path = []
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Steinwurfdoc'
 
+html_sidebars = {
+    '**': ['logo-text.html', 'globaltoc.html', 'searchbox.html']
+}
+
 try:
-    import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
-    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+    import guzzle_sphinx_theme
+    html_theme = 'guzzle_sphinx_theme'
+    html_theme_path = guzzle_sphinx_theme.html_theme_path()
 except ImportError:
-    print("Unable to use sphinx_rtd_theme falling back to default.\n"
-          "If you dare, you can install it using the following pip command:\n"
-          "\tsudo pip install sphinx_rtd_theme")
+    print("Unable to import the used theme. \n"
+          "You should install the stuff in requirements.txt before building")
     pass
 
 # -- Options for LaTeX output -------------------------------------------------
