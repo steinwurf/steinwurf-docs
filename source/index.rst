@@ -24,10 +24,11 @@ Contents
    getting_started
    fifi
    kodo/index
-   score/index
+   score
    cross_compile
    coding_style
    unittest
    version_numbering
+   wifi_multicast_configuration
    faq
    contact
