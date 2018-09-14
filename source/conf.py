@@ -49,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Steinwurf Technical'
-copyright = u'2016, Steinwurf ApS'
+copyright = u'2018, Steinwurf ApS'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -176,8 +176,6 @@ html_static_path = []
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Steinwurfdoc'
-
-
 
 html_sidebars = {
     '**': ['logo.html', 'logo-text.html', 'globaltoc.html', 'searchbox.html']
