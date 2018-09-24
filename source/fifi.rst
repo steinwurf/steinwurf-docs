@@ -9,4 +9,4 @@ This functionality is a prerequisite for fast RLNC and other linear block codes.
 
 The Fifi repository: https://github.com/steinwurf/fifi
 
-The Fifi documentation: http://docs.steinwurf.com/fifi/index.html
+The Fifi documentation: http://docs.steinwurf.com/fifi/master/index.html
