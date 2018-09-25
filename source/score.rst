@@ -16,7 +16,7 @@ score: https://steinwurf.gitlab.io/score/index.html
     The score library implements the Simple Coded Reliable protocol and
     the basic score objects in a network-agnostic fashion.
 
-score-udp: https://steinwurf.gitlab.io/score-udp/index.html
+score-udp: http://docs.steinwurf.com/score-udp/master/index.html
     This library is a high-level C++ wrapper for score to implement unicast
     and multicast communication using UDP sockets. These wrappers provide
     access to the functionality of score without exposing any implementation

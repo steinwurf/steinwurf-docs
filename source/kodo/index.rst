@@ -62,8 +62,8 @@ kodo-perpetual: https://github.com/steinwurf/kodo-perpetual
 
 kodo-slide: https://github.com/steinwurf/kodo-slide
     The kodo-slide library implements a sliding window RLNC code that could
-    provide interesting benefits over a traditional block code.
-    See the `project documentation <https://steinwurf.github.io/kodo-slide/>`_
+    provide interesting benefits over a traditional block code. See the
+    `project documentation <https://steinwurf.github.io/kodo-slide/master/>`_
     for more details.
 
 kodo-reed-solomon: https://github.com/steinwurf/kodo-reed-solomon
