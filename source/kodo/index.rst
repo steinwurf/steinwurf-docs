@@ -36,7 +36,7 @@ and work with the API that is exposed by that project.
 Note that these repositories are **private** on Github, so you need to complete
 all steps in the :ref:`getting_started` guide before you can access them.
 
-kodo-rlnc: https://github.com/steinwurf/kodo-rlnc
+kodo-rlnc: http://docs.steinwurf.com/kodo-rlnc/master/index.html
     The :ref:`kodo_rlnc` project implements a standard RLNC codec and provides
     a simple, high-level C++ API which is the **the recommended starting
     option for most users**. The RLNC codec has a number of parameters that
@@ -60,11 +60,9 @@ kodo-perpetual: https://github.com/steinwurf/kodo-perpetual
     can yield a substantially higher throughput than random sparse codes,
     especially for large generation sizes.
 
-kodo-slide: https://github.com/steinwurf/kodo-slide
-    The kodo-slide library implements a sliding window RLNC code that could
-    provide interesting benefits over a traditional block code. See the
-    `project documentation <https://steinwurf.github.io/kodo-slide/master/>`_
-    for more details.
+kodo-slide: https://steinwurf.github.io/kodo-slide/master
+    The kodo-slide library implements a sliding window RLNC codec that could
+    provide interesting benefits over a traditional block code.
 
 kodo-reed-solomon: https://github.com/steinwurf/kodo-reed-solomon
     Traditional Reed-Solomon (RS) code which does not support recoding. The
@@ -174,8 +172,8 @@ Hardware optimized (on select hardware)
 Platform Support
 ----------------
 
-Kodo is portable to a wide range of platforms. The `Kodo Specifications`_
-page provides an overview of the supported platforms and compilers.
+Kodo is portable to a wide range of platforms (both hardware platforms and
+operating systems).
 
 We ensure compatibility with the supported platforms through a suite of unit
 tests, the current status can be checked at the `Steinwurf Buildbot`_ page.
@@ -183,7 +181,6 @@ At the bottom of the main page, you can find detailed information
 about which platforms and compilers are currently tested by Steinwurf.
 
 .. _Steinwurf Buildbot: http://buildbot.steinwurf.com
-.. _Kodo Specifications: http://steinwurf.com/kodo-specifications/
 
 .. note:: The Buildbot is used for several different libraries. The
   various Kodo libraries can be found in the overview on the main page.
@@ -195,7 +192,6 @@ Subpages
 .. toctree::
    :maxdepth: 1
 
-   kodo-rlnc/index
    kodo-cpp/index
    kodo-c/index
    using_kodo_for_research
