@@ -37,7 +37,7 @@ Note that these repositories are **private** on Github, so you need to complete
 all steps in the :ref:`getting_started` guide before you can access them.
 
 kodo-rlnc: http://docs.steinwurf.com/kodo-rlnc/master/index.html
-    The :ref:`kodo_rlnc` project implements a standard RLNC codec and provides
+    This project implements a standard RLNC codec and provides
     a simple, high-level C++ API which is the **the recommended starting
     option for most users**. The RLNC codec has a number of parameters that
     can be configured to fit the user requirements: e.g. the code density

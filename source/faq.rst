@@ -76,13 +76,13 @@ Can I code an entire file with Kodo?
 ....................................
 
 Yes, you can encode any data you like. If you have a regular file, please
-take a look at the :ref:`encode_decode_file` example.
+take a look at the encode_decode_file_ example in kodo-rlnc.
 
 If the file is relatively small, then all data can fit into a single block
 that contains a moderate number of symbols. However, if you have a large file,
 then it is not a good idea to code everything in a single block. As explained
 above, the coding performance largely depends on the number of symbols in a
-block. Fortunately, the file encoder in the :ref:`encode_decode_file` example
+block. Fortunately, the file encoder in the encode_decode_file_ example
 can partition the file into multiple smaller blocks to improve performance.
 You can set the number of symbols and the symbol size parameters following
 the recommendations above. Of course, if you have multiple blocks, then your
@@ -90,6 +90,8 @@ decoder has to complete all blocks to recover the full file.
 
 If you want to transmit a file over the network to one or more receivers,
 then the udp_file_sender_receiver_ example should be helpful.
+
+.. _encode_decode_file: https://github.com/steinwurf/kodo-rlnc/tree/master/examples/encode_decode_file
 
 How to choose the coding parameters based on my packet loss statistics?
 .......................................................................
