@@ -12,7 +12,7 @@ The library is available on a wide range of platforms, and it is designed for
 easy integration with existing software. It exposes a simple API to allow the
 programmer to take advantage of Reliable Multicast in a custom application.
 
-score: https://steinwurf.gitlab.io/score/index.html
+score: http://docs.steinwurf.com/score/master/index.html
     The score library implements the Simple Coded Reliable protocol and
     the basic score objects in a network-agnostic fashion.
 
