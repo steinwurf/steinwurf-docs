@@ -60,7 +60,7 @@ kodo-perpetual: https://github.com/steinwurf/kodo-perpetual
     can yield a substantially higher throughput than random sparse codes,
     especially for large generation sizes.
 
-kodo-slide: https://steinwurf.github.io/kodo-slide/master
+kodo-slide: http://docs.steinwurf.com/kodo-slide/master/index.html
     The kodo-slide library implements a sliding window RLNC codec that could
     provide interesting benefits over a traditional block code.
 
@@ -86,7 +86,7 @@ kodo-python: https://github.com/steinwurf/kodo-python
     the Python API. This option is recommended for Python-based projects
     and for programmers who are not familiar with C++.
 
-kodo-rlnc-c: https://github.com/steinwurf/kodo-rlnc-c
+kodo-rlnc-c: http://docs.steinwurf.com/kodo-rlnc-c/master/index.html
     The kodo-rlnc-c library provides a simple C API that allows the programmer
     to use kodo-rlnc in a C program. The C API also enables interoperability
     with other programming languages that are not directly supported by the
