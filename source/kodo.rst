@@ -93,13 +93,13 @@ kodo-rlnc-c: http://docs.steinwurf.com/kodo-rlnc-c/master/index.html
     Kodo libraries.
 
 kodo-c: https://github.com/steinwurf/kodo-c
-    The :ref:`kodo_c` library is a **deprecated project** that was created to
+    The kodo_c library is a **deprecated project** that was created to
     provide a C wrapper over some earlier implementation of our RLNC codecs.
     This project will not be updated, please use kodo-rlnc-c if a C wrapper
     is needed.
 
 kodo-cpp: https://github.com/steinwurf/kodo-cpp
-    The :ref:`kodo_cpp` library is a **deprecated project** that was
+    The kodo_cpp library is a **deprecated project** that was
     designed as a high-level C++ wrapper over kodo-c and it only exposed
     a limited API to access the Kodo codecs. This project will not be updated,
     please use kodo-rlnc that provides a complete C++ API.

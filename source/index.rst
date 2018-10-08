@@ -23,7 +23,7 @@ Contents
    nc_intro
    getting_started
    fifi
-   kodo/index
+   kodo
    score
    cross_compile
    coding_style
