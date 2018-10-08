@@ -186,13 +186,18 @@ about which platforms and compilers are currently tested by Steinwurf.
   various Kodo libraries can be found in the overview on the main page.
 
 
-Subpages
---------
+.. _using_kodo_for_research:
 
-.. toctree::
-   :maxdepth: 1
+Using Kodo for Your Research
+----------------------------
 
-   kodo-cpp/index
-   kodo-c/index
-   using_kodo_for_research
-   contribution/contribution
+One of the initial reasons for building Kodo was to make a tool for doing
+research on erasure correcting codes with a specific focus on network
+codes. So if you have used or plan to use Kodo for your research, we would
+love to hear about it!
+
+If you are doing a publication using Kodo, all we ask is that you cite our
+work. Find the pdf and bibtex of the initial `Kodo paper here`_.
+
+.. _Kodo paper here: http://vbn.aau.dk/en/publications/kodo-an-open-and-research-oriented-network-coding-library(1fc1d13c-922a-4f19-b582-6eaf67296029).html
+

@@ -29,6 +29,7 @@ Contents
    coding_style
    unittest
    version_numbering
+   contribution
    wifi_multicast_configuration
    faq
    contact
