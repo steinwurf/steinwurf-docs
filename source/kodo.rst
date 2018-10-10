@@ -44,7 +44,7 @@ kodo-rlnc: http://docs.steinwurf.com/kodo-rlnc/master/index.html
     can be adjusted and the coding vector representation can include the
     full vector or just a random seed to reduce overhead.
 
-kodo-fulcrum: https://github.com/steinwurf/kodo-fulcrum
+kodo-fulcrum: http://docs.steinwurf.com/kodo-fulcrum/master/index.html
     The Fulcrum network codes use a concatenated code structure with an "outer"
     and "inner" code. They provide an end-to-end performance that is close
     to that of a large field size network coding system for high–end receivers,
@@ -93,13 +93,13 @@ kodo-rlnc-c: http://docs.steinwurf.com/kodo-rlnc-c/master/index.html
     Kodo libraries.
 
 kodo-c: https://github.com/steinwurf/kodo-c
-    The kodo_c library is a **deprecated project** that was created to
+    The kodo-c library is a **deprecated project** that was created to
     provide a C wrapper over some earlier implementation of our RLNC codecs.
     This project will not be updated, please use kodo-rlnc-c if a C wrapper
     is needed.
 
 kodo-cpp: https://github.com/steinwurf/kodo-cpp
-    The kodo_cpp library is a **deprecated project** that was
+    The kodo-cpp library is a **deprecated project** that was
     designed as a high-level C++ wrapper over kodo-c and it only exposed
     a limited API to access the Kodo codecs. This project will not be updated,
     please use kodo-rlnc that provides a complete C++ API.
