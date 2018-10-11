@@ -52,7 +52,7 @@ kodo-fulcrum: http://docs.steinwurf.com/kodo-fulcrum/master/index.html
     For a detailed description of the Fulcrum codec, see the following
     `paper <http://arxiv.org/abs/1404.6620>`_ by Lucani et. al.
 
-kodo-perpetual: https://github.com/steinwurf/kodo-perpetual
+kodo-perpetual: http://docs.steinwurf.com/kodo-perpetual/master/index.html
     Perpetual RLNC is a sparse and structured code where the non-zero coding
     coefficients are localized to a specific part of the coding vector.
     The width of this non-zero part is analogous to the density parameter of
@@ -64,7 +64,7 @@ kodo-slide: http://docs.steinwurf.com/kodo-slide/master/index.html
     The kodo-slide library implements a sliding window RLNC codec that could
     provide interesting benefits over a traditional block code.
 
-kodo-reed-solomon: https://github.com/steinwurf/kodo-reed-solomon
+kodo-reed-solomon: http://docs.steinwurf.com/kodo-reed-solomon/master/index.html
     Traditional Reed-Solomon (RS) code which does not support recoding. The
     current implementation uses a systematic Vandermonde matrix as described in
     `RFC 5510 <http://tools.ietf.org/html/rfc5510>`_.
