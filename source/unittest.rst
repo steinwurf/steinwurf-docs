@@ -3,70 +3,70 @@
 Unit Testing
 ============
 
-This section describes how the Kodo unit tests work, how to run them
+This section describes how the Steinwurf unit tests work, how to run them
 and how to extend them.
 
 Overview
 --------
 
-The purpose of the Kodo unit tests is to assert that the various Kodo
+The purpose of our unit tests is to verify that the various
 features work across a number of different platforms and
 compilers. Having an extensive unit test suite makes it
 easier for developers to ensure that their changes work as expected
 and do not cause regressions in unexpected areas of the library.
 
-The goal is that all features in Kodo should have a corresponding test
-case. Often a test case is added while when implementing a new
-feature. This makes it possible to assert that the new functionality
+The goal is that all features in a library should have a corresponding test
+case. Often a test case is added while implementing a new
+feature. This makes it possible to check that the new functionality
 works as expected as early as possible.
 
 The unit tests are implemented using the Google C++ Testing Framework
-(gtest) which defines a bunch of helpers useful when writing
+(gtest) which defines a bunch of helpers that are useful when writing
 tests. You can find more information on gtest on their homepage.
 
 Running the tests
 -----------------
-One of the first things you might want to try is to run the Kodo unit
+One of the first things you might want to try is to run the unit
 tests on your own machine. There are two ways to do this:
 
 Run the test binary manually
 ............................
 
-The test binary is built using the waf build scripts shipped as part
-of the Kodo source code. You can read more about how you can get the
+The test binary is built using the waf build scripts shipped
+with the library. You can read more about how you can get the
 source code and how to build it in the :ref:`getting_started` section.
 
 Once the code is built, the test binary will be located in a subfolder of the
 ``build`` folder that depends on your platform:
 
 Linux
-    ``build/linux/test/kodo_tests``
+    ``build/linux/test/xyz_tests``
 
 Mac OSX
-    ``build/darwin/test/kodo_tests``
+    ``build/darwin/test/xyz_tests``
 
 Windows
-    ``build/win32/test/kodo_tests.exe``
+    ``build/win32/test/xyz_tests.exe``
 
 If you are cross-compiling with an *mkspec* (as described in the
 :ref:`cross_compile` section), then the resulting binary will
 be located in:
 
 mkspec
-    ``build/[mkspec]/test/kodo_tests``
+    ``build/[mkspec]/test/xyz_tests``
 
 .. note:: Running the unit tests may take a long time on mobile and embedded
-          platforms, since we test with an extensive set of parameters. You
-          can lower the complexity and speed up the tests if you invoke the
-          test binary with the ``embedded`` profile::
+          platforms, since we test with an extensive set of parameters.
+          For some projects, we defined the ``embedded`` profile to lower
+          the complexity and speed up the tests::
 
-            ./kodo_tests --profile=embedded
+            ./xyz_tests --profile=embedded
 
 
 Run the test as part of the build
 .................................
 
-In some cases it is convenient to run the test binary as part of a build.
+In some cases, it is convenient to run the test binary as part of a build.
 This can be done by passing the following option to waf::
 
   python waf --run_tests
@@ -74,13 +74,13 @@ This can be done by passing the following option to waf::
 Adding a new test
 -----------------
 
-When adding a new feature to Kodo it is a good idea to
+When adding a new feature to a library, it is a good idea to
 also add a corresponding unit test. The source code for the different
-unit tests are placed in the ``test/src`` folder of the Kodo project.
+unit tests are placed in the ``test/src`` folder of the project.
 
 All files with a ``.cpp`` file extension in the ``test/src`` will
 automatically be included in the test executable produced when
-building Kodo with waf.
+building the project with waf.
 
 In general we follow these guidelines regarding the unit tests:
 
@@ -91,15 +91,15 @@ In general we follow these guidelines regarding the unit tests:
 The purpose of this is to make it easy to find the unit test for a
 specific class. In some cases it makes sense to have multiple classes
 tested in the same file. In those cases we still make a placeholder
-cpp file referring to the actual cpp file where the test can be
-found. An example of this can be seen for some of the codecs e.g. the
+.cpp file referring to the actual .cpp file where the test can be
+found. An example of this can be seen for some of the codecs, e.g. the
 class ``encoder`` located in ``src/kodo/rlnc/encoder.hpp`` is tested in
-``test_coders.cpp`` but the place holder still exists.
+``test_coders.cpp`` but the place holder file still exists.
 
 The placeholder file in this case
 (``test/src/test_encoder.cpp``) looks like the following:
 
-.. literalinclude:: /../../kodo-rlnc/test/src/test_encoder.cpp
+.. literalinclude:: includes/test_encoder.cpp
     :language: c++
     :linenos:
 
@@ -139,7 +139,7 @@ encoder or decoder contains.
           layer to embed in every encoder and decoder the ability to
           store the number of actual data bytes.
 
-.. literalinclude:: /../../kodo-core/src/kodo_core/storage_bytes_used.hpp
+.. literalinclude:: includes/storage_bytes_used.hpp
     :language: c++
     :linenos:
 
@@ -149,7 +149,7 @@ As seen, the layer depends on two functions being provided by the
 1. ``SuperCoder::initialize(the_factory)``
 2. ``SuperCoder::block_size()``
 
-Using our Doxygen documentation, it is possible to look up the
+Using our project documentation, it is possible to look up the
 purpose of the two undefined functions.
 
 In this case we want to check that the state is correctly updated when
@@ -157,11 +157,11 @@ calling ``set_bytes_used`` and that the state is correctly reset when
 calling ``initialize``. The following unit test code was implemented
 in ``test/src/test_storage_bytes_used.cpp`` to test this:
 
-.. literalinclude:: /../../kodo-core/test/src/test_storage_bytes_used.cpp
+.. literalinclude:: includes/test_storage_bytes_used.cpp
     :language: c++
     :linenos:
 
-In the above test code we use one test helper which allows use to
+In the above test code we use a test helper which allows us to
 easily add testing stubs to the unit test.
 
 http://en.wikipedia.org/wiki/Test_stub
