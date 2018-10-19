@@ -108,7 +108,7 @@ following lines to your ``~/.profile`` (please adjust the paths to match
 your folder names and locations)::
 
     PATH="$PATH:$HOME/toolchains/android-sdk-linux/platform-tools"
-    PATH="$PATH:$HOME/toolchains/arm-linux-androideabi-r16b/bin"
+    PATH="$PATH:$HOME/toolchains/arm-linux-androideabi-r18b/bin"
 
 You need to log in again or open a new terminal to get the updated PATH.
 You can check that the required binaries are really in your PATH with these
@@ -121,7 +121,7 @@ Once you have everything in your PATH, use the following mkspec when you
 configure (you may also select another Android mkspec if available
 in the list provided by ``config.py``)::
 
-    python waf configure --cxx_mkspec=cxx_android5_clang50_armv7
+    python waf configure --cxx_mkspec=cxx_android5_clang70_armv7
 
 Note that the ``android5`` designation in the mkspec indicates that a
 position independent executable (PIE) will be generated. This is required
@@ -133,7 +133,7 @@ and you can build the codebase as usual after this::
     python waf build
 
 You can find the generated Android binaries in the
-``build/cxx_android5_clang50_armv7`` folder. You can transfer these binaries to
+``build/cxx_android5_clang70_armv7`` folder. You can transfer these binaries to
 your Android device with adb (you can use ``/data/local/tmp/`` as a target
 folder). Read our `Android guide`_ for more information on this.
 
@@ -141,7 +141,7 @@ If you don't want to add the Android toolchains to your PATH, then we also
 provide explicit options to specify these folders during the configure step.
 Here is an example for that::
 
-    python waf configure --cxx_mkspec=cxx_android5_clang50_armv7 \
+    python waf configure --cxx_mkspec=cxx_android5_clang70_armv7 \
     --android_sdk_dir=~/toolchains/android-sdk-linux \
     --android_ndk_dir=~/toolchains/arm-linux-androideabi-r16b
 
