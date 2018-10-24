@@ -22,14 +22,11 @@ install the following tools:
 
 1. **C++11 compliant compiler:** A C++ compiler that supports the
    C++11 standard. You can see a list of currently supported compilers on our
-   Buildbot page (`Steinwurf Buildbot`_).
+   Buildbot page (`Steinwurf Buildbot <http://buildbot.steinwurf.com>`_).
 
 2. **Git:** The git version control system for managing our libraries.
 
-3. **Python:** We use the Python-based `waf`_ build system.
-
-.. _waf: https://waf.io/
-.. _Steinwurf Buildbot: http://buildbot.steinwurf.com
+3. **Python:** We use the Python-based `waf <https://waf.io/>`_ build system.
 
 The following sections describe how to install the tools on different platforms.
 
@@ -44,59 +41,67 @@ Download Tools (Windows)
 
 1. **C++14 compliant compiler:** You need a working C++14 compiler. The latest
    supported version is Visual Studio 2017: you can get the Community,
-   Express or Professional versions from the `VS download page`_ or you can
-   install the standalone Build Tools for Visual Studio 2017 (which is
-   a smaller package). If you need an earlier version, you may also use
-   `Visual Studio Express 2015 for Desktop`_.
+   Professional or Enterprise versions from the main
+   `Visual Studio download page <https://visualstudio.microsoft.com/downloads/>`_
+   or the `Express version <https://aka.ms/vs/15/release/vs_WDExpress.exe>`_
+   or you can install the standalone `Build Tools for Visual Studio 2017
+   <https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017>`_
+   (which is a smaller package). If you need an earlier version, you may also use
+   `Visual Studio Express 2015 for Desktop <https://visualstudio.microsoft.com/vs/older-downloads/>`_.
+
+.. note:: If you get the following compiler error::
+
+              Cannot open include file: 'corecrt.h'
+
+          Then most likely, you need to install the ``Windows Universal CRT SDK``,
+          please follow the instructions here: https://stackoverflow.com/a/43905001
+
+          If the waf configure step fails, because ``mt.exe`` and ``rc.exe``
+          are missing from these locations::
+
+              C:\Program Files (x86)\Windows Kits\10\bin\x64
+              C:\Program Files (x86)\Windows Kits\10\bin\x86
+
+          Then you should install an earlier version of the Windows 10 SDK
+          (10.0.14393) to fix this.
+
+          The Visual Studio Command Prompt can be useful to verify your
+          installation. If the VS Command Prompt cannot find your Windows SDK
+          installation, then please verify that the ``%SystemRoot%\System32``
+          folder is added to your system ``PATH``.
 
 2. **Python:** You need a working Python installation. Find the available
-   download on the `Python homepage`_. If you are in doubt about which version
-   to install, you may use the `Python 2.7.15 Windows Installer`_.
+   download on the `Python homepage <http://www.python.org/download/>`_.
+   If you are in doubt about which version to install, you may use the
+   `Python 2.7.15 Windows Installer
+   <https://www.python.org/ftp/python/2.7.15/python-2.7.15.msi>`_.
 
 3. **Git:** There are several ways to get git on Windows. If you plan to use
    the waf build scripts to build our examples and unit tests, you should
-   install the `Git for Windows`_ tool (version 2.8.x or above).
+   install the `Git for Windows <https://git-for-windows.github.io/>`_ tool
+   (version 2.8.x or above).
 
 4. **TortoiseGit (Optional):**
-   You can also install the latest version of TortoiseGit_ if you prefer to use
-   a GUI instead of the command-line git tools. Version 2.1.0 and later should
+   You can also install the latest version of
+   `TortoiseGit <https://tortoisegit.org/>`_ if you prefer to use a GUI
+   instead of the command-line git tools. Version 2.1.0 and later should
    work fine.
-
-.. _`VS download page`:
-   https://visualstudio.microsoft.com/downloads/
-
-.. _`Visual Studio Express 2015 for Desktop`:
-   https://visualstudio.microsoft.com/vs/older-downloads/
-
-.. _`Python homepage`:
-   http://www.python.org/download/
-
-.. _`Python 2.7.15 Windows Installer`:
-   https://www.python.org/ftp/python/2.7.15/python-2.7.15.msi
-
-.. _`Git for Windows`:
-   https://git-for-windows.github.io/
-
-.. _`TortoiseGit`:
-   https://tortoisegit.org/
 
 Download Tools (Mac OSX)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**C++11 compliant compiler:** You need a working C++ compiler. We tested
-tested `XCode`_ 7.1 with the Apple LLVM 7.0 compiler which can be
-downloaded free of charge. Newer versions should also be fine.
+**C++14 compliant compiler:** You need a working C++14 compiler. We tested
+tested `XCode <https://developer.apple.com/xcode/>`_ 10.0 with the Apple LLVM
+10.0 compiler which can be downloaded for free. Newer versions should also be
+fine.
 
 On Mavericks or above (OSX 10.9+):
-   1. Installing `XCode`_ from the Mac App Store is optional
+   1. Installing XCode from the Mac App Store is optional
    2. Install the standalone **Command Line Tools** package::
 
         xcode-select --install
 
    This command will open a GUI window (do not run this over SSH).
-
-.. _`XCode`:
-   https://developer.apple.com/xcode/
 
 .. _waf_build_system:
 
