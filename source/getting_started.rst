@@ -20,9 +20,9 @@ Tools Needed
 If you wish to build our libraries with our build system, you will need to
 install the following tools:
 
-1. **C++11 compliant compiler:** A C++ compiler that supports the
-   C++11 standard. You can see a list of currently supported compilers on our
-   Buildbot page (`Steinwurf Buildbot <http://buildbot.steinwurf.com>`_).
+1. **C++14 compliant compiler:** A C++ compiler that supports the
+   C++14 standard. You can see a list of the currently supported compilers
+   at the bottom of our `Buildbot page<http://buildbot.steinwurf.com>`_.
 
 2. **Git:** The git version control system for managing our libraries.
 
