@@ -22,7 +22,7 @@ install the following tools:
 
 1. **C++14 compliant compiler:** A C++ compiler that supports the
    C++14 standard. You can see a list of the currently supported compilers
-   at the bottom of our `Buildbot page<http://buildbot.steinwurf.com>`_.
+   at the bottom of our `Buildbot page <http://buildbot.steinwurf.com>`_.
 
 2. **Git:** The git version control system for managing our libraries.
 
@@ -67,7 +67,7 @@ Download Tools (Windows)
 
           The Visual Studio Command Prompt can be useful to verify your
           installation. If the VS Command Prompt cannot find your Windows SDK
-          installation, then please verify that the ``%SystemRoot%\System32``
+          installation, then please check that the ``%SystemRoot%\System32``
           folder is added to your system ``PATH``.
 
 2. **Python:** You need a working Python installation. Find the available
@@ -146,10 +146,10 @@ to easily get new updates whenever a project is updated.
 GitHub / GitLab accounts
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Accounts for GitHub and GitLab respectively can be created at:
+Accounts for GitHub and GitLab can be created at:
 
-1. `Sign-up GitHub <https://github.com/join>`_
-2. `Sign-up GitLab <https://gitlab.com/users/sign_in>`_
+1. `Sign up GitHub <https://github.com/join>`_
+2. `Sign up GitLab <https://gitlab.com/users/sign_in>`_
 
 GitHub / GitLab authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
