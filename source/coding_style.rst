@@ -47,7 +47,8 @@ Naming
 * Names of classes, members, functions, namespaces are all lowercase letters
   separated with ``_`` if it enhances readability.
 * Template parameters should be CamelCase.
-* Member variables are prefixed with ``m_``
+* Member variables are prefixed with ``m_``, but no prefix should be used for
+  simple structs which only hold data members.
 * In general, we try to avoid abbreviations in parameter names, member
   variables, class names, function names.
 * For temporary local variables, you can use abbreviations, even single
