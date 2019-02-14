@@ -186,40 +186,52 @@ command-line binaries, so you will need a terminal application to run them.
 
 Raspberry Pi
 ............
-You can download the pre-built Raspberry Pi toolchain for 64-bit Linux here:
-http://files.steinwurf.com/toolchains/linux/raspberry-gcc-4.9.3/
+Sometimes the easiest solution is compiling our libraries on the Raspberry Pi
+itself. Raspbian 9 (Stretch) provides g++ 6.3 that fully supports the C++14
+standard. Note that the compilation on the Raspberry can be slow, since it has
+a limited amount of RAM. If you experience any memory-related issues, then
+try to limit the waf build process to a single job::
 
-Extract ``raspberry-gxx493-arm.zip`` to a folder of your liking. Use the
-``unzip`` commandline tool to make sure the extraction handles symbolic links
-correctly::
+    python waf build -j1
 
-    sudo apt-get update
-    sudo apt-get install unzip
-    unzip raspberry-gxx493-arm.zip -d [folder of your liking]
+If you have a Raspberry Pi 2 (or newer) running Raspbian 9 (Stretch), then
+you can also use the Linaro gcc 6.3 toolchain to cross-compile for your
+device. You can find the pre-built toolchain archives here:
+https://releases.linaro.org/components/toolchain/binaries/6.3-2017.02/arm-linux-gnueabihf/
 
-You also need to add the ``bin`` folder of the Raspberry toolchain to your PATH.
-For example, you can add the following lines to your ``~/.profile``
+If your host machine is running 64-bit Linux, then you need to download this
+archive: https://releases.linaro.org/components/toolchain/binaries/6.3-2017.02/arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf.tar.xz
+
+Then extract the archive to a folder of your liking (we will use
+``~/toolchains`` as a target folder in this guide)::
+
+    cd ~/toolchains
+    tar -xf gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf.tar.xz
+
+You also need to add the ``bin`` folder of the Linaro toolchain to your PATH.
+You can modify your PATH temporarily using a shell script. For a permanent
+change, you can add the following lines to your ``~/.profile``
 (please adjust the paths to match your folder names and locations)::
 
-    PATH="$PATH:$HOME/toolchains/arm-rpi-4.9.3-linux-gnueabihf/bin"
+    PATH="$PATH:$HOME/toolchains/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/"
 
 You need to log in again or open a new terminal to get the updated PATH.
 You can check that the required binaries are in your PATH with this command::
 
-    raspberry-gxx49-arm-g++ --version
+    arm-linux-gnueabihf-g++ --version
 
-Go to your Kodo folder, configure Kodo with the following mkspec::
+Now you can configure our libraries using the following mkspec::
 
-    python waf configure --cxx_mkspec=cxx_raspberry_gxx49_armv7
+    python waf configure --cxx_mkspec=cxx_gxx63_armv7
 
 The configure command should find your toolchain binaries,
 and you can build the codebase as usual after this::
 
     python waf build
 
-You can find the generated binaries in the
-``build/cxx_raspberry_gxx49_armv7`` folder. You can transfer these binaries
-to your Raspberry Pi with any tool you like (e.g. SCP).
+You can find the generated binaries in the ``build/cxx_gxx63_armv7`` folder.
+You can transfer these binaries to your Raspberry Pi with any tool you like
+(e.g. SCP).
 
 
 OpenWrt
