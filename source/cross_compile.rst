@@ -248,19 +248,13 @@ Then clone the standard OpenWrt toolchain (you change the target path if
 you prefer)::
 
     cd ~/toolchains
-    git clone git://git.openwrt.org/openwrt.git
+    git clone https://github.com/openwrt/openwrt.git
     cd openwrt
 
-This guide was written using revision 49395 of OpenWrt, and it is recommended
-to check out the same revision (you can also try the master).
-You can check your current revision::
+This guide was written using OpenWrt 18.06, and it is recommended
+to check out the same branch::
 
-    git show --summary
-
-To find the corresponding git commit ID and check out revision 49395::
-
-    git log --grep=49395
-    git checkout 9b4650
+    git checkout openwrt-18.06
 
 This command will pop up a menuconfig window::
 
@@ -273,12 +267,12 @@ Save this initial menuconfig, and then open the full menuconfig::
 
     make menuconfig
 
-Make sure that GCC 5.x is selected in the Toolchain Options::
+Make sure that GCC 7.x is selected in the Toolchain Options::
 
     [*] Advanced configuration options (for developers)  --->
      Toolchain Options  --->
-      GCC compiler Version (gcc 5.x)  --->
-       (X) gcc 5.x
+      GCC compiler Version (gcc 7.x)  --->
+       (X) gcc 7.x
 
 Save the configuration and build the OpenWrt toolchain (``-j4`` uses 4 cores to
 speed up the process)::
@@ -292,7 +286,7 @@ to point to the ``staging_dir`` folder. For example, you can add the following
 lines to your ``~/.profile`` (please adjust the paths to match your folder
 names and locations if necessary)::
 
-    PATH="$PATH:$HOME/toolchains/openwrt/staging_dir/toolchain-arm_mpcore+vfp_gcc-5.3.0_musl-1.1.14_eabi/bin"
+    PATH="$PATH:$HOME/toolchains/openwrt/staging_dir/toolchain-arm_cortex-a15+neon-vfpv4_gcc-7.3.0_musl_eabi/bin"
     STAGING_DIR="$HOME/toolchains/openwrt/staging_dir/"
     export STAGING_DIR
 
@@ -303,19 +297,19 @@ You can check that the required binaries are in your PATH with this command::
 
 Go to your Kodo folder, and configure Kodo with the following mkspec::
 
-    python waf configure --cxx_mkspec=cxx_openwrt_gxx53_arm
+    python waf configure --cxx_mkspec=cxx_openwrt_gxx73_armv7
 
 The configure command should find your toolchain binaries,
 and you can build the codebase as usual after this::
 
     python waf build
 
-You can find the generated binaries in the ``build/cxx_openwrt_gxx53_arm``
+You can find the generated binaries in the ``build/cxx_openwrt_gxx73_armv7``
 folder. You can transfer these binaries to your OpenWrt device with any tool
 you like (e.g. SCP). The binaries can be a bit large, because the mkspec embeds
 the C++ standard library (with the ``-static-libstdc++`` linker flag).
 The ``libstdcpp`` package is usually not installed on OpenWrt devices, or it
-might be incompatible with the GCC 5.x compiler.
+might be incompatible with the GCC 7.x compiler.
 
 Note that the following packages are required on your OpenWrt device to
 run the generated binaries, you can run these commands on your device if it
@@ -323,11 +317,13 @@ has Internet connectivity::
 
     opkg install libpthread
     opkg install librt
+    opkg install libatomic
 
 Alternatively, you can activate these packages in ``menuconfig`` and deploy
 the generated ``*.ipk`` files manually on the device (with SCP and opkg)::
 
-    Base system  ->
+    Base system  --->
+        <*> libatomic
         <*> libpthread
         <*> librt
 
