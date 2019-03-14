@@ -1,5 +1,6 @@
-.. _page_not_found:
 :orphan:
+
+.. _page_not_found:
 
 Page Not Found
 ==============
