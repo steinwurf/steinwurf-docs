@@ -1,4 +1,5 @@
 .. _page_not_found:
+:orphan:
 
 Page Not Found
 ==============
