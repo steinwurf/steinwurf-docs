@@ -176,15 +176,7 @@ Kodo is portable to a wide range of platforms (both hardware platforms and
 operating systems).
 
 We ensure compatibility with the supported platforms through a suite of unit
-tests, the current status can be checked at the `Steinwurf Buildbot`_ page.
-At the bottom of the main page, you can find detailed information
-about which platforms and compilers are currently tested by Steinwurf.
-
-.. _Steinwurf Buildbot: http://buildbot.steinwurf.com
-
-.. note:: The Buildbot is used for several different libraries. The
-  various Kodo libraries can be found in the overview on the main page.
-
+tests that are executed by our Continuous Integration system.
 
 .. _using_kodo_for_research:
 

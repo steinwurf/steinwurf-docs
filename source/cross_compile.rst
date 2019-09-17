@@ -85,18 +85,14 @@ This helper script automatically updates itself when you run it. You can use
 this script to go through the common configuration options without typing
 too much.
 
-The full list of currently tested mkspecs can be seen at the bottom of the
-Steinwurf Buildbot page (mkspecs in red are temporarily offline):
-http://buildbot.steinwurf.dk
-
 Android
 .......
 You need a standalone Android toolchain to compile for Android. You can follow
-the instructions in our `Android guide`_ to quickly create a toolchain using
+the instructions in this `Android guide`_ to quickly create a toolchain using
 the latest Android NDK.
 
 You can also download a toolchain for your platform from this page:
-http://bongo.steinwurf.com/files/public/toolchains
+http://files.steinwurf.com/toolchains
 
 You also need the Android SDK, because we need to find the ``adb`` tool
 during the configure step. If you do not have it already the `Android
@@ -135,7 +131,7 @@ and you can build the codebase as usual after this::
 You can find the generated Android binaries in the
 ``build/cxx_android5_clang70_armv7`` folder. You can transfer these binaries to
 your Android device with adb (you can use ``/data/local/tmp/`` as a target
-folder). Read our `Android guide`_ for more information on this.
+folder).
 
 If you don't want to add the Android toolchains to your PATH, then we also
 provide explicit options to specify these folders during the configure step.
@@ -143,7 +139,7 @@ Here is an example for that::
 
     python waf configure --cxx_mkspec=cxx_android5_clang70_armv7 \
     --android_sdk_dir=~/toolchains/android-sdk-linux \
-    --android_ndk_dir=~/toolchains/arm-linux-androideabi-r16b
+    --android_ndk_dir=~/toolchains/arm-linux-androideabi-r18b
 
 .. note:: If you want to use the generated static libraries with ``ndk-build``,
           then make sure that you process at least one C++ source file (.cpp)
@@ -151,7 +147,7 @@ Here is an example for that::
           will get a lot of linkage issues, because ``ndk-build`` does not link
           with the C++ standard library by default.
 
-.. _Android guide: https://github.com/steinwurf/steinwurf-labs/blob/master/docs/android-c-application.rst
+.. _Android guide: https://developer.android.com/ndk/guides/standalone_toolchain
 
 
 iOS

@@ -145,7 +145,7 @@ Step 3: Submit pull request for review
 ......................................
 
 We never allow commits directly on the master branch. Changes can go to the
-master branch after our buildbot has confirmed that the changes work on all
+master branch after our CI system has confirmed that the changes work on all
 supported platforms.
 
 When you create a pull request for the first time, you can choose the
