@@ -23,7 +23,7 @@ def docs(ctx):
                  cwd=ctx.path.abspath())
 
         # Run sphinx-build to generate the html
-        venv.run('sphinx-build -b html source build/html',
+        venv.run('sphinx-build -b html -d build/doctrees source build/html',
                  cwd=ctx.path.abspath())
 
 

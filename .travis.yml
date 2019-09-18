@@ -6,4 +6,10 @@ install:
   - python waf configure
 script:
   - python waf docs
-  - zip -r docs.zip build/html
+  # Only deploy the master version to Gigahost
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      cd build/html;
+      zip -qr docs.zip .;
+      curl -X POST -F "zip_file=@docs.zip" -u $UPLOAD_USER:$UPLOAD_PASSWORD http://docs2.steinwurf.com/zip_extractor/zipper.php;
+    fi
+
