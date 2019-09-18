@@ -10,6 +10,6 @@ script:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       cd build/html;
       zip -qr docs.zip .;
-      curl -X POST -F "zip_file=@docs.zip" -u $UPLOAD_USER:$UPLOAD_PASSWORD http://docs2.steinwurf.com/zip_extractor/zipper.php;
+      curl -X POST -F "zip_file=@docs.zip" -u steinwurf:$UPLOAD_PASSWORD http://docs2.steinwurf.com/zip_extractor/zipper.php;
     fi
 
