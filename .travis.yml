@@ -1,0 +1,9 @@
+language: bash
+name: Linux Ubuntu 18
+os: linux
+dist: bionic
+install:
+  - python waf configure
+script:
+  - python waf docs
+  - zip -r docs.zip build/html
