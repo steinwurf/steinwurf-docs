@@ -92,12 +92,12 @@ the instructions in this `Android guide`_ to quickly create a toolchain using
 the latest Android NDK.
 
 You can also download a toolchain for your platform from this page:
-http://files.steinwurf.com/toolchains
+http://bongo.steinwurf.com/files/public/toolchains
 
-You also need the Android SDK, because we need to find the ``adb`` tool
-during the configure step. If you do not have it already the `Android
-guide`_ describes both where to download the Android SDK and how to get the
-``adb`` tool. To ensure our build system will pick up the dependencies, the
+We also need to find the ``adb`` tool during the configure step. You can
+install the full Android SDK or you can install a smaller package that
+contains adb (Debian-based Linux distros provide the ``adb`` package).
+To ensure our build system will pick up the dependencies, the
 easiest solution is to add the path to ``adb`` and the ``bin`` folder of
 the standalone toolchain to your PATH. For example, you can add the
 following lines to your ``~/.profile`` (please adjust the paths to match

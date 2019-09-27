@@ -1,11 +1,6 @@
 steinwurf-docs
 ==============
 
-
-.. image:: https://travis-ci.org/steinwurf/steinwurf-docs.svg?branch=master
-    :target: https://travis-ci.org/steinwurf/steinwurf-docs
-
-
 Sphinx documentation for kodo and related projects.
 
 .. contents:: Table of Contents:
