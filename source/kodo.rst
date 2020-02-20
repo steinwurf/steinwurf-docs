@@ -60,7 +60,7 @@ kodo-perpetual: http://docs.steinwurf.com/kodo-perpetual/master/index.html
     can yield a substantially higher throughput than random sparse codes,
     especially for large generation sizes.
 
-kodo-slide: http://docs.steinwurf.com/kodo-slide/master/index.html
+kodo-slide: https://kodo-slide.steinwurf.com
     The kodo-slide library implements a sliding window RLNC codec that could
     provide interesting benefits over a traditional block code.
 
