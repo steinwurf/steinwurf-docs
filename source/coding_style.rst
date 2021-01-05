@@ -125,6 +125,19 @@ placed in the ``src/magic/wonder/smart.hpp``. Similarly, the
 corresponding test file ``test_smart.cpp`` should be placed in
 ``test/src/wonder/test_smart.cpp``.
 
+When choosing a name a *sub-namespace*, refrain from using plural form.
+For instance you have a namespace/directory which contains different classes
+of animals you should call that namespace ``animal`` rather than ``animals``.
+
+The reason is outlined in the code example below:
+
+.. code-block:: cpp
+
+    // This reads nicer
+    animal::cat c;
+    // than this
+    animals::cat c;
+
 Warnings
 --------
 All code should compile without any warnings. Our build system automatically
